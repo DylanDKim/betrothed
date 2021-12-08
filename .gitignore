@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Config files (auth tokens, keys, etc.)
-*config.js
+*private.config.js
