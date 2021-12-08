@@ -4,7 +4,7 @@ const {
   couplesRouter,
   guestsRouter,
   eventsRouter,
-  rspvsRouter,
+  rsvpsRouter,
 } = require('./routers');
 
 // Middleware
