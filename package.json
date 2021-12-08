@@ -1,0 +1,19 @@
+{
+  "name": "betrothed",
+  "version": "1.0.0",
+  "description": "an application to streamline the invitation process for weddings",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4billy/betrothed.git"
+  },
+  "author": "4billy",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/4billy/betrothed/issues"
+  },
+  "homepage": "https://github.com/4billy/betrothed#readme"
+}
