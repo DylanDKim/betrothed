@@ -20,7 +20,6 @@ git remote -v
 ```
 git checkout main
 git pull --rebase origin main
-git push origin main
 ```
 
 #### Start work on a feature branch
@@ -48,7 +47,21 @@ git commit -m <commit-message>
 git pull --rebase origin main
 ```
 
-- Be sure to resolve merge conflicts in this step, **before** making a pull request, following the instructions in the command line
+#### Resolve any merge conflicts
+
+- Be sure to resolve merge conflicts in this step, **before** making a pull request
+- For **each commit** that creates a merge conflict, resolve the conflict in VSCode, save the changed file(s), then:
+
+```
+git add .
+git rebase --continue
+```
+
+- Keep the existing commit message that will appear in Vim and write-quit from Vim
+
+```
+:wq
+```
 
 #### Push to a feature branch on the organization's respository
 
