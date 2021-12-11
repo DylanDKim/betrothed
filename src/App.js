@@ -6,7 +6,7 @@ import Testing from './Invitation/Testing';
 import RSVP from './Invitation/RSVP';
 
 export default function App() {
-  console.log('Pls do not use testing as the path name for your route')
+  console.log('Pls do not use /testing as the path name for your route')
   /**
    * 1. npm run server:dev
    * 2. npm run build:w (if npm run dev is not working)
@@ -17,9 +17,9 @@ export default function App() {
     <Router>
        <Routes>
         <Route path='/' element={<h2>Just localhost</h2>} />
-        <Route path='/rsvp' element={<RSVP />} />
         <Route path='/sometest' element={<Testing />} />
-        <Route path='/invitation' element={<InvitationForm />} />
+        <Route path='/rsvp' element={<RSVP />} />
+        <Route path='/invite' element={<InvitationForm />} />
       </Routes>
   </Router>
   )

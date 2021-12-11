@@ -1,7 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function InvitationForm() {
   return (
-      <h2>Helle From InvitationForm</h2>
+    <React.Fragment>
+      <h2>This is InvitaionForm Page</h2>
+      <Link to='/rsvp'>
+        <button>Click me to Go to RSVP Page</button>
+      </Link>
+    </React.Fragment>
   );
 }
