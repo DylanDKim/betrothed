@@ -8,9 +8,10 @@ const { parser } = require('html-metadata-parser');
 //   console.log(JSON.stringify(result, null, 3));
 // });
 
-const metadataParser = (url) => {
+const metadataParser = (url, callback) => {
   parser(url).then((result) => {
     console.log(JSON.stringify(result, null, 3));
+    callback(result);
   });
 };
 
