@@ -18,7 +18,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<h2>Just localhost</h2>} />
         <Route path='/sometest' element={<Testing />} />
-        <Route path='/rsvp' element={<RSVP />} />
+        <Route path='/rsvp-preview' element={<RSVP />} />
         <Route path='/invite' element={<InvitationForm />} />
       </Routes>
     </Router>

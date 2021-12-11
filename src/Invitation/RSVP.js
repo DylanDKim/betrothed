@@ -5,11 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Hello() {
   return (
-      <React.Fragment>
-        <h2>This is RSVP Page</h2>
-        <Link to='/invite'>
-          <Button>Click me to Go to Invitation Page</Button>
-        </Link>
-    </React.Fragment>
+    <>
+      <h2>This is RSVP Page</h2>
+      <Link to='/invite'>
+        <Button>Click me to Go to Invitation Page</Button>
+      </Link>
+    </>
   );
 }

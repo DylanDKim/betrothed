@@ -7,8 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function InvitationForm() {
   return (
     <>
-      <h2>This is InvitaionForm Page</h2>
-      <Link to='/rsvp'>
+      <h2>This is Invitaion Page</h2>
+      <Link to='/rsvp-preview'>
         <Button>Click me to Go to RSVP Page</Button>
       </Link>
     </>
