@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InvitationForm from './Invitation/InvitationForm';
-import Testing from './Invitation/Testing';
 import RSVP from './Invitation/RSVP';
 import Registry from './registry/registry';
 import Invite from './GuestPages/Invite';
