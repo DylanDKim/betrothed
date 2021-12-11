@@ -6,11 +6,11 @@ export default function Registry() {
   return (
     <>
       {' '}
-      <Container>
-        <Row style={{ height: '100vh' }}>
+      <Container fluid>
+        <Row style={{ height: '100vh', marginLeft: '15%' }}>
           <Col
-            style={{ marginBottom: '30%' }}
-            className="border d-flex align-items-center justify-content-center"
+            style={{ marginBottom: '20%' }}
+            className="d-flex align-items-center justify-content-center"
             sm={8}
             md={8}
           >
@@ -23,18 +23,24 @@ export default function Registry() {
                 Welcome to your registry!
               </h2>
               <p style={{ fontSize: '18px', fontFamily: 'Merriweather' }}>
-                Browse registry essentials, unique gifts, and more!
+                <i className="fas fa-gift" /> Browse registry essentials, unique
+                gifts, and more!
                 <br />
-                Mark your top picks so guests can easily find your favorites
+                <i className="far fa-star" /> Mark your top picks so guests can
+                easily find your favorites
                 <br />
-                Add gifts simply by adding the url
+                <i className="fas fa-mouse-pointer" /> Add gifts simply by
+                adding the url
               </p>
 
               <Button className="mt-5 w-25">Next</Button>
             </Row>
           </Col>
-          <Col sm={4} md={4}>
-            <h1>3</h1>
+          <Col style={{ overflow: 'hidden', height: '100vh' }} sm={4} md={4}>
+            <img
+              src="https://images.unsplash.com/photo-1588279102819-f4520e40b1c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+              alt="Pots and pans"
+            />
           </Col>
         </Row>
       </Container>
