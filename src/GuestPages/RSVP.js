@@ -1,13 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Container,
-  Button,
-  Form,
-  DropdownButton,
-  Dropdown,
-} from 'react-bootstrap';
+import { Container, Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NewRsvp from './NewRSVP';
 
 const RsvpForm = () => (
   <>
@@ -30,33 +25,7 @@ const RsvpForm = () => (
         <Button>Back to invite</Button>
       </Link>
     </Container>
-    <Container>
-      <Form>
-        <Form.Group>
-          <Form.Label>Attending</Form.Label>
-          <Form.Select
-            onChange={(e) => {
-              console.log(e.target.value);
-            }}
-          >
-            <option selected disabled>
-              select from options
-            </option>
-            <option value="yes">Yes!</option>
-            <option value="no">No</option>
-          </Form.Select>
-          <Form.Label>Message to the couple (optional)</Form.Label>
-          <Form.Control as="textarea" placeholder="enter message" />
-        </Form.Group>
-      </Form>
-      <Button
-        onClick={() => {
-          console.log('rsvping');
-        }}
-      >
-        RSVP
-      </Button>
-    </Container>
+    <NewRsvp />
   </>
 );
 
