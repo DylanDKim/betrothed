@@ -1,9 +1,6 @@
 {
   "env": {
-    "browser": true,
-    "commonjs": true,
-    "es2021": true,
-    "node": true
+    "browser": true
   },
   "extends": [
     "eslint:recommended",
@@ -11,12 +8,6 @@
     "airbnb",
     "prettier"
   ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest"
-  },
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": "error",
@@ -25,7 +16,8 @@
     "func-names": "off",
     "object-shorthand": "off",
     "class-methods-use-this": "warn",
-    "no-debugger": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "no-debugger": "warn",
+    "react/jsx-filename-extension": "off",
+    "react/function-component-definition": "off"
   }
 }
