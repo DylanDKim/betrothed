@@ -17,7 +17,7 @@
     "object-shorthand": "off",
     "class-methods-use-this": "warn",
     "no-debugger": "warn",
-    "react/jsx-filename-extension": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/function-component-definition": "off"
   }
 }
