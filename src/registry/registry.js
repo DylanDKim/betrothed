@@ -9,7 +9,9 @@ export default function Registry() {
       <Container>
         <Row>
           <Col sm={8} md={8}>
-            <h1>1</h1>
+            <Row className="mt-5">
+              <h1 style={{ fontFamily: 'Faustina serif' }}>Registry</h1>
+            </Row>
           </Col>
           <Col sm={4} md={4}>
             <h1>3</h1>
