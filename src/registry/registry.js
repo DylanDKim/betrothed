@@ -19,7 +19,7 @@ export default function Registry() {
               <h2 style={{ fontFamily: 'Faustina serif' }}>
                 Welcome to your registry!
               </h2>
-              <p style={{ fontFamily: 'Merriweathe' }}>
+              <p style={{ fontFamily: 'Merriweather' }}>
                 Browse registry essentials, unique gifts, and more!
                 <br />
                 Mark your top picks so guests can easily find your favorites
