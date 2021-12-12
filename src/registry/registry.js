@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Container, Col, Row } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import BlueButton from '../Common/styled/BlueButton';
 
 export default function Registry() {
   return (
@@ -31,7 +32,7 @@ export default function Registry() {
               the url
             </p>
 
-            <Button className="mt-5 w-25">Next</Button>
+            <BlueButton className="mt-5 w-25">next</BlueButton>
           </Row>
         </Col>
         <Col style={{ overflow: 'hidden', height: '100vh' }} sm={4} md={4}>
