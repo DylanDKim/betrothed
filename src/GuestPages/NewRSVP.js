@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Button, Form } from 'react-bootstrap';
+import { Container, Button, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NewRsvp = () => {
@@ -22,6 +22,7 @@ const NewRsvp = () => {
 
   return (
     <Container fluid>
+      <Alert variant="danger">You have not RSVPd yet</Alert>
       <Form>
         <Form.Group>
           <Form.Label>Attending</Form.Label>

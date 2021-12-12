@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
-import { Container, Button, Form } from 'react-bootstrap';
+import { Container, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Status = () => {
   const [email, updateEmail] = useState('');
 
   return (
-    <Form>
-      <Form.Group controlId="guestEmail">
-        <Form.Label>
-          <Button onClick={() => console.log(email)}>Check RSVP Status</Button>
-        </Form.Label>
-        <Form.Control
+    <Container fluid>
+      <div>Check RSVP Status</div>
+      <InputGroup>
+        <InputGroup.Text onClick={() => console.log(email)}>
+          Search
+        </InputGroup.Text>
+        <FormControl
           type="email"
           placeholder="enter email"
           onChange={(e) => updateEmail(e.target.value)}
         />
-      </Form.Group>
-    </Form>
+      </InputGroup>
+    </Container>
   );
 };
 
