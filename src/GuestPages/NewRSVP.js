@@ -21,7 +21,7 @@ const NewRsvp = () => {
   };
 
   return (
-    <Container>
+    <Container fluid>
       <Form>
         <Form.Group>
           <Form.Label>Attending</Form.Label>
