@@ -8,7 +8,7 @@ export default function InvitationForm() {
   return (
     <>
       <h2>This is Invitaion Page</h2>
-      <Link to='/rsvp-preview'>
+      <Link to="/rsvp-preview">
         <Button>Click me to Go to RSVP Page</Button>
       </Link>
     </>

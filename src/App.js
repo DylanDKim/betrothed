@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InvitationForm from './Invitation/InvitationForm';
 import Testing from './Invitation/Testing';
 import RSVP from './Invitation/RSVP';
+import Registry from './registry/registry';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -16,10 +17,11 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<h2>Just localhost</h2>} />
-        <Route path='/sometest' element={<Testing />} />
-        <Route path='/rsvp-preview' element={<RSVP />} />
-        <Route path='/invite' element={<InvitationForm />} />
+        <Route path="/" element={<h2>Just localhost</h2>} />
+        <Route path="/sometest" element={<Testing />} />
+        <Route path="/rsvp-preview" element={<RSVP />} />
+        <Route path="/invite" element={<InvitationForm />} />
+        <Route path="/registry" element={<Registry />} />
       </Routes>
     </Router>
   );
