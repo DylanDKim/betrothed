@@ -10,9 +10,9 @@ const PlumFilledButton = styled(Button)`
 
   &:hover,
   &:focus {
-    background-color: white;
-    color: #8b5b6e;
-    border: 3px solid #8b5b6e;
+    background-color: 5c3c49;
+    color: white;
+    border: 3px solid #5c3c49;
   }
 `;
 

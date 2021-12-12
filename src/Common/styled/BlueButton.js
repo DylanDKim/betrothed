@@ -9,10 +9,9 @@ const BlueButton = styled(Button)`
 
   &:hover,
   &:focus {
-    background: #90b0c5;
-    color: white;
-    border: none;
-    border: 3px solid #90b0c5;
+    background-color: white;
+    color: #5f7483;
+    border: 3px solid #5f7483;
   }
 `;
 
