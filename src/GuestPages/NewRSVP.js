@@ -25,7 +25,7 @@ const NewRsvp = () => {
       <Alert variant="danger">You have not RSVPd yet</Alert>
       <Form>
         <Form.Group>
-          <Form.Label>Attending</Form.Label>
+          <Form.Label className="text-muted">Attending</Form.Label>
           <Form.Select onChange={checkReply}>
             <option selected disabled>
               select from options
@@ -33,7 +33,9 @@ const NewRsvp = () => {
             <option value="yes">Yes!</option>
             <option value="no">No</option>
           </Form.Select>
-          <Form.Label>Message to the couple (optional)</Form.Label>
+          <Form.Label className="text-muted">
+            Message to the couple (optional)
+          </Form.Label>
           <Form.Control
             as="textarea"
             placeholder="enter message"
