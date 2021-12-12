@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-const BlueButton = styled(Button)`
+const PlumButton = styled(Button)`
   font-family: 'Faustina';
   background-color: white;
-  color: #90b0c5;
-  border: 3px solid #90b0c5;
+  color: #8b5b6e;
+  border: 3px solid #8b5b6e;
 
   &:hover,
   &:focus {
-    background: #90b0c5;
+    background: #8b5b6e;
     color: white;
-    border: none;
-    border: 3px solid #90b0c5;
+    border: 3px solid #8b5b6e;
   }
 `;
 
-export default BlueButton;
+export default PlumButton;
