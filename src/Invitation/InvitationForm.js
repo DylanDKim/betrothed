@@ -17,10 +17,12 @@ export default function InvitationForm() {
   const [mainPhoto, setMainPhoto] = useState(
     'http://tineye.com/images/widgets/mona.jpg'
   );
+  const [inviteMessage, setInviteMessage] = useState('');
+  const [gallery, setGallery] = useState([]);
 
   const hiddenFileInput = useRef(null);
 
-  const handleClick = () => {
+  const uploadMainPhoto = () => {
     hiddenFileInput.current.click();
   };
 
@@ -32,6 +34,10 @@ export default function InvitationForm() {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
+  };
+
+  const updateMessage = (e) => {
+    setInviteMessage(e.target.value);
   };
 
   return (
@@ -53,11 +59,11 @@ export default function InvitationForm() {
         style={{ display: 'none' }}
         onChange={previewMainPhoto}
       />
-      <Button onClick={handleClick}>Choose new photo</Button>
+      <Button onClick={uploadMainPhoto}>Choose new photo</Button>
       <Form className="mt-3">
         <Form.Group className="mb-3" controlId="formMessage">
           <Form.Label>Message</Form.Label>
-          <Form.Control as="textarea" />
+          <Form.Control as="textarea" onChange={updateMessage} />
         </Form.Group>
         <CardGroup>
           <Card>
