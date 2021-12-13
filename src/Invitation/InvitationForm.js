@@ -5,6 +5,7 @@ import {
   Row,
   Col,
   Card,
+  CardGroup,
   Image,
   Form,
   Button,
@@ -14,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function InvitationForm() {
   return (
-    <Container style={{ width: '66rem' }}>
+    <Container style={{ width: '65%' }}>
       <h2>Your Wedding Website</h2>
       <Stack direction="horizontal" gap={3}>
         <Button className="btn btn-success border ms-auto">
@@ -22,17 +23,17 @@ export default function InvitationForm() {
         </Button>
         <Button variant="danger border">Preview Site</Button>
       </Stack>
-      <Form>
+      <Form className="mt-3">
         <Card>
           <Card.Body>
             <Card.Title>Main Photo</Card.Title>
             <Card.Img
-              className="embed-responsive-21by9"
-              height="20%"
+              style={{ height: '11rem' }}
               variant="top"
               src="http://tineye.com/images/widgets/mona.jpg"
+              alt="Main Photo"
             />
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary">Choose new photo</Button>
           </Card.Body>
         </Card>
         <Form.Group className="mb-3" controlId="formMainPhot">
@@ -43,6 +44,35 @@ export default function InvitationForm() {
           <Form.Label>Message</Form.Label>
           <Form.Control as="textarea" />
         </Form.Group>
+        <CardGroup>
+          <Card>
+            <Card.Img
+              variant="top"
+              src="http://tineye.com/images/widgets/mona.jpg"
+            />
+            <Card.Body>
+              <Card.Title>Card 1</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Img
+              variant="top"
+              src="http://tineye.com/images/widgets/mona.jpg"
+            />
+            <Card.Body>
+              <Card.Title>Card 2</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Img
+              variant="top"
+              src="http://tineye.com/images/widgets/mona.jpg"
+            />
+            <Card.Body>
+              <Card.Title>Card 3</Card.Title>
+            </Card.Body>
+          </Card>
+        </CardGroup>
         <Button variant="primary" type="submit">
           Save Changes
         </Button>
