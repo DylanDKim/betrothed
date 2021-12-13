@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Container,
@@ -14,6 +14,10 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function InvitationForm() {
+  const [mainPhoto, setMainPhoto] = useState('');
+
+  const updateMainPhoto = () => {};
+
   return (
     <Container style={{ width: '65%' }}>
       <h2>Your Wedding Website</h2>
@@ -21,7 +25,9 @@ export default function InvitationForm() {
         <Button className="btn btn-success border ms-auto">
           Share your website
         </Button>
-        <Button variant="danger border">Preview Site</Button>
+        <Link to="/rsvp-preview">
+          <Button variant="danger border">Preview Site</Button>
+        </Link>
       </Stack>
       <Form className="mt-3">
         <Card>
@@ -30,7 +36,7 @@ export default function InvitationForm() {
             <Card.Img
               style={{ height: '11rem' }}
               variant="top"
-              src="http://tineye.com/images/widgets/mona.jpg"
+              src={mainPhoto}
               alt="Main Photo"
             />
             <Button variant="primary">Choose new photo</Button>
@@ -50,36 +56,24 @@ export default function InvitationForm() {
               variant="top"
               src="http://tineye.com/images/widgets/mona.jpg"
             />
-            <Card.Body>
-              <Card.Title>Card 1</Card.Title>
-            </Card.Body>
           </Card>
           <Card>
             <Card.Img
               variant="top"
               src="http://tineye.com/images/widgets/mona.jpg"
             />
-            <Card.Body>
-              <Card.Title>Card 2</Card.Title>
-            </Card.Body>
           </Card>
           <Card>
             <Card.Img
               variant="top"
               src="http://tineye.com/images/widgets/mona.jpg"
             />
-            <Card.Body>
-              <Card.Title>Card 3</Card.Title>
-            </Card.Body>
           </Card>
         </CardGroup>
         <Button variant="primary" type="submit">
           Save Changes
         </Button>
       </Form>
-      <Link to="/rsvp-preview">
-        <Button>Click me to Go to RSVP Page</Button>
-      </Link>
     </Container>
   );
 }

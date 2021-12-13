@@ -28,13 +28,13 @@ export default function App() {
             // <h2>Just localhost</h2>
           }
         />
-        <Route path="/rsvp-preview" element={<RSVP />} />
-        <Route path="/invite" element={<InvitationForm />} />
         <Route path="/registry" element={<Registry />} />
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/browse-theme" element={<BrowseTheme />} />
         <Route path="/choose-content" element={<ChooseContent />} />
+        <Route path="/invite" element={<InvitationForm />} />
+        <Route path="/rsvp-preview" element={<RSVP />} />
       </Routes>
     </Router>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Container,
+  ProgressBar,
   Row,
   Col,
   Card,
@@ -14,5 +15,13 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ChooseContent() {
-  return <h2>Hello from ChooseContent</h2>;
+  return (
+    <Container>
+      <ProgressBar now={100} />
+      <h2>Hello from ChooseContent</h2>
+      <Link to="/invite">
+        <Button>Content</Button>
+      </Link>
+    </Container>
+  );
 }
