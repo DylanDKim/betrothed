@@ -11,4 +11,4 @@ const BAlexBrushH1 = styled.div`
   font-size: 36px;
 `;
 
-export default { WAlexBrushH1, BAlexBrushH1 };
+export { WAlexBrushH1, BAlexBrushH1 };

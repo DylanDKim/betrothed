@@ -11,4 +11,4 @@ const BFaustinaH2 = styled.h2`
   font-size: 36px;
 `;
 
-export default { WFaustinaH2, BFaustinaH2 };
+export { WFaustinaH2, BFaustinaH2 };
