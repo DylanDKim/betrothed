@@ -5,6 +5,8 @@ import InvitationForm from './Invitation/InvitationForm';
 import Testing from './Invitation/Testing';
 import RSVP from './Invitation/RSVP';
 import Registry from './registry/registry';
+import Invite from './GuestPages/Invite';
+import RsvpForm from './GuestPages/RSVP';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -22,6 +24,8 @@ export default function App() {
         <Route path="/rsvp-preview" element={<RSVP />} />
         <Route path="/invite" element={<InvitationForm />} />
         <Route path="/registry" element={<Registry />} />
+        <Route path="/guest-invite" element={<Invite />} />
+        <Route path="/rsvp-form" element={<RsvpForm />} />
       </Routes>
     </Router>
   );
