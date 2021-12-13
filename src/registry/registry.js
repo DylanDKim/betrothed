@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BlueButton from '../Common/styled/BlueButton';
+import BlueButton from '../Common/styled/buttonstyles/BlueButton';
 
 export default function Registry() {
   return (
