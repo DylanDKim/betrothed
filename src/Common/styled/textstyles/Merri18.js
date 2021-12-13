@@ -17,4 +17,4 @@ const PMerr18 = styled.div`
   color: white;
 `;
 
-export default { WMerr18, BMerr18, PMerr18 };
+export { WMerr18, BMerr18, PMerr18 };

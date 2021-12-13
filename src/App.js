@@ -7,6 +7,7 @@ import RSVP from './Invitation/RSVP';
 import Registry from './registry/registry';
 import Invite from './GuestPages/Invite';
 import RsvpForm from './GuestPages/RSVP';
+import Onboarding1 from './Onboarding/Onboarding1';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -19,7 +20,13 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<h2>Just localhost</h2>} />
+        <Route
+          path="/"
+          element={
+            <Onboarding1 />
+            // <h2>Just localhost</h2>
+          }
+        />
         <Route path="/sometest" element={<Testing />} />
         <Route path="/rsvp-preview" element={<RSVP />} />
         <Route path="/invite" element={<InvitationForm />} />

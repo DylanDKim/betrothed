@@ -17,4 +17,4 @@ const PFaustinaH3 = styled.h3`
   color: white;
 `;
 
-export default { WFaustinaH3, BFaustinaH3, PFaustinaH3 };
+export { WFaustinaH3, BFaustinaH3, PFaustinaH3 };
