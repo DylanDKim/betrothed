@@ -60,7 +60,7 @@ export default function InvitationForm() {
       <h2>Your Wedding Website</h2>
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
-        <Link to="/rsvp-preview">
+        <Link to="/rsvp-preview" state={{ from: galleryURL }}>
           <PlumFilledButton>Preview Site</PlumFilledButton>
         </Link>
       </Stack>
@@ -103,24 +103,11 @@ export default function InvitationForm() {
           </div>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          <Link to="/rsvp-preview">
+          <Link to="/rsvp-preview" state={{ from: galleryURL }}>
             <PlumFilledButton type="submit">Save Changes</PlumFilledButton>
           </Link>
         </div>
       </Form>
-      <div className="d-flex justify-content-center">
-        <Carousel className="d-block h-25 w-25">
-          {(galleryURL || []).map((url) => (
-            <Carousel.Item>
-              <img
-                className="d-block h-100 w-100"
-                src={url}
-                alt="First slide"
-              />
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </div>
     </Container>
   );
 }
