@@ -88,7 +88,7 @@ export default function InvitationForm() {
           <CardGroup>
             {(galleryURL || []).map((url) => (
               <Card>
-                <Card.Img src={url} alt="gallery" variant="top" />
+                <Card.Img src={url} alt="gallery" variant="top" height="200" />
               </Card>
             ))}
           </CardGroup>
@@ -109,38 +109,3 @@ export default function InvitationForm() {
     </Container>
   );
 }
-
-{
-  /* <Card>
-<Card.Body>
-  <Card.Title>Main Photo</Card.Title>
-  <Card.Img
-    style={{ height: '11rem' }}
-    variant="top"
-    src="http://tineye.com/images/widgets/mona.jpg"
-    alt="Main Photo"
-  />
-</Card.Body>
-</Card> */
-}
-
-// <CardGroup>
-// <Card>
-//   <Card.Img
-//     variant="top"
-//     src="http://tineye.com/images/widgets/mona.jpg"
-//   />
-// </Card>
-// <Card>
-//   <Card.Img
-//     variant="top"
-//     src="http://tineye.com/images/widgets/mona.jpg"
-//   />
-// </Card>
-// <Card>
-//   <Card.Img
-//     variant="top"
-//     src="http://tineye.com/images/widgets/mona.jpg"
-//   />
-// </Card>
-// </CardGroup>
