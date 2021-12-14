@@ -9,7 +9,7 @@ export default function ChooseContent() {
     <Container className="mt-5">
       <ProgressBar now={100} />
       <h2>Hello from ChooseContent</h2>
-      <Link to="/invite">
+      <Link to="/invitation-form">
         <BlueButton>Content</BlueButton>
       </Link>
     </Container>

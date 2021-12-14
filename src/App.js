@@ -32,7 +32,7 @@ export default function App() {
         <Route path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/browse-theme" element={<BrowseTheme />} />
         <Route path="/choose-content" element={<ChooseContent />} />
-        <Route path="/invite" element={<InvitationForm />} />
+        <Route path="/invitation-form" element={<InvitationForm />} />
         <Route path="/rsvp-preview" element={<RSVP />} />
       </Routes>
     </Router>

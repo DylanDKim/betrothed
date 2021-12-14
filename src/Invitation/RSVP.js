@@ -7,7 +7,7 @@ export default function Hello() {
   return (
     <>
       <h2>This is RSVP Page</h2>
-      <Link to="/invite">
+      <Link to="/invitation-form">
         <Button>Click me to Go to Invitation Page</Button>
       </Link>
     </>

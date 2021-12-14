@@ -1,6 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Card, CardGroup, Form, Stack } from 'react-bootstrap';
+import {
+  Container,
+  Card,
+  CardGroup,
+  Form,
+  Stack,
+  Carousel,
+} from 'react-bootstrap';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,9 +22,7 @@ export default function InvitationForm() {
     'http://tineye.com/images/widgets/mona.jpg',
     'http://tineye.com/images/widgets/mona.jpg',
   ]);
-
   const galleryArray = [];
-
   const hiddenMainPhotoInput = useRef(null);
   const hiddenGalleryInput = useRef(null);
 
@@ -47,7 +52,7 @@ export default function InvitationForm() {
     for (let i = 0; i < selectedPhotos.length; i++) {
       galleryArray.push(URL.createObjectURL(selectedPhotos[i]));
     }
-    setGalleryURL([...galleryURL, ...galleryArray]);
+    setGalleryURL([...galleryArray, ...galleryURL]);
   };
 
   return (
@@ -103,6 +108,19 @@ export default function InvitationForm() {
           </Link>
         </div>
       </Form>
+      <div className="d-flex justify-content-center">
+        <Carousel className="d-block h-25 w-25">
+          {(galleryURL || []).map((url) => (
+            <Carousel.Item>
+              <img
+                className="d-block h-100 w-100"
+                src={url}
+                alt="First slide"
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
     </Container>
   );
 }
