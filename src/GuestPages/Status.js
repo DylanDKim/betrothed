@@ -19,7 +19,6 @@ const Status = ({ updateStep }) => {
       <Row style={{ fontFamily: 'Merriweather' }}>
         <div>Check RSVP Status</div>
         <InputGroup className="d-flex justify-content-center">
-<<<<<<< HEAD
           <InputGroup.Text onClick={checkNextStep}>
             <i className="fa fa-search" />
             new
@@ -27,10 +26,6 @@ const Status = ({ updateStep }) => {
           <InputGroup.Text onClick={toEdit}>
             <i className="fa fa-search" />
             edit
-=======
-          <InputGroup.Text onClick={() => console.log(email)}>
-            <i className="fa fa-search" />
->>>>>>> 1c153d9 (Refactor of existing components to better utilize react-bootstrap)
           </InputGroup.Text>
           <FormControl
             type="email"
