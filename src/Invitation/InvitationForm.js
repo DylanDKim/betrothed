@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import PlumButton from '../Common/styled/buttonstyles/PlumButton';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import {
   Container,
   Row,
@@ -18,7 +20,6 @@ export default function InvitationForm() {
     'http://tineye.com/images/widgets/mona.jpg'
   );
   const [inviteMessage, setInviteMessage] = useState('');
-  // const [gallery, setGallery] = useState([]);
   const [galleryURL, setGalleryURL] = useState([
     'http://tineye.com/images/widgets/mona.jpg',
     'http://tineye.com/images/widgets/mona.jpg',
@@ -62,12 +63,10 @@ export default function InvitationForm() {
   return (
     <Container style={{ width: '65%' }}>
       <h2>Your Wedding Website</h2>
-      <Stack direction="horizontal" gap={3}>
-        <Button className="btn btn-success border ms-auto">
-          Share your website
-        </Button>
+      <Stack className="mb-5" direction="horizontal" gap={3}>
+        <PlumButton className="ms-auto">Share your website</PlumButton>
         <Link to="/rsvp-preview">
-          <Button variant="danger border">Preview Site</Button>
+          <PlumFilledButton variant="border">Preview Site</PlumFilledButton>
         </Link>
       </Stack>
       <img src={mainPhoto} alt="mainPhoto" width="100%" height="200" />
@@ -78,7 +77,7 @@ export default function InvitationForm() {
         style={{ display: 'none' }}
         onChange={previewMainPhoto}
       />
-      <Button onClick={uploadMainPhoto}>Choose new photo</Button>
+      <PlumButton onClick={uploadMainPhoto}>Choose new photo</PlumButton>
       <Form className="mt-3">
         <Form.Group className="mb-3" controlId="formMessage">
           <Form.Label>Message</Form.Label>
@@ -100,11 +99,13 @@ export default function InvitationForm() {
             onChange={previewGallery}
             multiple
           />
-          <Button onClick={addPicToGallery}>Add more photos</Button>
+          <PlumButton onClick={addPicToGallery}>Add more photos</PlumButton>
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Save Changes
-        </Button>
+        <Link to="/rsvp-preview">
+          <PlumFilledButton variant="primary" type="submit">
+            Save Changes
+          </PlumFilledButton>
+        </Link>
       </Form>
     </Container>
   );

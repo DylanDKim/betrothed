@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BlueButton from '../Common/styled/buttonstyles/BlueButton';
 import {
   Container,
   ProgressBar,
@@ -9,18 +10,17 @@ import {
   CardGroup,
   Image,
   Form,
-  Button,
   Stack,
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ChooseContent() {
   return (
-    <Container>
+    <Container className="mt-5">
       <ProgressBar now={100} />
       <h2>Hello from ChooseContent</h2>
       <Link to="/invite">
-        <Button>Content</Button>
+        <BlueButton>Content</BlueButton>
       </Link>
     </Container>
   );
