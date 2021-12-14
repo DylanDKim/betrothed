@@ -18,12 +18,14 @@ export default function InvitationForm() {
     'http://tineye.com/images/widgets/mona.jpg'
   );
   const [inviteMessage, setInviteMessage] = useState('');
-  const [gallery, setGallery] = useState([]);
+  // const [gallery, setGallery] = useState([]);
   const [galleryURL, setGalleryURL] = useState([
     'http://tineye.com/images/widgets/mona.jpg',
     'http://tineye.com/images/widgets/mona.jpg',
     'http://tineye.com/images/widgets/mona.jpg',
   ]);
+
+  const galleryArray = [];
 
   const hiddenMainPhotoInput = useRef(null);
   const hiddenGalleryInput = useRef(null);
@@ -50,11 +52,11 @@ export default function InvitationForm() {
   };
 
   const previewGallery = (e) => {
-    setGallery(e.target.files);
-    console.log(gallery, e.target.files);
-    for (let i = 0; i < gallery[0].length; i++) {
-      setGalleryURL([...galleryURL, URL.createObjectURL(gallery[0][i])]);
+    const selectedPhotos = e.target.files;
+    for (let i = 0; i < selectedPhotos.length; i++) {
+      galleryArray.push(URL.createObjectURL(selectedPhotos[i]));
     }
+    setGalleryURL([...galleryURL, ...galleryArray]);
   };
 
   return (
