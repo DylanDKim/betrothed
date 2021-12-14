@@ -95,7 +95,7 @@ const EditRsvp = ({ updateStep }) => {
         className="d-flex justify-content-center text-center w-25"
         onClick={submitEdits}
       >
-        Edit
+        Submit
       </Button>
       <Button
         className="d-flex justify-content-center text-center w-25"
