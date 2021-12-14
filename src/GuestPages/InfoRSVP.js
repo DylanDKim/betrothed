@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const InfoRsvp = () => (
   <>
     <TempHeader
-      className="d-flex justify-content-center mt-5"
+      className="d-flex justify-content-center mt-3"
       style={{
         fontSize: '36px',
       }}

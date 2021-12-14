@@ -22,7 +22,7 @@ const NewRsvp = ({ updateStep }) => {
   };
 
   return (
-    <Container className="w-100">
+    <Container className="w-100" style={{ fontFamily: 'Merriweather' }}>
       <Alert className="d-flex justify-content-center" variant="danger">
         You have not RSVPd yet
       </Alert>
