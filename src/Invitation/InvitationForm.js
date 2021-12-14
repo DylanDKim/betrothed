@@ -56,7 +56,14 @@ export default function InvitationForm() {
   };
 
   return (
-    <Container style={{ width: '65%' }}>
+    <Container
+      style={{
+        width: '65%',
+        // backgroundImage: 'url(http://tineye.com/images/widgets/mona.jpg)',
+        // backgroundRepeat: 'no-repeat',
+        // height: '100%', ----------TO BE REVISED--------------
+      }}
+    >
       <h2>Your Wedding Website</h2>
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
