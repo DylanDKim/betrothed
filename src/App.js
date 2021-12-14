@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InvitationForm from './Invitation/InvitationForm';
 import RSVP from './Invitation/RSVP';
