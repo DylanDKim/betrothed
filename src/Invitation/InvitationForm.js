@@ -66,9 +66,10 @@ export default function InvitationForm() {
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
         <Link to="/rsvp-preview">
-          <PlumFilledButton variant="border">Preview Site</PlumFilledButton>
+          <PlumFilledButton>Preview Site</PlumFilledButton>
         </Link>
       </Stack>
+      <div>Main Photo</div>
       <img src={mainPhoto} alt="mainPhoto" width="100%" height="200" />
       <input
         type="file"
@@ -77,13 +78,16 @@ export default function InvitationForm() {
         style={{ display: 'none' }}
         onChange={previewMainPhoto}
       />
-      <PlumButton onClick={uploadMainPhoto}>Choose new photo</PlumButton>
+      <div className="d-flex justify-content-center mt-2">
+        <PlumButton onClick={uploadMainPhoto}>Choose new photo</PlumButton>
+      </div>
       <Form className="mt-3">
         <Form.Group className="mb-3" controlId="formMessage">
           <Form.Label>Message</Form.Label>
           <Form.Control as="textarea" onChange={updateMessage} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formMessage">
+          <div>Gallery</div>
           <CardGroup>
             {(galleryURL || []).map((url) => (
               <Card>
@@ -99,13 +103,15 @@ export default function InvitationForm() {
             onChange={previewGallery}
             multiple
           />
-          <PlumButton onClick={addPicToGallery}>Add more photos</PlumButton>
+          <div className="d-flex justify-content-center mt-2">
+            <PlumButton onClick={addPicToGallery}>Add more photos</PlumButton>
+          </div>
         </Form.Group>
-        <Link to="/rsvp-preview">
-          <PlumFilledButton variant="primary" type="submit">
-            Save Changes
-          </PlumFilledButton>
-        </Link>
+        <div className="d-flex justify-content-end">
+          <Link to="/rsvp-preview">
+            <PlumFilledButton type="submit">Save Changes</PlumFilledButton>
+          </Link>
+        </div>
       </Form>
     </Container>
   );

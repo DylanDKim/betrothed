@@ -18,7 +18,7 @@ export default function BrowseTheme() {
   return (
     <Container className="mt-5">
       <Row>
-        <Col>
+        <Col xs lg="9">
           <ProgressBar now={50} />
           <h2>Wedding Website</h2>
           <h2>Welcome to your Wedding Website</h2>
