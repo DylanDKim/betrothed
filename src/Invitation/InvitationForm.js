@@ -1,18 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Card, CardGroup, Form, Stack } from 'react-bootstrap';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardGroup,
-  Image,
-  Form,
-  Button,
-  Stack,
-} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function InvitationForm() {

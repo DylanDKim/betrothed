@@ -1,17 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, ProgressBar } from 'react-bootstrap';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
-import {
-  Container,
-  ProgressBar,
-  Row,
-  Col,
-  Card,
-  CardGroup,
-  Image,
-  Form,
-  Stack,
-} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ChooseContent() {
