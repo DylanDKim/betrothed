@@ -19,11 +19,20 @@ export default function InvitationForm() {
   );
   const [inviteMessage, setInviteMessage] = useState('');
   const [gallery, setGallery] = useState([]);
+  const [galleryURL, setGalleryURL] = useState([
+    'http://tineye.com/images/widgets/mona.jpg',
+    'http://tineye.com/images/widgets/mona.jpg',
+    'http://tineye.com/images/widgets/mona.jpg',
+  ]);
 
-  const hiddenFileInput = useRef(null);
+  const hiddenMainPhotoInput = useRef(null);
+  const hiddenGalleryInput = useRef(null);
 
   const uploadMainPhoto = () => {
-    hiddenFileInput.current.click();
+    hiddenMainPhotoInput.current.click();
+  };
+  const addPicToGallery = () => {
+    hiddenGalleryInput.current.click();
   };
 
   const previewMainPhoto = (e) => {
@@ -40,6 +49,14 @@ export default function InvitationForm() {
     setInviteMessage(e.target.value);
   };
 
+  const previewGallery = (e) => {
+    setGallery(e.target.files);
+    console.log(gallery, e.target.files);
+    for (let i = 0; i < gallery[0].length; i++) {
+      setGalleryURL([...galleryURL, URL.createObjectURL(gallery[0][i])]);
+    }
+  };
+
   return (
     <Container style={{ width: '65%' }}>
       <h2>Your Wedding Website</h2>
@@ -51,10 +68,10 @@ export default function InvitationForm() {
           <Button variant="danger border">Preview Site</Button>
         </Link>
       </Stack>
-      <img src={mainPhoto} alt="testing" width="100%" height="200" />
+      <img src={mainPhoto} alt="mainPhoto" width="100%" height="200" />
       <input
         type="file"
-        ref={hiddenFileInput}
+        ref={hiddenMainPhotoInput}
         accept="image/*"
         style={{ display: 'none' }}
         onChange={previewMainPhoto}
@@ -65,26 +82,24 @@ export default function InvitationForm() {
           <Form.Label>Message</Form.Label>
           <Form.Control as="textarea" onChange={updateMessage} />
         </Form.Group>
-        <CardGroup>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="http://tineye.com/images/widgets/mona.jpg"
-            />
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="http://tineye.com/images/widgets/mona.jpg"
-            />
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="http://tineye.com/images/widgets/mona.jpg"
-            />
-          </Card>
-        </CardGroup>
+        <Form.Group className="mb-3" controlId="formMessage">
+          <CardGroup>
+            {(galleryURL || []).map((url) => (
+              <Card>
+                <Card.Img src={url} alt="gallery" variant="top" />
+              </Card>
+            ))}
+          </CardGroup>
+          <Form.Control
+            type="file"
+            ref={hiddenGalleryInput}
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={previewGallery}
+            multiple
+          />
+          <Button onClick={addPicToGallery}>Add more photos</Button>
+        </Form.Group>
         <Button variant="primary" type="submit">
           Save Changes
         </Button>
@@ -106,3 +121,24 @@ export default function InvitationForm() {
 </Card.Body>
 </Card> */
 }
+
+// <CardGroup>
+// <Card>
+//   <Card.Img
+//     variant="top"
+//     src="http://tineye.com/images/widgets/mona.jpg"
+//   />
+// </Card>
+// <Card>
+//   <Card.Img
+//     variant="top"
+//     src="http://tineye.com/images/widgets/mona.jpg"
+//   />
+// </Card>
+// <Card>
+//   <Card.Img
+//     variant="top"
+//     src="http://tineye.com/images/widgets/mona.jpg"
+//   />
+// </Card>
+// </CardGroup>
