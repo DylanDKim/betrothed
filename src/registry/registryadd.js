@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
+import PlumButton from '../Common/styled/buttonstyles/PlumButton';
+
 export default function ResgistryAdd() {
+  const [registry, setRegistry] = useState([]);
+
   return (
     <Container>
       <Row className="mt-5">
@@ -26,14 +30,55 @@ export default function ResgistryAdd() {
           </div>
         </Col>
         <Col md={3} className="ml-1">
-          <PlumFilledButton type="button" className="float-right">
+          <PlumButton type="button" className="float-right">
             add gifts
-          </PlumFilledButton>
+          </PlumButton>
         </Col>
       </Row>
-      <Row> Your Top Gifts</Row>
-      <Row> Browse by category</Row>
-      <Row> Claimed</Row>
+      <Row>
+        <h2
+          style={{
+            fontSize: '24px',
+            fontFamily: 'Faustina serif',
+          }}
+        >
+          Your Top Gifts
+        </h2>
+        {registry.length === 0 ? (
+          <h3>
+            You have {registry.length} gifts in your registry! Try adding some.
+          </h3>
+        ) : (
+          <h3>You have 5 gifts in your registry! Try adding some.</h3>
+        )}
+
+        <button
+          type="button"
+          onClick={() => setRegistry([...registry, 'five'])}
+        >
+          Click
+        </button>
+      </Row>
+      <Row>
+        <h2
+          style={{
+            fontSize: '24px',
+            fontFamily: 'Faustina serif',
+          }}
+        >
+          Browse by category
+        </h2>
+      </Row>
+      <Row>
+        <h2
+          style={{
+            fontSize: '24px',
+            fontFamily: 'Faustina serif',
+          }}
+        >
+          Claimed
+        </h2>
+      </Row>
     </Container>
   );
 }
