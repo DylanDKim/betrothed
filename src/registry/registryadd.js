@@ -31,6 +31,9 @@ export default function ResgistryAdd() {
           </PlumFilledButton>
         </Col>
       </Row>
+      <Row> Your Top Gifts</Row>
+      <Row> Browse by category</Row>
+      <Row> Claimed</Row>
     </Container>
   );
 }
