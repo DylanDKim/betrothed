@@ -8,8 +8,6 @@ import {
 } from '../Common/styled/cardstyles/bluecardstyle';
 
 export default function Dashboard(props) {
-  const [numGifts, setNumGifts] = useState(0);
-
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
