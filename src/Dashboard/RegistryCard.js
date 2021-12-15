@@ -21,7 +21,7 @@ export default function Dashboard(props) {
             {numGifts} <br /> are unclaimed
           </h3>
         )}
-        <Link to="/registry">
+        <Link to="/registryadd">
           <Button>build your registry</Button>
         </Link>
       </Card.Body>

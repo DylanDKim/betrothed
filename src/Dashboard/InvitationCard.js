@@ -13,8 +13,8 @@ export default function Dashboard(props) {
       <Card.Body>
         <Card.Title>Invitation</Card.Title>
         <h3>Customize your wedding website</h3>
-        <Link to="/invite">
-          <Button>build your registry</Button>
+        <Link to="/browse-theme">
+          <Button>browse themes</Button>
         </Link>
       </Card.Body>
     </Card>

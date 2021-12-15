@@ -34,32 +34,21 @@ export default function App() {
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
-<<<<<<< HEAD
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/rsvp-preview" element={<RSVP />} />
-        <Route path="/invite" element={<InvitationForm />} />
-        <Route path="/registry" element={<Registry />} />
-        <Route path="/registrystart" element={<RegistryStart />} />
-        <Route path="/registryadd" element={<RegistryAdd />} />
-        <Route path="/guest-invite" element={<Invite />} />
-        <Route path="/rsvp-form" element={<RsvpForm />} />
-        <Route path="/browse-theme" element={<BrowseTheme />} />
-        <Route path="/choose-content" element={<ChooseContent />} />
-        <Route path="/invitation-form" element={<InvitationForm />} />
-        <Route path="/rsvp-preview" element={<RSVP />} />
-        <Route path="/guestlist" element={<GuestListMainPage />} />
-=======
-        {/* <Route path="/" element={<Nav />} /> */}
         <Route path="/" element={<Frame />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="sometest" element={<Testing />} />
-          <Route path="rsvp-preview" element={<RSVP />} />
-          <Route path="invite" element={<InvitationForm />} />
-          <Route path="registry" element={<Registry />} />
-          <Route path="guest-invite" element={<Invite />} />
-          <Route path="rsvp-form" element={<RsvpForm />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/rsvp-preview" element={<RSVP />} />
+          <Route path="/invite" element={<InvitationForm />} />
+          <Route path="/registry" element={<Registry />} />
+          <Route path="/registrystart" element={<RegistryStart />} />
+          <Route path="/registryadd" element={<RegistryAdd />} />
+          <Route path="/guest-invite" element={<Invite />} />
+          <Route path="/rsvp-form" element={<RsvpForm />} />
+          <Route path="/browse-theme" element={<BrowseTheme />} />
+          <Route path="/choose-content" element={<ChooseContent />} />
+          <Route path="/invitation-form" element={<InvitationForm />} />
+          <Route path="/rsvp-preview" element={<RSVP />} />
+          <Route path="/guestlist" element={<GuestListMainPage />} />
         </Route>
->>>>>>> 32d5f9e (added navlinks before pulling)
       </Routes>
     </Router>
   );

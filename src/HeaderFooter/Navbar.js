@@ -13,7 +13,7 @@ export default function BetrothedNavbar() {
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
             <Nav.Link href="/guestlist">Guests</Nav.Link>
             <Nav.Link href="/invite">Invitation</Nav.Link>
-            <Nav.Link href="/registry">Registry</Nav.Link>
+            <Nav.Link href="/registryadd">Registry</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
