@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel, Container, Row, Col, Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
@@ -7,6 +7,11 @@ import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 
 export default function ResgistryAdd() {
   const [registry, setRegistry] = useState([]);
+  const [registryItem, setRegistryItem] = useState({});
+  const [modalOn, setModalOn] = useState(false);
+
+  const handleClose = () => setModalOn(false);
+  const handleShow = () => setModalOn(true);
 
   return (
     <Container>
@@ -30,9 +35,19 @@ export default function ResgistryAdd() {
           </div>
         </Col>
         <Col md={3} className="ml-1">
-          <PlumButton type="button" className="float-right">
-            add gifts
-          </PlumButton>
+          {modalOn ? (
+            <PlumFilledButton type="button" className="float-right">
+              add gifts
+            </PlumFilledButton>
+          ) : (
+            <PlumButton
+              onClick={() => setModalOn(true)}
+              type="button"
+              className="float-right"
+            >
+              add gifts
+            </PlumButton>
+          )}
         </Col>
       </Row>
       <Row>
@@ -78,6 +93,23 @@ export default function ResgistryAdd() {
         >
           Claimed
         </h2>
+        <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button>
+        <Modal show={modalOn} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </Row>
     </Container>
   );
