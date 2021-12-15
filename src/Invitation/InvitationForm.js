@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Container,
   Card,
@@ -11,13 +11,16 @@ import {
   Col,
   Image,
 } from 'react-bootstrap';
+import { FittedImg } from './invitation.styled';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function InvitationForm() {
+  // 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+  // 'https://images.unsplash.com/photo-1529636798458-92182e662485?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80'
   const [mainPhoto, setMainPhoto] = useState(
-    'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+    'https://images.unsplash.com/photo-1592218946197-f6c4816c5b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
   );
   const [inviteMessage, setInviteMessage] = useState('');
   const [galleryURL, setGalleryURL] = useState([
@@ -58,14 +61,15 @@ export default function InvitationForm() {
     setGalleryURL([...galleryArray, ...galleryURL]);
   };
 
+  const location = useLocation();
+  const { from } = location.state;
+
   return (
     <Container
       style={{
         width: '65%',
-        // backgroundImage:
-        //   'url(https://images.unsplash.com/photo-1515923019249-6b544314450f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80)',
-        // backgroundRepeat: 'no-repeat',
-        // height: '100%',
+        backgroundImage: `url(${from})`,
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <h2>Your Wedding Website</h2>
@@ -76,7 +80,7 @@ export default function InvitationForm() {
         </Link>
       </Stack>
       <div>Main Photo</div>
-      <img src={mainPhoto} alt="mainPhoto" width="100%" height="200" />
+      <FittedImg src={mainPhoto} alt="mainPhoto" />
       <input
         type="file"
         ref={hiddenMainPhotoInput}
@@ -101,18 +105,6 @@ export default function InvitationForm() {
               </Col>
             ))}
           </Row>
-          {/* <CardGroup>
-            {(galleryURL || []).map((url) => (
-              <Card>
-                <Card.Img
-                  className="p-2"
-                  src={url}
-                  alt="gallery"
-                  variant="top"
-                />
-              </Card>
-            ))}
-          </CardGroup> */}
           <Form.Control
             type="file"
             ref={hiddenGalleryInput}
