@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, ProgressBar, Row, Col, Image, Form } from 'react-bootstrap';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
+import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 import { ThemeImg } from './invitation.styled';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,7 +20,7 @@ export default function ChooseContent({ setChosedTheme }) {
   return (
     <Container className="mt-5" style={{ width: '65%' }}>
       <ProgressBar now={100} />
-      <h2>Hello from ChooseContent</h2>
+      <BFaustinaH3>Choose Your Design</BFaustinaH3>
       <Row xs={6} md={3}>
         {(invitationTheme || []).map((url) => (
           <Col>

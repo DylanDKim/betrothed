@@ -14,6 +14,8 @@ import {
 import { FittedImg } from './invitation.styled';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
+import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
+import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function InvitationForm({
@@ -22,6 +24,7 @@ export default function InvitationForm({
   setGalleryURL,
   mainPhoto,
   setMainPhoto,
+  inviteMessage,
   setInviteMessage,
 }) {
   // const [inviteMessage, setInviteMessage] = useState('');
@@ -58,6 +61,7 @@ export default function InvitationForm({
   };
 
   const updateMessage = (e) => {
+    e.preventDefault();
     setInviteMessage(e.target.value);
   };
 
@@ -78,14 +82,14 @@ export default function InvitationForm({
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <h2>Your Wedding Website</h2>
+      <BAlexBrushH1>Your Wedding Website</BAlexBrushH1>
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
         <Link to="/rsvp-preview">
           <PlumFilledButton>Preview Site</PlumFilledButton>
         </Link>
       </Stack>
-      <div>Main Photo</div>
+      <BFaustinaH3>Main Photo</BFaustinaH3>
       <FittedImg src={mainPhoto} alt="mainPhoto" />
       <input
         type="file"
@@ -99,11 +103,16 @@ export default function InvitationForm({
       </div>
       <Form className="mt-3">
         <Form.Group className="mb-3" controlId="formMessage">
-          <Form.Label>Message</Form.Label>
-          <Form.Control as="textarea" onChange={updateMessage} />
+          {/* <Form.Label>Message</Form.Label> */}
+          <BFaustinaH3>Message</BFaustinaH3>
+          <Form.Control
+            as="textarea"
+            value={inviteMessage}
+            onChange={updateMessage}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formMessage">
-          <div>Gallery</div>
+          <BFaustinaH3>Gallery</BFaustinaH3>
           <Row xs={6} md={3}>
             {(galleryURL || []).map((url) => (
               <Col>
@@ -119,6 +128,7 @@ export default function InvitationForm({
             onChange={previewGallery}
             multiple
           />
+          <div>💡Pro Tip: A vertical photo will look best.</div>
           <div className="d-flex justify-content-center mt-2">
             <PlumButton onClick={addPicToGallery}>Add more photos</PlumButton>
           </div>

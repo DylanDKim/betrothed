@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProgressBar, Container, Row, Col, Image } from 'react-bootstrap';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
+import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function BrowseTheme() {
@@ -10,7 +11,7 @@ export default function BrowseTheme() {
       <Row>
         <Col xs lg="9">
           <ProgressBar now={50} />
-          <h2>Wedding Website</h2>
+          <BAlexBrushH1>Wedding Website</BAlexBrushH1>
           <h2>Welcome to your Wedding Website</h2>
           <h5>
             <i className="fas fa-gift" /> Customize your invitation with themes
