@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import { Carousel, Container, Row, Col, Modal } from 'react-bootstrap';
+import { Card, Container, Row, Col, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
-// import metadataParser from './utils/metadataParse';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
-
-const { parser } = require('html-metadata-parser');
 
 export default function ResgistryAdd() {
   const [registry, setRegistry] = useState([]);
   const [registryItem, setRegistryItem] = useState({});
   const [modalOn, setModalOn] = useState(false);
+  const [claimed, setClaimed] = useState([]);
 
   const handleClose = () => setModalOn(false);
   // const handleShow = () => setModalOn(true);
@@ -22,6 +20,12 @@ export default function ResgistryAdd() {
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const handleClaimItem = (e) => {
+    const { name } = e.target;
+    setRegistry(registry.filter((item) => item.url !== name));
+    console.log(name);
   };
 
   const handleSubmit = (e) => {
@@ -69,7 +73,7 @@ export default function ResgistryAdd() {
               {registry.length} {registry.length === 1 ? 'Gift' : 'Gifts'}{' '}
               Requested
             </h2>
-            0 Purchased
+            {claimed.length} Purchased
           </div>
         </Col>
         <Col md={3} className="ml-1">
@@ -100,18 +104,26 @@ export default function ResgistryAdd() {
         {registry.length === 0 ? (
           <h3>You have NOOOO gifts in your registry! Try adding some.</h3>
         ) : (
-          <h3>You have {registry.length} gifts in your registry!</h3>
+          registry.map((item) => (
+            <Card>
+              <Card.Body>
+                <Card.Title>{item.category}</Card.Title>
+                <Card.Text>
+                  <a href={item.url}>{item.title}</a>
+                </Card.Text>
+                <PlumButton
+                  name={item.title}
+                  onClick={(e) => handleClaimItem(e)}
+                  className="float-right"
+                  style={{ float: 'right' }}
+                  variant="primary"
+                >
+                  Claim
+                </PlumButton>
+              </Card.Body>
+            </Card>
+          ))
         )}
-      </Row>
-      <Row>
-        <h2
-          style={{
-            fontSize: '24px',
-            fontFamily: 'Faustina serif',
-          }}
-        >
-          Browse by category
-        </h2>
       </Row>
       <Row>
         <h2
