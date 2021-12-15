@@ -2,20 +2,116 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import mockData from './mockData';
 
 const editGuestInfo = (e) => {
-  const hiddenElement = e.currentTarget.nextSibling;
-  return hiddenElement.className.indexOf('collapse show') > -1
-    ? hiddenElement.classList.remove('show')
-    : hiddenElement.classList.add('show');
+  const guestInfo = e.currentTarget.nextSibling;
+  return guestInfo.className.indexOf('collapse show') > -1
+    ? guestInfo.classList.remove('show')
+    : guestInfo.classList.add('show');
 };
 
 const readNoteFromGuest = (e) => {
-  e.stopPropagation();
-  const hiddenElement = e.currentTarget.nextSibling;
-  return hiddenElement.className.indexOf('collapse show-message') > -1
-    ? hiddenElement.classList.remove('show-message')
-    : hiddenElement.classList.add('show-message');
+  // TODO: make this click handler run, but prevent parent handler from running (editGuestInfo); look into stopPropagation
+  const currentRow = e.currentTarget.closest('tr');
+  const noteFromGuest = currentRow.nextSibling.nextSibling;
+  return noteFromGuest.className.indexOf('collapse show-message') > -1
+    ? noteFromGuest.classList.remove('show-message')
+    : noteFromGuest.classList.add('show-message');
+};
+
+const createListOfGuests = () => {
+  /*
+  TODO:
+  Replace Note button in table with message icon
+  Add edit functionality for guest name and email
+  Add delete handler/functionality
+  */
+  const guestData = Object.keys(mockData.guests);
+  const guestList = guestData.map((entry) => {
+    const guests = mockData.guests[entry].map((guest) => (
+      <>
+        <tr onClick={editGuestInfo}>
+          <td />
+          <td>{guest.firstName + guest.lastName}</td>
+          <td>{guest.email}</td>
+          <td>{guest.rsvpStatus}</td>
+          {guest.rsvpNote ? (
+            <td>
+              <Button onClick={readNoteFromGuest}>Note</Button>
+            </td>
+          ) : (
+            <td />
+          )}
+        </tr>
+        <tr className="collapse">
+          <td />
+          <td>Edit Name</td>
+          <td>Edit Email</td>
+          <td colSpan="2">
+            <Button>Delete Guest</Button>
+          </td>
+        </tr>
+        {guest.rsvpNote ? (
+          <tr className="collapse show-message">
+            <td colSpan="5">{guest.rsvpNote}</td>
+          </tr>
+        ) : null}
+      </>
+    ));
+    return guests;
+  });
+  return guestList;
+};
+
+const createRsvpStats = () => {
+  const guestData = Object.keys(mockData.guests);
+  const attendance = {
+    attending: 0,
+    declined: 0,
+    pending: 0,
+  };
+
+  guestData.forEach((entry) => {
+    attendance.attending += mockData.guests[entry].filter(
+      (guest) => guest.rsvpStatus === 'attending'
+    ).length;
+  });
+
+  guestData.forEach((entry) => {
+    attendance.pending += mockData.guests[entry].filter(
+      (guest) => guest.rsvpStatus === 'pending'
+    ).length;
+  });
+
+  guestData.forEach((entry) => {
+    attendance.declined += mockData.guests[entry].filter(
+      (guest) => guest.rsvpStatus === 'declined'
+    ).length;
+  });
+  return attendance;
+};
+
+const renderRsvpStats = () => {
+  const attendance = createRsvpStats();
+  return (
+    <Container>
+      <Row>
+        <Col>Invited</Col>
+        <Col>Attending</Col>
+        <Col>Pending</Col>
+        <Col>Declined</Col>
+      </Row>
+      <Row>
+        <Col>
+          {attendance.attending + attendance.pending + attendance.declined}
+        </Col>
+        <Col>{attendance.attending}</Col>
+        <Col>{attendance.pending}</Col>
+        <Col>{attendance.declined}</Col>
+      </Row>
+    </Container>
+  );
 };
 
 const GuestListMainPage = () => (
@@ -28,7 +124,7 @@ const GuestListMainPage = () => (
         <h1>Guest List</h1>
       </Container>
       <Container>
-        <Link to="/sometest">
+        <Link to="/dashboard">
           <Button>Back to Dashboard</Button>
         </Link>
         <Button>Add Guest</Button>
@@ -36,18 +132,7 @@ const GuestListMainPage = () => (
     </Container>
 
     <Container fluid="md" className="high-level-rsvp-data">
-      <Row>
-        <Col>Invited</Col>
-        <Col>Accepted</Col>
-        <Col>Declined</Col>
-        <Col>Waiting</Col>
-      </Row>
-      <Row>
-        <Col>100</Col>
-        <Col>10</Col>
-        <Col>15</Col>
-        <Col>75</Col>
-      </Row>
+      {renderRsvpStats()}
     </Container>
 
     <Container fluid="md" className="guest-list-table">
@@ -61,28 +146,7 @@ const GuestListMainPage = () => (
             <th>Message</th>
           </tr>
         </thead>
-        <tbody>
-          <tr onClick={editGuestInfo}>
-            <td>1</td>
-            <td>Mark Otto</td>
-            <td>markotto@gmail.com</td>
-            <td>Attending</td>
-            <td>
-              <Button onClick={readNoteFromGuest}>Note</Button>
-            </td>
-          </tr>
-          <tr className="collapse">
-            <td />
-            <td>Edit Name</td>
-            <td>Edit Email</td>
-            <td colSpan="2">
-              <Button>Delete Guest</Button>
-            </td>
-          </tr>
-          <tr className="collapse show-message">
-            <td colSpan="5">Message from guest.</td>
-          </tr>
-        </tbody>
+        <tbody>{createListOfGuests()}</tbody>
       </Table>
     </Container>
   </>
@@ -90,9 +154,8 @@ const GuestListMainPage = () => (
 
 export default GuestListMainPage;
 
-{
-  /*
+/*
+TODO:
 Add Header
 Add Footer
 */
-}
