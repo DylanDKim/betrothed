@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const NewRsvp = ({ updateStep }) => {
   const [isAttending, updateAttendance] = useState(null);
   const [message, updateMessage] = useState('');
+  const [responseConfirmed, updateResponse] = useState(false);
 
   const checkReply = (e) => {
     if (e.target.value === 'yes') {
@@ -18,10 +19,15 @@ const NewRsvp = ({ updateStep }) => {
     console.log(isAttending);
     console.log(message);
     console.log('submitting!');
-    updateStep('edit');
+    updateResponse(true);
   };
 
-  return (
+  return responseConfirmed ? (
+    <h2>
+      Thank you for your response! You may adjust your response before the
+      deadline.
+    </h2>
+  ) : (
     <Container className="w-100" style={{ fontFamily: 'Merriweather' }}>
       <Alert className="d-flex justify-content-center" variant="danger">
         You have not RSVPd yet

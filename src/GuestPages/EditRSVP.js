@@ -12,6 +12,7 @@ const EditRsvp = ({ updateStep }) => {
   const [isEditing, enableEdits] = useState(false);
   const [isAttending, updateAttendance] = useState(previouseResponse.status);
   const [message, updateMessage] = useState(previouseResponse.rsvpNote);
+  const [responseConfirmed, updateResponse] = useState(false);
 
   const checkReply = (e) => {
     if (e.target.value === 'yes') {
@@ -25,7 +26,7 @@ const EditRsvp = ({ updateStep }) => {
     console.log(isAttending);
     console.log(message);
     console.log('submitting!');
-    updateStep('status');
+    updateResponse(true);
   };
 
   const editRSVP = () => {
@@ -65,7 +66,12 @@ const EditRsvp = ({ updateStep }) => {
       </Container>
     );
   }
-  return (
+  return responseConfirmed ? (
+    <h2>
+      Thank you for your response! You may adjust your response before the
+      deadline.
+    </h2>
+  ) : (
     <Container className="w-100" style={{ fontFamily: 'Merriweather' }}>
       <Alert className="d-flex justify-content-center" variant="warning">
         You have already RSVP'd
