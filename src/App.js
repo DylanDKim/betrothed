@@ -29,6 +29,7 @@ export default function App() {
    * 3. Add the route path after localhost:3000
    *
    */
+  const [inviteMessage, setInviteMessage] = useState('');
   const [chosedTheme, setChosedTheme] = useState('');
   const [galleryURL, setGalleryURL] = useState([
     'https://images.unsplash.com/photo-1587318634139-bbc108e44808?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80',
@@ -53,8 +54,6 @@ export default function App() {
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/event/:event_id" element={<Frame />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="rsvp-preview" element={<RSVP />} />
-          <Route path="invite" element={<InvitationForm />} />
           <Route path="registry" element={<Registry />} />
           <Route path="registrystart" element={<RegistryStart />} />
           <Route path="registryadd" element={<RegistryAdd />} />
@@ -81,6 +80,7 @@ export default function App() {
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
         </Route>
+
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
       </Routes>

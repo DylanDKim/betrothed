@@ -9,14 +9,6 @@ export const FittedImg = styled.img`
 
 export const ThemeImg = styled.img`
   cursor: pointer;
-  border: 3px gray solid;
-  &.marked {
-    // color: rgb(179, 0, 0);
-    // text-decoration: none;
-    cursor: help;
-    &:active {
-      // transform: none;
-      border: '2px red solid';
-    }
-  }
+  border: 1px gray solid;
+  object-fit: cover;
 `;

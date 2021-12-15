@@ -22,13 +22,15 @@ export default function InvitationForm({
   setGalleryURL,
   mainPhoto,
   setMainPhoto,
+  setInviteMessage,
 }) {
+  // const [inviteMessage, setInviteMessage] = useState('');
+
   // 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
   // 'https://images.unsplash.com/photo-1529636798458-92182e662485?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80'
   // const [mainPhoto, setMainPhoto] = useState(
   //   'https://images.unsplash.com/photo-1592218946197-f6c4816c5b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
   // );
-  const [inviteMessage, setInviteMessage] = useState('');
   // const [galleryURL, setGalleryURL] = useState([
   //   'https://images.unsplash.com/photo-1587318634139-bbc108e44808?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80',
   //   'https://images.unsplash.com/photo-1600038938045-b5fadbc55083?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
@@ -72,13 +74,13 @@ export default function InvitationForm({
       style={{
         width: '65%',
         backgroundImage: `url(${chosedTheme})`,
+        // backgroundColor: '#EED5DE',
         backgroundRepeat: 'no-repeat',
       }}
     >
       <h2>Your Wedding Website</h2>
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
-        {/* <Link to="/rsvp-preview" state={{ from: galleryURL }}> */}
         <Link to="/rsvp-preview">
           <PlumFilledButton>Preview Site</PlumFilledButton>
         </Link>
@@ -122,7 +124,6 @@ export default function InvitationForm({
           </div>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          {/* <Link to="/rsvp-preview" state={{ from: galleryURL }}> */}
           <Link to="/rsvp-preview">
             <PlumFilledButton type="submit">Save Changes</PlumFilledButton>
           </Link>
