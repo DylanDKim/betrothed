@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Carousel, Container, Row, Col, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
-
+// import metadataParser from './utils/metadataParse';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
+
+const { parser } = require('html-metadata-parser');
 
 export default function ResgistryAdd() {
   const [registry, setRegistry] = useState([]);
@@ -13,14 +16,43 @@ export default function ResgistryAdd() {
   const handleClose = () => setModalOn(false);
   // const handleShow = () => setModalOn(true);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRegistryItem((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e.target.value);
+    // console.log(e);
+    const { category } = registryItem;
+    axios
+      .post('http://localhost:8080/registry', registryItem)
+      .then((results) => {
+        const { meta } = results.data;
+        // console.log('meta', meta);
+        // console.log('images', images);
+        // console.log('og', og);
+        // console.log('category', category);
+        setRegistry((prevState) => [
+          ...prevState,
+          { url: meta.url, title: meta.title, category: category },
+        ]);
+      });
   };
 
   return (
     <Container>
       <Row className="mt-5">
+        <button type="button" onClick={() => console.log(registryItem)}>
+          Registry Item
+        </button>
+        <button type="button" onClick={() => console.log(registry)}>
+          Registry
+        </button>
         <Col md={6}>
           <h1 style={{ fontSize: '64px', fontFamily: 'Alex Brush' }}>
             Registry
@@ -70,13 +102,6 @@ export default function ResgistryAdd() {
         ) : (
           <h3>You have {registry.length} gifts in your registry!</h3>
         )}
-
-        <button
-          type="button"
-          onClick={() => setRegistry([...registry, 'five'])}
-        >
-          Click
-        </button>
       </Row>
       <Row>
         <h2
@@ -125,7 +150,15 @@ export default function ResgistryAdd() {
                         category
                       </span>
                       <br />
-                      <input type="text" name="category" />
+                      <input
+                        required
+                        type="text"
+                        name="category"
+                        onChange={
+                          handleChange
+                          // console.log(e.target.value)
+                        }
+                      />
                     </label>
                   </Col>
                   <Col>
@@ -140,7 +173,15 @@ export default function ResgistryAdd() {
                         url
                       </span>
                       <br />
-                      <input type="text" name="url" />
+                      <input
+                        required
+                        type="text"
+                        name="url"
+                        onChange={
+                          handleChange
+                          // console.log(e.target.value)
+                        }
+                      />
                     </label>
                   </Col>
                 </Row>
