@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InvitationForm from './Invitation/InvitationForm';
 import RSVP from './Invitation/RSVP';
 import Registry from './registry/registry';
+import RegistryStart from './registry/registrystart';
+import RegistryAdd from './registry/registryadd';
 import Invite from './GuestPages/Invite';
 import RsvpForm from './GuestPages/RSVP';
 import Onboarding1 from './Onboarding/Onboarding1';
@@ -29,6 +31,8 @@ export default function App() {
           }
         />
         <Route path="/registry" element={<Registry />} />
+        <Route path="/registrystart" element={<RegistryStart />} />
+        <Route path="/registryadd" element={<RegistryAdd />} />
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/browse-theme" element={<BrowseTheme />} />
