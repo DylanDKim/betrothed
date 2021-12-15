@@ -22,41 +22,27 @@ export default function ResgistryAdd() {
     }));
   };
 
-  const handleClaimItem = (e) => {
-    const { name } = e.target;
-    setRegistry(registry.filter((item) => item.url !== name));
-    console.log(name);
+  const handleClick = (url) => {
+    window.location.assign(url);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
-    // console.log(e);
+
     const { category } = registryItem;
-    axios
-      .post('http://localhost:8080/registry', registryItem)
-      .then((results) => {
-        const { meta } = results.data;
-        // console.log('meta', meta);
-        // console.log('images', images);
-        // console.log('og', og);
-        // console.log('category', category);
-        setRegistry((prevState) => [
-          ...prevState,
-          { url: meta.url, title: meta.title, category: category },
-        ]);
-      });
+    axios.post('/registry', registryItem).then((results) => {
+      const { meta } = results.data;
+
+      setRegistry((prevState) => [
+        ...prevState,
+        { url: meta.url, title: meta.title, category: category },
+      ]);
+    });
   };
 
   return (
     <Container>
       <Row className="mt-5">
-        <button type="button" onClick={() => console.log(registryItem)}>
-          Registry Item
-        </button>
-        <button type="button" onClick={() => console.log(registry)}>
-          Registry
-        </button>
         <Col md={6}>
           <h1 style={{ fontSize: '64px', fontFamily: 'Alex Brush' }}>
             Registry
@@ -108,12 +94,10 @@ export default function ResgistryAdd() {
             <Card>
               <Card.Body>
                 <Card.Title>{item.category}</Card.Title>
-                <Card.Text>
-                  <a href={item.url}>{item.title}</a>
-                </Card.Text>
+                <Card.Text>{item.title}</Card.Text>
                 <PlumButton
                   name={item.title}
-                  onClick={(e) => handleClaimItem(e)}
+                  onClick={() => handleClick(item.url)}
                   className="float-right"
                   style={{ float: 'right' }}
                   variant="primary"
@@ -159,17 +143,14 @@ export default function ResgistryAdd() {
                           fontFamily: 'Faustina serif',
                         }}
                       >
-                        category
+                        name
                       </span>
                       <br />
                       <input
                         required
                         type="text"
                         name="category"
-                        onChange={
-                          handleChange
-                          // console.log(e.target.value)
-                        }
+                        onChange={handleChange}
                       />
                     </label>
                   </Col>
@@ -189,10 +170,7 @@ export default function ResgistryAdd() {
                         required
                         type="text"
                         name="url"
-                        onChange={
-                          handleChange
-                          // console.log(e.target.value)
-                        }
+                        onChange={handleChange}
                       />
                     </label>
                   </Col>
