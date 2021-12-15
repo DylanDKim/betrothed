@@ -63,12 +63,22 @@ export default function InvitationForm() {
 
   const location = useLocation();
   const { from } = location.state;
+  // let currentBgImg = '';
+
+  // from === null ? (currentBgImg = 'none') : (currentBgImg = `url(${from})`);
+
+  // if (from === null) {
+  //   currentBgImg = 'none';
+  // } else {
+  //   currentBgImg = `url(${from})`;
+  // }
 
   return (
     <Container
       style={{
         width: '65%',
         backgroundImage: `url(${from})`,
+        // backgroundImage: `${currentBgImg}`,
         backgroundRepeat: 'no-repeat',
       }}
     >
