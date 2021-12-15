@@ -3,10 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button, Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Hello() {
-  const location = useLocation();
-  const { from } = location.state;
-
+export default function RSVP({ galleryURL }) {
   return (
     <>
       <h2>This is RSVP Page</h2>
@@ -14,7 +11,7 @@ export default function Hello() {
         <Button>Click me to Go to Invitation Page</Button>
         <div className="d-flex justify-content-center">
           <Carousel className="d-block h-25 w-25">
-            {(from || []).map((url) => (
+            {(galleryURL || []).map((url) => (
               <Carousel.Item>
                 <img
                   className="d-block h-100 w-100"

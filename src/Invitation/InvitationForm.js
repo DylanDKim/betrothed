@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Card,
@@ -16,18 +16,24 @@ import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function InvitationForm() {
+export default function InvitationForm({
+  chosedTheme,
+  galleryURL,
+  setGalleryURL,
+  mainPhoto,
+  setMainPhoto,
+}) {
   // 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
   // 'https://images.unsplash.com/photo-1529636798458-92182e662485?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80'
-  const [mainPhoto, setMainPhoto] = useState(
-    'https://images.unsplash.com/photo-1592218946197-f6c4816c5b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-  );
+  // const [mainPhoto, setMainPhoto] = useState(
+  //   'https://images.unsplash.com/photo-1592218946197-f6c4816c5b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+  // );
   const [inviteMessage, setInviteMessage] = useState('');
-  const [galleryURL, setGalleryURL] = useState([
-    'https://images.unsplash.com/photo-1587318634139-bbc108e44808?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80',
-    'https://images.unsplash.com/photo-1600038938045-b5fadbc55083?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
-    'https://images.unsplash.com/photo-1595280544618-d5136675b6ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80',
-  ]);
+  // const [galleryURL, setGalleryURL] = useState([
+  //   'https://images.unsplash.com/photo-1587318634139-bbc108e44808?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80',
+  //   'https://images.unsplash.com/photo-1600038938045-b5fadbc55083?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+  //   'https://images.unsplash.com/photo-1595280544618-d5136675b6ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80',
+  // ]);
   const galleryArray = [];
   const hiddenMainPhotoInput = useRef(null);
   const hiddenGalleryInput = useRef(null);
@@ -61,31 +67,19 @@ export default function InvitationForm() {
     setGalleryURL([...galleryArray, ...galleryURL]);
   };
 
-  const location = useLocation();
-  const { from } = location.state;
-  // let currentBgImg = '';
-
-  // from === null ? (currentBgImg = 'none') : (currentBgImg = `url(${from})`);
-
-  // if (from === null) {
-  //   currentBgImg = 'none';
-  // } else {
-  //   currentBgImg = `url(${from})`;
-  // }
-
   return (
     <Container
       style={{
         width: '65%',
-        backgroundImage: `url(${from})`,
-        // backgroundImage: `${currentBgImg}`,
+        backgroundImage: `url(${chosedTheme})`,
         backgroundRepeat: 'no-repeat',
       }}
     >
       <h2>Your Wedding Website</h2>
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
-        <Link to="/rsvp-preview" state={{ from: galleryURL }}>
+        {/* <Link to="/rsvp-preview" state={{ from: galleryURL }}> */}
+        <Link to="/rsvp-preview">
           <PlumFilledButton>Preview Site</PlumFilledButton>
         </Link>
       </Stack>
@@ -128,7 +122,8 @@ export default function InvitationForm() {
           </div>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          <Link to="/rsvp-preview" state={{ from: galleryURL }}>
+          {/* <Link to="/rsvp-preview" state={{ from: galleryURL }}> */}
+          <Link to="/rsvp-preview">
             <PlumFilledButton type="submit">Save Changes</PlumFilledButton>
           </Link>
         </div>
