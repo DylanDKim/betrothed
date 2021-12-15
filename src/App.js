@@ -80,7 +80,6 @@ export default function App() {
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
         </Route>
-
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
       </Routes>
