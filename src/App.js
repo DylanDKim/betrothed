@@ -8,6 +8,7 @@ import RsvpForm from './GuestPages/RSVP';
 import Onboarding1 from './Onboarding/Onboarding1';
 import BrowseTheme from './Invitation/BrowseTheme';
 import ChooseContent from './Invitation/ChooseContent';
+import GuestListMainPage from './GuestList/GuestListMainPage';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/choose-content" element={<ChooseContent />} />
         <Route path="/invitation-form" element={<InvitationForm />} />
         <Route path="/rsvp-preview" element={<RSVP />} />
+        <Route path="/guestlist" element={<GuestListMainPage />} />
       </Routes>
     </Router>
   );
