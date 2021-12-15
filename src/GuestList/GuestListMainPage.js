@@ -24,7 +24,9 @@ const GuestListMainPage = () => {
           <Link to="/dashboard">
             <Button>Back to Dashboard</Button>
           </Link>
-          <Button variant="primary" onClick={handleShow}>Add Guest</Button>
+          <Button variant="primary" onClick={handleShow}>
+            Add Guest
+          </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Add A Guest</Modal.Title>
