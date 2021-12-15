@@ -12,7 +12,6 @@ const editGuestInfo = (e) => {
 };
 
 const readNoteFromGuest = (e) => {
-  // TODO: make this click handler run, but prevent parent handler from running (editGuestInfo); look into stopPropagation
   const currentRow = e.currentTarget.closest('tr');
   const noteFromGuest = currentRow.nextSibling.nextSibling;
   return noteFromGuest.className.indexOf('collapse show-message') > -1
@@ -21,12 +20,6 @@ const readNoteFromGuest = (e) => {
 };
 
 const createListOfGuests = () => {
-  /*
-  TODO:
-  Replace Note button in table with message icon
-  Add edit functionality for guest name and email
-  Add delete handler/functionality
-  */
   const guestData = Object.keys(mockData.guests);
   const guestList = guestData.map((entry) => {
     const guests = mockData.guests[entry].map((guest) => (
@@ -153,9 +146,3 @@ const GuestListMainPage = () => (
 );
 
 export default GuestListMainPage;
-
-/*
-TODO:
-Add Header
-Add Footer
-*/
