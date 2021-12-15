@@ -1,0 +1,82 @@
+// example api response
+const mockData = {
+  _id: '61b79b9e0ac02dbe3e12fd1b',
+  coupleName1: 'Ford',
+  coupleName2: 'Ferrari',
+  email: 'ford_ferrari_wedding@domain.com',
+  date: '2022-12-13T00:00:00.000Z',
+  venue: 'The Big Venue',
+  addressLine1: '123 Big Venue St.',
+  addressLine2: 'Suite 12',
+  city: 'Austin',
+  state: 'TX',
+  zip: '12345',
+  guestLimit: 200,
+  rsvpDeadline: '2022-06-13T00:00:00.000Z',
+  inviteMessage: 'Please join us in celebrating our new life together.',
+  dashboardPhotoURL: 'shorturl.at/tuHZ3',
+  bannerPhotoURL: 'shorturl.at/tuHZ3',
+  galleryPhotos: {
+    1: 'shorturl.at/tuHZ3',
+    2: 'shorturl.at/tuHZ3',
+  },
+  colors: {
+    1: '#ABC123',
+    2: '#123ABC',
+  },
+  __v: 0,
+  guests: {
+    Individual: [
+      {
+        _id: '61b79f4b660830696a8985c3',
+        firstName: 'Guest',
+        lastName: 'Two',
+        email: 'guest_two@domain.com',
+        rsvpStatus: 'pending',
+        group: 'Individual',
+        event: '61b79b9e0ac02dbe3e12fd1b',
+        __v: 0,
+      },
+    ],
+    'Three Family': [
+      {
+        _id: '61b7acb5da2ddaf0d73c5aae',
+        firstName: 'Guest',
+        lastName: 'Three',
+        email: 'guest_three@domain.com',
+        rsvpStatus: 'pending',
+        group: 'Three Family',
+        event: '61b79b9e0ac02dbe3e12fd1b',
+        __v: 0,
+      },
+    ],
+    'Four Family': [
+      {
+        _id: '61b7b1edda2ddaf0d73c5acc',
+        firstName: 'Guest',
+        lastName: 'Four',
+        email: 'guest_four@domain.com',
+        rsvpStatus: 'attending',
+        group: 'Four Family',
+        event: '61b79b9e0ac02dbe3e12fd1b',
+        __v: 0,
+        rsvpLastUpdated: '2021-12-13T20:50:25.986Z',
+        rsvpNote: "Thanks for the invite! I'll be there.",
+      },
+      {
+        _id: 'a',
+        firstName: 'Guest',
+        lastName: 'Five',
+        email: 'guest_five@domain.com',
+        rsvpStatus: 'pending',
+        group: 'Four Family',
+        event: '61b79b9e0ac02dbe3e12fd1b',
+        __v: 0,
+        rsvpLastUpdated: '2021-12-13T20:50:25.986Z',
+        rsvpNote: "Thanks for the invite! I'll be there.",
+      },
+    ],
+  },
+};
+
+export default mockData;
