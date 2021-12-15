@@ -11,6 +11,11 @@ import Onboarding1 from './Onboarding/Onboarding1';
 import BrowseTheme from './Invitation/BrowseTheme';
 import ChooseContent from './Invitation/ChooseContent';
 import GuestListMainPage from './GuestList/GuestListMainPage';
+import Onboarding2 from './Onboarding/Onboarding2';
+import Onboarding3 from './Onboarding/Onboarding3';
+import Onboarding4 from './Onboarding/Onboarding4';
+import Onboarding5 from './Onboarding/Onboarding5';
+import Dashboard from './Dashboard/Dashboard';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -23,13 +28,14 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Onboarding1 />
-            // <h2>Just localhost</h2>
-          }
-        />
+        <Route exact path="/onboarding-1" element={<Onboarding1 />} />
+        <Route exact path="/onboarding-2" element={<Onboarding2 />} />
+        <Route exact path="/onboarding-3" element={<Onboarding3 />} />
+        <Route exact path="/onboarding-4" element={<Onboarding4 />} />
+        <Route exact path="/onboarding-5" element={<Onboarding5 />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/rsvp-preview" element={<RSVP />} />
+        <Route path="/invite" element={<InvitationForm />} />
         <Route path="/registry" element={<Registry />} />
         <Route path="/registrystart" element={<RegistryStart />} />
         <Route path="/registryadd" element={<RegistryAdd />} />

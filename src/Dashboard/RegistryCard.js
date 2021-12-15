@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { PlumCard } from '../Common/styled/cardstyles/cardstyles';
 
 export default function InvitationCard(props) {
   const [attending, setAttending] = useState(0);
 
   return (
-    <div>
+    <PlumCard>
       <div>
         <h3>Guest List</h3>
       </div>
@@ -23,6 +24,6 @@ export default function InvitationCard(props) {
       <Link to="/dashboard">
         <Button>add guests</Button>
       </Link>
-    </div>
+    </PlumCard>
   );
 }

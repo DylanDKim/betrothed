@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { PinkCard } from '../Common/styled/cardstyles/cardstyles';
 
 export default function InvitationCard(props) {
   const [numGifts, setNumGifts] = useState(0);
 
   return (
-    <div>
+    <PinkCard>
       <div>
         <h3>Invitation</h3>
       </div>
@@ -23,6 +24,6 @@ export default function InvitationCard(props) {
       <Link to="/dashboard">
         <Button>browse themes</Button>
       </Link>
-    </div>
+    </PinkCard>
   );
 }
