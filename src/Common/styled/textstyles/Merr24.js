@@ -14,7 +14,7 @@ const BMerr24 = styled.div`
 const PMerr24 = styled.div`
   font-family: 'Merriwether';
   font-size: 24px;
-  color: white;
+  color: #8b5b6e;
 `;
 
 export { WMerr24, BMerr24, PMerr24 };

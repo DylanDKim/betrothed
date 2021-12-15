@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RegistryCard from './RegistryCard';
 import InvitationCard from './InvitationCard';
 import GuestListCard from './GuestListCard';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
@@ -15,9 +14,9 @@ import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
 import CardFormat from '../Common/styled/cardstyles/cardformat';
 
 export default function Dashboard(props) {
-  const [firstName, setFirstName] = useState('');
-  const [partnerFirstName, setPartnerFirstName] = useState('');
-  const [daysLeft, setDaysLeft] = useState('');
+  const [firstName, setFirstName] = useState('John');
+  const [partnerFirstName, setPartnerFirstName] = useState('Jane');
+  const [daysLeft, setDaysLeft] = useState('12');
 
   return (
     <div>
@@ -28,12 +27,12 @@ export default function Dashboard(props) {
         <h2>{daysLeft} days left!</h2>
       </div>
       <img alt="dashboard cover" />
-      <div>Progress bar</div>
+      <ProgressBar now={0} />
       <h3>Planning tools</h3>
       <CardFormat>
-        <RegistryCard />
-        <InvitationCard />
         <GuestListCard />
+        <InvitationCard />
+        <RegistryCard />
       </CardFormat>
     </div>
   );

@@ -1,29 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PlumCard } from '../Common/styled/cardstyles/cardstyles';
+import {
+  BlueOpenCard,
+  BlueFilledCard,
+} from '../Common/styled/cardstyles/bluecardstyle';
 
-export default function InvitationCard(props) {
-  const [attending, setAttending] = useState(0);
+export default function Dashboard(props) {
+  const [numGifts, setNumGifts] = useState(0);
 
   return (
-    <PlumCard>
-      <div>
-        <h3>Guest List</h3>
-      </div>
-      <div>
-        {attending === 0 ? (
-          <h3>No guests have been invited yet</h3>
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+        <Card.Title>Registry</Card.Title>
+        {numGifts === 0 ? (
+          <h3>Add gifts</h3>
         ) : (
           <h3>
-            {attending} {'\n'} guests are attending
+            {numGifts} <br /> are unclaimed
           </h3>
         )}
-      </div>
-      <Link to="/dashboard">
-        <Button>add guests</Button>
-      </Link>
-    </PlumCard>
+        <Link to="/registry">
+          <Button>build your registry</Button>
+        </Link>
+      </Card.Body>
+    </Card>
+    // <BlueOpenCard>
+    //   <div>
+    //     <h3>Registry</h3>
+    //   </div>
+    //   <div>
+    //     {numGifts === 0 ? (
+    //       <h3>Add gifts</h3>
+    //     ) : (
+    //       <h3>
+    //         {numGifts} <br /> are unclaimed
+    //       </h3>
+    //     )}
+    //   </div>
+    //   <Link to="/dashboard">
+    //     <Button>build your registry</Button>
+    //   </Link>
+    // </BlueOpenCard>
   );
 }

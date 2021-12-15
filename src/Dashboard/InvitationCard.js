@@ -1,29 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PinkCard } from '../Common/styled/cardstyles/cardstyles';
+import {
+  BlueOpenCard,
+  BlueFilledCard,
+} from '../Common/styled/cardstyles/bluecardstyle';
 
-export default function InvitationCard(props) {
+export default function Dashboard(props) {
   const [numGifts, setNumGifts] = useState(0);
 
   return (
-    <PinkCard>
-      <div>
-        <h3>Invitation</h3>
-      </div>
-      <div>
-        {numGifts > 0 ? (
-          <h3>Customize your wedding website</h3>
-        ) : (
-          <h3>
-            Your customized {'\n'} invite has been {'\n'} sent to guests
-          </h3>
-        )}
-      </div>
-      <Link to="/dashboard">
-        <Button>browse themes</Button>
-      </Link>
-    </PinkCard>
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+        <Card.Title>Invitation</Card.Title>
+        <h3>Customize your wedding website</h3>
+        <Link to="/invite">
+          <Button>build your registry</Button>
+        </Link>
+      </Card.Body>
+    </Card>
   );
 }
