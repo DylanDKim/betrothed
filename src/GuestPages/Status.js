@@ -10,6 +10,10 @@ const Status = ({ updateStep }) => {
     updateStep('new');
   };
 
+  const toEdit = () => {
+    updateStep('edit');
+  };
+
   return (
     <Container className="d-flex justify-content-center w-50 mt-3">
       <Row style={{ fontFamily: 'Merriweather' }}>
@@ -17,6 +21,11 @@ const Status = ({ updateStep }) => {
         <InputGroup className="d-flex justify-content-center">
           <InputGroup.Text onClick={checkNextStep}>
             <i className="fa fa-search" />
+            new
+          </InputGroup.Text>
+          <InputGroup.Text onClick={toEdit}>
+            <i className="fa fa-search" />
+            edit
           </InputGroup.Text>
           <FormControl
             type="email"
