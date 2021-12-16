@@ -26,7 +26,7 @@ export default function Dashboard(props) {
             {firstName} and {partnerFirstName}
           </BAlexBrushH1>
         </Col>
-        <Col>
+        <Col className="d-flex justify-content-end">
           <BFaustinaH3>{daysLeft} days left!</BFaustinaH3>
         </Col>
       </Row>
@@ -48,14 +48,14 @@ export default function Dashboard(props) {
 
       <ProgressBar style={{ marginTop: '1em' }} now={0} />
       <h3>Planning tools</h3>
-      <Row className="d-flex justify-content-around">
-        <Col>
+      <Row style={{ margin: '.5em 0 3em 0' }}>
+        <Col className="d-flex justify-content-around">
           <GuestListCard />
         </Col>
-        <Col>
+        <Col className="d-flex justify-content-around">
           <InvitationCard />
         </Col>
-        <Col>
+        <Col className="d-flex justify-content-around">
           <RegistryCard />
         </Col>
       </Row>
