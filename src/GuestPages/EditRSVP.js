@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Container, Form, Alert, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Success from './Success';
 
 const EditRsvp = ({ updateStep, rsvpData }) => {
   const previouseResponse = {
@@ -67,10 +68,7 @@ const EditRsvp = ({ updateStep, rsvpData }) => {
     );
   }
   return responseConfirmed ? (
-    <h2>
-      Thank you for your response! You may adjust your response before the
-      deadline.
-    </h2>
+    <Success />
   ) : (
     <Container className="w-100" style={{ fontFamily: 'Merriweather' }}>
       <Alert className="d-flex justify-content-center" variant="warning">
