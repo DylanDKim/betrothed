@@ -45,7 +45,7 @@ export default function App() {
           <Route path="/browse-theme" element={<BrowseTheme />} />
           <Route path="/choose-content" element={<ChooseContent />} />
           <Route path="/invitation-form" element={<InvitationForm />} />
-          <Route path="/rsvp-preview" element={<RSVP />} />
+          <Route path="/guestRegistry" element={<GuestRegistry />} />
           <Route path="/guestlist" element={<GuestListMainPage />} />
         </Route>
         <Route path="/guest-invite" element={<Invite />} />
