@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { renderRsvpStats, createListOfGuests } from './utils';
 import AddForm from './AddForm';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
-import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
 
 const GuestListMainPage = () => {
