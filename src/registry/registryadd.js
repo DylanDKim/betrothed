@@ -9,7 +9,6 @@ export default function ResgistryAdd() {
   const [registry, setRegistry] = useState([]);
   const [registryItem, setRegistryItem] = useState({});
   const [modalOn, setModalOn] = useState(false);
-  const [claimed, setClaimed] = useState([]);
 
   const handleClose = () => setModalOn(false);
   // const handleShow = () => setModalOn(true);
@@ -59,7 +58,7 @@ export default function ResgistryAdd() {
               {registry.length} {registry.length === 1 ? 'Gift' : 'Gifts'}{' '}
               Requested
             </h2>
-            {claimed.length} Claimed
+            0 Claimed
           </div>
         </Col>
         <Col md={3} className="ml-1">
