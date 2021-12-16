@@ -80,7 +80,7 @@ export default function InvitationForm({
         background: `url(${chosedTheme}) no-repeat center center fixed`,
         backgroundSize: 'cover',
         // backgroundColor: '#EED5DE',
-        // backgroundRepeat: 'no-repeat',
+        // backgroundRepeat: 'no-repeat', -------------To be revised
       }}
     >
       <BAlexBrushH1>Your Wedding Website</BAlexBrushH1>
@@ -104,7 +104,6 @@ export default function InvitationForm({
       </div>
       <Form className="mt-3">
         <Form.Group className="mb-3" controlId="formMessage">
-          {/* <Form.Label>Message</Form.Label> */}
           <BFaustinaH3>Message</BFaustinaH3>
           <Form.Control
             as="textarea"
