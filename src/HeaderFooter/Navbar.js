@@ -23,10 +23,17 @@ export default function BetrothedNavbar() {
       <Navbar expand="lg" variant="light" bg="light">
         <Container>
           <Nav className="me-auto">
+<<<<<<< HEAD
             <Nav.Link href={dashboardLink}>Dashboard</Nav.Link>
             <Nav.Link href={guestlistLink}>Guests</Nav.Link>
             <Nav.Link href={inviteLink}>Invitation</Nav.Link>
             <Nav.Link href={registryAddLink}>Registry</Nav.Link>
+=======
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link href="/guestlist">Guests</Nav.Link>
+            <Nav.Link href="/browse-theme">Invitation</Nav.Link>
+            <Nav.Link href="/registryadd">Registry</Nav.Link>
+>>>>>>> 5309561 (WIP RSVP Preview)
           </Nav>
         </Container>
       </Navbar>

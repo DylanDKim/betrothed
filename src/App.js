@@ -71,6 +71,8 @@ export default function App() {
                 setGalleryURL={setGalleryURL}
                 mainPhoto={mainPhoto}
                 setMainPhoto={setMainPhoto}
+                inviteMessage={inviteMessage}
+                setInviteMessage={setInviteMessage}
               />
             }
           />
