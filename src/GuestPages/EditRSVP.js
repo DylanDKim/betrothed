@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { Container, Form, Alert, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const EditRsvp = ({ updateStep }) => {
+const EditRsvp = ({ updateStep, rsvpData }) => {
   const previouseResponse = {
     status: 'attending',
     rsvpNote: 'Looking forward to your special day!!!!',
   };
 
   const [isEditing, enableEdits] = useState(false);
-  const [isAttending, updateAttendance] = useState(previouseResponse.status);
-  const [message, updateMessage] = useState(previouseResponse.rsvpNote);
+  const [isAttending, updateAttendance] = useState(rsvpData.rsvpStatus);
+  const [message, updateMessage] = useState(rsvpData.rsvpNote);
   const [responseConfirmed, updateResponse] = useState(false);
 
   const checkReply = (e) => {
@@ -47,13 +47,13 @@ const EditRsvp = ({ updateStep }) => {
           <Form.Group className="w-50">
             <Form.Label className="text-muted mb-0">Attending</Form.Label>
             <Form.Control as="text" disabled={!isEditing}>
-              {previouseResponse.status === 'attending' ? 'Yes!' : 'No'}
+              {rsvpData.rsvpStatus === 'attending' ? 'Yes!' : 'No'}
             </Form.Control>
             <Form.Label className="text-muted mb-0 mt-4">
               Message to the couple (optional)
             </Form.Label>
             <Form.Control as="textarea" disabled={!isEditing}>
-              {previouseResponse.rsvpNote}
+              {rsvpData.rsvpNote}
             </Form.Control>
           </Form.Group>
         </Form>

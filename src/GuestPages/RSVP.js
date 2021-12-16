@@ -10,17 +10,22 @@ import EditRsvp from './EditRSVP';
 
 const RsvpForm = () => {
   const [currentStep, updateStep] = useState('status');
+  const [rsvpData, updateData] = useState(null);
 
   return (
     <Container fluid>
       <Row style={{ height: '100vh' }}>
         <Col md={7} sm={12}>
           <InfoRsvp />
-          {currentStep === 'status' && <Status updateStep={updateStep} />}
-          {currentStep === 'new' && <NewRsvp updateStep={updateStep} />}
-          {currentStep === 'edit' && <EditRsvp updateStep={updateStep} />}
-          {/* {currentStep === 'newConfirmation' && <Status />} */}
-          {/* {currentStep === 'editConfirmation' && <Status />} */}
+          {currentStep === 'status' && (
+            <Status updateStep={updateStep} updateData={updateData} />
+          )}
+          {currentStep === 'new' && (
+            <NewRsvp updateStep={updateStep} rsvpData={rsvpData} />
+          )}
+          {currentStep === 'edit' && (
+            <EditRsvp updateStep={updateStep} rsvpData={rsvpData} />
+          )}
           <footer>
             <h2
               className="d-flex justify-content-center"
