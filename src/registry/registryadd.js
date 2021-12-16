@@ -101,12 +101,15 @@ export default function ResgistryAdd() {
             >
               <Card.Body>
                 <Card.Title>{item.category}</Card.Title>
-                <Card.Text>{item.title}</Card.Text>
+                <Card.Text style={{ height: '8rem' }}>{item.title}</Card.Text>
+
                 <PlumButton
                   name={item.title}
                   onClick={() => handleClick(item.url)}
                   className="float-right"
-                  style={{ float: 'right' }}
+                  style={{
+                    float: 'right',
+                  }}
                   variant="primary"
                 >
                   View
