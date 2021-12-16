@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -11,13 +11,13 @@ import {
   Faustina20,
 } from '../Common/styled/textstyles/FaustinaDash';
 
-export default function Dashboard(props) {
-  const [numGifts, setNumGifts] = useState(0);
-
+export default function RegistryCard(props) {
+  const { event_id: eventId } = useParams();
+  const link = `/event/${eventId}/registrystart`;
   return (
     <div>
-      <Link to="/guestlist" class="text-decoration-none">
-        {numGifts === 0 ? (
+      <Link to={link} class="text-decoration-none">
+        {props.numGifts === 0 ? (
           <PlumOpenCard
             className="text-center"
             md="justify-content-center"
@@ -77,11 +77,11 @@ export default function Dashboard(props) {
               <Row>
                 <Col>
                   <Faustina28 style={{ marginTop: '1.5em', fontSize: '42px' }}>
-                    {numGifts}
+                    {props.numGifts}
                   </Faustina28>
                   <Faustina20>
                     items are <br />
-                    unclaimed
+                    claimed
                   </Faustina20>
                 </Col>
               </Row>

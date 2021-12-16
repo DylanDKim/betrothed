@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Button, Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -11,13 +11,14 @@ import {
   Faustina20,
 } from '../Common/styled/textstyles/FaustinaDash';
 
-export default function Dashboard(props) {
-  const [numGuests, setNumGuests] = useState(0);
+export default function GuestListCard(props) {
+  const { event_id: eventId } = useParams();
+  const link = `/event/${eventId}/guestlist`;
 
   return (
     <div>
-      <Link to="/guestlist" class="text-decoration-none">
-        {numGuests === 0 ? (
+      <Link to={link} class="text-decoration-none">
+        {props.numGuests === 0 ? (
           <BlueOpenCard
             className="text-center"
             md="justify-content-center"
@@ -72,7 +73,7 @@ export default function Dashboard(props) {
               <Row>
                 <Col>
                   <Faustina28 style={{ marginTop: '1.5em', fontSize: '42px' }}>
-                    {numGuests}
+                    {props.numGuests}
                   </Faustina28>
                   <Faustina20>
                     guests are <br />

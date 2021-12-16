@@ -19,6 +19,7 @@ import Onboarding5 from './Onboarding/Onboarding5';
 import Dashboard from './Dashboard/Dashboard';
 import Frame from './HeaderFooter/Frame';
 import Landing from './Onboarding/Landing';
+import Onboarding from './Onboarding/Onboarding';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -31,7 +32,9 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Landing />} />
+        <Route path="/" element={<Onboarding />}>
+          <Route exact path="landing" element={<Landing />} />
+        </Route>
         <Route exact path="/onboarding-1/" element={<Onboarding1 />} />
         <Route exact path="/onboarding-2" element={<Onboarding2 />} />
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
@@ -39,7 +42,7 @@ export default function App() {
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
         <Route exact path="/guest-invite" element={<Invite />} />
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
-        <Route path="/event" element={<Frame />}>
+        <Route path="/event/:event_id" element={<Frame />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="rsvp-preview" element={<RSVP />} />
           <Route path="invite" element={<InvitationForm />} />

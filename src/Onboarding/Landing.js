@@ -12,13 +12,8 @@ import {
 } from '../Common/styled/imagestyles/imagestyle';
 import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
 
-export default function Landing(props) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
-  const [partnerFirstName, setPartnerFirstName] = useState('');
-  const [partnerLastName, setPartnerLastName] = useState('');
-
+export default function Landing({ email, setEmail }) {
+  const [date, setDate] = useState('0');
   return (
     <Container fluid>
       <Row>
@@ -62,8 +57,8 @@ export default function Landing(props) {
                 <BlueInput
                   type="text"
                   required
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  value={props.email}
+                  onChange={(e) => props.setEmail(e.target.value)}
                   placeholder="your email address"
                 />
               </div>

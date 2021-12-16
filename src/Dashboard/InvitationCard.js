@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -11,12 +11,13 @@ import {
   Faustina20,
 } from '../Common/styled/textstyles/FaustinaDash';
 
-export default function Dashboard(props) {
-  const [invitationMade, setInvitationMade] = useState(true);
+export default function InvitationCard(props) {
+  const { event_id: eventId } = useParams();
+  const link = `/event/${eventId}/browse-theme`;
   return (
     <div>
-      <Link to="/browse-theme" class="text-decoration-none">
-        {invitationMade ? (
+      <Link to={link} class="text-decoration-none">
+        {props.invitationMade ? (
           <PinkOpenCard
             className="text-center"
             md="justify-content-center"
