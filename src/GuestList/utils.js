@@ -25,7 +25,7 @@ export const createListOfGuests = () => {
     const guests = mockData.guests[entry].map((guest) => (
       <>
         <tr onClick={editGuestInfo}>
-          <td />
+          <td>{guest.group !== 'Individual' ? guest.group : ''}</td>
           <td>{guest.firstName + guest.lastName}</td>
           <td>{guest.email}</td>
           <td>{guest.rsvpStatus}</td>
@@ -38,7 +38,7 @@ export const createListOfGuests = () => {
           )}
         </tr>
         <tr className="collapse">
-          <td />
+          <td>Group</td>
           <td>Edit Name</td>
           <td>Edit Email</td>
           <td colSpan="2">
