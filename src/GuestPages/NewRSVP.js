@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Row, Button, Form, Alert } from 'react-bootstrap';
+import { Container, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
 import Success from './Success';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import updateRSVP from './utils/updateRSVP';
 
-const { URL } = require('../../config/private.config');
-
-const NewRsvp = ({ updateStep, rsvpData }) => {
+const NewRsvp = ({ rsvpData }) => {
   const [isAttending, updateAttendance] = useState(null);
   const [message, updateMessage] = useState('');
   const [responseConfirmed, updateResponse] = useState(false);
