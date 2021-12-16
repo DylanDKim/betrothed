@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Container, Form, Alert, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Success from './Success';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
+import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 
 const EditRsvp = ({ updateStep, rsvpData }) => {
   const previouseResponse = {
@@ -58,12 +60,14 @@ const EditRsvp = ({ updateStep, rsvpData }) => {
             </Form.Control>
           </Form.Group>
         </Form>
-        <Button
-          className="d-flex justify-content-center text-center w-25"
-          onClick={editRSVP}
-        >
-          Edit
-        </Button>
+        <div className="d-flex justify-content-center mt-3">
+          <PlumFilledButton
+            className="d-flex justify-content-center text-center w-25"
+            onClick={editRSVP}
+          >
+            Edit
+          </PlumFilledButton>
+        </div>
       </Container>
     );
   }
@@ -95,18 +99,22 @@ const EditRsvp = ({ updateStep, rsvpData }) => {
           />
         </Form.Group>
       </Form>
-      <Button
-        className="d-flex justify-content-center text-center w-25"
-        onClick={submitEdits}
-      >
-        Submit
-      </Button>
-      <Button
-        className="d-flex justify-content-center text-center w-25"
-        onClick={cancelEdits}
-      >
-        Cancel
-      </Button>
+      <div className="d-flex justify-content-center mt-3">
+        <PlumFilledButton
+          className="d-flex justify-content-center text-center w-25"
+          onClick={submitEdits}
+        >
+          Submit
+        </PlumFilledButton>
+      </div>
+      <div className="d-flex justify-content-center mt-3">
+        <PlumButton
+          className="d-flex justify-content-center text-center w-25"
+          onClick={cancelEdits}
+        >
+          Cancel
+        </PlumButton>
+      </div>
     </Container>
   );
 };

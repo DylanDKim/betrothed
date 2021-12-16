@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Button, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Success from './Success';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
 const NewRsvp = ({ updateStep }) => {
   const [isAttending, updateAttendance] = useState(null);
@@ -50,12 +51,14 @@ const NewRsvp = ({ updateStep }) => {
           />
         </Form.Group>
       </Form>
-      <Button
-        className="d-flex justify-content-center text-center w-25"
-        onClick={submitRSVP}
-      >
-        RSVP
-      </Button>
+      <div className="d-flex justify-content-center mt-3">
+        <PlumFilledButton
+          className="d-flex justify-content-center text-center w-25"
+          onClick={submitRSVP}
+        >
+          RSVP
+        </PlumFilledButton>
+      </div>
     </Container>
   );
 };
