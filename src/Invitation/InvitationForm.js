@@ -115,8 +115,8 @@ export default function InvitationForm({
           <BFaustinaH3>Gallery</BFaustinaH3>
           <Row xs={6} md={3}>
             {(galleryURL || []).map((url) => (
-              <Col>
-                <Image className="w-100 h-100 p-1" src={url} alt="gallery" />
+              <Col className="pe-1 pt-2">
+                <Image className="w-100 h-100" src={url} alt="gallery" />
               </Col>
             ))}
           </Row>
