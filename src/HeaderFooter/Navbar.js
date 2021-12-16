@@ -1,31 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
 
-export default function Nav(props) {
+export default function BetrothedNavbar() {
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+    <>
+      <BAlexBrush36 style={{ marginLeft: '2em' }}>Betrothed</BAlexBrush36>
+      <Navbar expand="lg" variant="light" bg="light">
+        <Container>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/dashboard">
-              Dashboard
-            </Nav.Link>
-            <Nav.Link as={Link} to="/guests">
-              Guests
-            </Nav.Link>
-            <Nav.Link as={Link} to="/invitation-form">
-              Invtation
-            </Nav.Link>
-            <Nav.Link as={Link} to="/registry-form">
-              Registry
-            </Nav.Link>
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link href="/guestlist">Guests</Nav.Link>
+            <Nav.Link href="/invite">Invitation</Nav.Link>
+            <Nav.Link href="/registryadd">Registry</Nav.Link>
           </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
+    </>
   );
 }

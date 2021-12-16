@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-const WAlexBrushH1 = styled.div`
+const WAlexBrush36 = styled.div`
   font-family: 'Alex Brush';
   font-size: 36px;
   color: white;
 `;
 
-const BAlexBrushH1 = styled.div`
+const BAlexBrush36 = styled.div`
   font-family: 'Alex Brush';
   font-size: 36px;
 `;
 
-export { WAlexBrushH1, BAlexBrushH1 };
+export { WAlexBrush36, BAlexBrush36 };
