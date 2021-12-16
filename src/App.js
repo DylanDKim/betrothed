@@ -35,6 +35,8 @@ export default function App() {
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
+        <Route exact path="/guest-invite" element={<Invite />} />
+        <Route exact path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/" element={<Frame />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/rsvp-preview" element={<RSVP />} />

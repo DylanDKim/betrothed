@@ -1,12 +1,18 @@
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
 
 export default function BetrothedNavbar() {
   return (
     <>
-      <BAlexBrush36 style={{ marginLeft: '2em' }}>Betrothed</BAlexBrush36>
+      <Container>
+        <Row>
+          <Col md={{ offset: 0.5 }}>
+            <BAlexBrush36>Betrothed</BAlexBrush36>
+          </Col>
+        </Row>
+      </Container>
       <Navbar expand="lg" variant="light" bg="light">
         <Container>
           <Nav className="me-auto">

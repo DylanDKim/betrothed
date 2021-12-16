@@ -12,7 +12,7 @@ export default function Onboarding2(props) {
     <Container fluid style={{ backgroundColor: '#8b5b6e', height: '10em' }}>
       <Row>
         <Col md={{ span: 3, offset: 8 }}>
-          <WAlexBrush36>Betrothed</WAlexBrush36>
+          <WAlexBrush36 style={{ marginTop: '1em' }}>Betrothed</WAlexBrush36>
           <WMerr18>Made with care by the 4Billy Team</WMerr18>
           <WMerr18>https://github.com/4billy</WMerr18>
         </Col>
