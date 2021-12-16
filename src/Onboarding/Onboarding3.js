@@ -33,7 +33,7 @@ export default function Onboarding3(props) {
                 We plan to invite
               </BFaustinaH3>
               <BlueInput
-                style={{ transform: 'translateY(-6px)', width: '2em' }}
+                style={{ transform: 'translateY(-6px)', width: '3em' }}
                 type="number"
                 required
                 value={guestCount}

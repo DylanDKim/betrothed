@@ -7,7 +7,7 @@ const WMerr18 = styled.div`
 `;
 
 const BMerr18 = styled.div`
-  font-family: 'Merriwether';
+  font-family: 'Faustina';
   font-size: 18px;
 `;
 

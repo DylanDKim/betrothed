@@ -8,6 +8,7 @@ import BlueButton from '../Common/styled/buttonstyles/BlueButton';
 import BlueInput from '../Common/styled/inputstyles/inputstyle';
 import { OnboardingImageFit } from '../Common/styled/imagestyles/imagestyle';
 import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
+import Progress from '../Common/styled/Progress';
 
 export default function Onboarding2() {
   const [weddingDate, setWeddingDate] = useState('');
@@ -26,7 +27,7 @@ export default function Onboarding2() {
               When is the big day?
             </BFaustinaH3>
             <BlueInput
-              style={{ marginTop: '7em', width: '7em' }}
+              style={{ marginTop: '7em', width: '8em' }}
               type="date"
               required
               value={weddingDate}
