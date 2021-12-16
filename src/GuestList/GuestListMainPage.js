@@ -4,6 +4,9 @@ import { Button, Container, Table, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { renderRsvpStats, createListOfGuests } from './utils';
 import AddForm from './AddForm';
+import PlumButton from '../Common/styled/buttonstyles/PlumButton';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
+import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
 
 const GuestListMainPage = () => {
   const [show, setShow] = useState(false);
@@ -29,18 +32,17 @@ const GuestListMainPage = () => {
           </Button>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Add A Guest</Modal.Title>
+              <BAlexBrush36 style={{ fontSize: '15px' }}>
+                <Modal.Title>Add A Guest</Modal.Title>
+              </BAlexBrush36>
             </Modal.Header>
             <Modal.Body>
               <AddForm />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <PlumButton variant="secondary" onClick={handleClose}>
                 Close
-              </Button>
-              <Button variant="secondary" onClick={handleClose}>
-                Save Changes
-              </Button>
+              </PlumButton>
             </Modal.Footer>
           </Modal>
         </Container>
