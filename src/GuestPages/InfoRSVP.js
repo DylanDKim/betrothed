@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
+import AlexBrush36 from '../Common/styled/textstyles/AlexBrush36';
 
 const InfoRsvp = ({ onSameLine }) => (
   <>
@@ -15,30 +17,15 @@ const InfoRsvp = ({ onSameLine }) => (
       </TempHeader>
     ) : (
       <>
-        <TempHeader
-          className="d-flex justify-content-center mt-3"
-          style={{
-            fontSize: '36px',
-          }}
-        >
+        <BAlexBrushH1 className="d-flex justify-content-center mt-3">
           Hanna Rosales
-        </TempHeader>
-        <TempHeader
-          className="d-flex justify-content-center mt-3"
-          style={{
-            fontSize: '36px',
-          }}
-        >
+        </BAlexBrushH1>
+        <BAlexBrushH1 className="d-flex justify-content-center mt-1">
           &
-        </TempHeader>
-        <TempHeader
-          className="d-flex justify-content-center mt-3"
-          style={{
-            fontSize: '36px',
-          }}
-        >
+        </BAlexBrushH1>
+        <BAlexBrushH1 className="d-flex justify-content-center mt-3">
           Ali Levy
-        </TempHeader>
+        </BAlexBrushH1>
       </>
     )}
     <TempHeader

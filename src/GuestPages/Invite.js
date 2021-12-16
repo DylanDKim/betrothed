@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InfoRsvp from './InfoRSVP';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
 const Invite = () => (
   <>
@@ -20,8 +21,8 @@ const Invite = () => (
     <Container fluid>
       <InfoRsvp onSameLine={false} />
 
-      <Link to="/rsvp-form" className="d-flex justify-content-center">
-        <Button>RSVP</Button>
+      <Link to="/rsvp-form" className="d-flex justify-content-center m-5">
+        <PlumFilledButton>RSVP</PlumFilledButton>
       </Link>
       <h2 className="d-flex justify-content-center">Message</h2>
       <h2 className="d-flex justify-content-center">Registry</h2>

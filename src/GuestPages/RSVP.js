@@ -16,7 +16,7 @@ const RsvpForm = () => {
     <Container fluid>
       <Row style={{ height: '100vh' }}>
         <Col
-          md={7}
+          md={8}
           sm={12}
           style={{
             height: '100vh',
@@ -60,7 +60,7 @@ const RsvpForm = () => {
           </footer>
         </Col>
         <Col
-          md={5}
+          md={4}
           sm={12}
           style={{
             height: '100vh',
@@ -70,7 +70,7 @@ const RsvpForm = () => {
           }}
         >
           <Image
-            style={{ maxWidth: '100%', height: 'auto' }}
+            style={{ maxWidth: '100%', height: '100vh' }}
             src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1875&q=80"
             alt="flowers"
           />
