@@ -8,7 +8,7 @@
     "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "server:dev": "nodemon server/index.js",
-    "dev:w": "webpack -w"
+    "dev:w": "webpack -w --mode=development"
   },
   "repository": {
     "type": "git",

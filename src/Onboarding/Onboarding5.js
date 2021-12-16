@@ -29,19 +29,18 @@ export default function Onboarding4(props) {
               Lastly, when should guests RSVP by?
             </BFaustinaH3>
 
-            <span style={{ display: 'flex', marginTop: '5em' }}>
+            <div style={{ marginTop: '5em' }}>
               <BFaustinaH3 style={{ marginRight: '0.5em' }}>
                 Finalize guest list by
               </BFaustinaH3>
               <BlueInput
-                style={{ transform: 'translateY(-6px)' }}
-                type="text"
+                style={{ width: '7em' }}
+                type="date"
                 required
                 value={rsvpBy}
                 onChange={(e) => setRsvpBy(e.target.value)}
-                placeholder="date"
               />
-            </span>
+            </div>
             <Link to="/dashboard">
               <BlueButton style={{ marginTop: '11em', marginLeft: '20em' }}>
                 See your dashboard

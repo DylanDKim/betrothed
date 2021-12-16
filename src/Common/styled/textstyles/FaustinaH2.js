@@ -11,4 +11,10 @@ const BFaustinaH2 = styled.h2`
   font-size: 36px;
 `;
 
-export { WFaustinaH2, BFaustinaH2 };
+const PFaustinaH2 = styled.h2`
+  font-family: 'Faustina';
+  font-size: 36px;
+  color: #8b5b6e;
+`;
+
+export { WFaustinaH2, BFaustinaH2, PFaustinaH2 };

@@ -1,22 +1,103 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
+import { Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-  BlueOpenCard,
-  BlueFilledCard,
-} from '../Common/styled/cardstyles/bluecardstyle';
+  PinkOpenCard,
+  PinkFilledCard,
+} from '../Common/styled/cardstyles/pinkcardstyle';
+import {
+  Faustina28,
+  Faustina20,
+} from '../Common/styled/textstyles/FaustinaDash';
 
-export default function Dashboard(props) {
+export default function InvitationCard(props) {
+  const { event_id: eventId } = useParams();
+  const link = `/event/${eventId}/browse-theme`;
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Title>Invitation</Card.Title>
-        <h3>Customize your wedding website</h3>
-        <Link to="/browse-theme">
-          <Button>browse themes</Button>
-        </Link>
-      </Card.Body>
-    </Card>
+    <div>
+      <Link to={link} class="text-decoration-none">
+        {props.invitationMade ? (
+          <PinkOpenCard
+            className="text-center"
+            md="justify-content-center"
+            style={{ color: '#ffb5cf', textDecoration: 'none', width: '18rem' }}
+          >
+            <Card.Body>
+              <Row>
+                <Col>
+                  <Faustina28 style={{ marginTop: '1em', fontSize: '28px' }}>
+                    Invitation
+                  </Faustina28>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Faustina20 style={{ marginTop: '5em' }}>
+                    Customize your <br />
+                    wedding website
+                  </Faustina20>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Faustina20
+                    style={{
+                      marginTop: '6em',
+                      textDecoration: 'underline',
+                      color: '#5f7483',
+                    }}
+                  >
+                    browse themes
+                  </Faustina20>
+                </Col>
+              </Row>
+
+              {/* <Button>add guests</Button> */}
+            </Card.Body>
+          </PinkOpenCard>
+        ) : (
+          <PinkFilledCard
+            className="text-center"
+            style={{ color: '#ffb5cf', textDecoration: 'none', width: '18rem' }}
+          >
+            <Card.Body>
+              <Row>
+                <Col>
+                  <Faustina28 style={{ marginTop: '1em' }}>
+                    Invitation
+                  </Faustina28>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Faustina20 style={{ marginTop: '5em' }}>
+                    Your customized
+                    <br />
+                    invite has <br />
+                    sent to guests
+                  </Faustina20>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Faustina20
+                    style={{
+                      marginTop: '5em',
+                      textDecoration: 'underline',
+                      color: '#5f7483',
+                    }}
+                  >
+                    edit website
+                  </Faustina20>
+                </Col>
+              </Row>
+
+              {/* <Button>add guests</Button> */}
+            </Card.Body>
+          </PinkFilledCard>
+        )}
+      </Link>
+    </div>
   );
 }

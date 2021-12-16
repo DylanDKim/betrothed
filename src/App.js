@@ -18,6 +18,8 @@ import Onboarding4 from './Onboarding/Onboarding4';
 import Onboarding5 from './Onboarding/Onboarding5';
 import Dashboard from './Dashboard/Dashboard';
 import Frame from './HeaderFooter/Frame';
+import Landing from './Onboarding/Landing';
+import Onboarding from './Onboarding/Onboarding';
 
 export default function App() {
   console.log('Pls do not use /testing as the path name for your route');
@@ -30,23 +32,28 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/onboarding-1" element={<Onboarding1 />} />
+        <Route path="/" element={<Onboarding />}>
+          <Route exact path="landing" element={<Landing />} />
+        </Route>
+        <Route exact path="/onboarding-1/" element={<Onboarding1 />} />
         <Route exact path="/onboarding-2" element={<Onboarding2 />} />
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
-        <Route path="/" element={<Frame />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/rsvp-preview" element={<RSVP />} />
-          <Route path="/invite" element={<InvitationForm />} />
-          <Route path="/registry" element={<Registry />} />
-          <Route path="/registrystart" element={<RegistryStart />} />
-          <Route path="/registryadd" element={<RegistryAdd />} />
-          <Route path="/browse-theme" element={<BrowseTheme />} />
-          <Route path="/choose-content" element={<ChooseContent />} />
-          <Route path="/invitation-form" element={<InvitationForm />} />
-          <Route path="/rsvp-preview" element={<RSVP />} />
-          <Route path="/guestlist" element={<GuestListMainPage />} />
+        <Route exact path="/guest-invite" element={<Invite />} />
+        <Route exact path="/rsvp-form" element={<RsvpForm />} />
+        <Route path="/event/:event_id" element={<Frame />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="rsvp-preview" element={<RSVP />} />
+          <Route path="invite" element={<InvitationForm />} />
+          <Route path="registry" element={<Registry />} />
+          <Route path="registrystart" element={<RegistryStart />} />
+          <Route path="registryadd" element={<RegistryAdd />} />
+          <Route path="browse-theme" element={<BrowseTheme />} />
+          <Route path="choose-content" element={<ChooseContent />} />
+          <Route path="invitation-form" element={<InvitationForm />} />
+          <Route path="rsvp-preview" element={<RSVP />} />
+          <Route path="guestlist" element={<GuestListMainPage />} />
         </Route>
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
