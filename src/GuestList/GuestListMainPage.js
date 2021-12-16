@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Container, Table, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { renderRsvpStats, createListOfGuests } from './utils';
@@ -16,16 +15,8 @@ const GuestListMainPage = () => {
   return (
     <>
       <Container fluid="md" className="header">
+        <h1>Guest List</h1>
         <Container>
-          <h1>Betrothed</h1>
-        </Container>
-        <Container>
-          <h1>Guest List</h1>
-        </Container>
-        <Container>
-          <Link to="/dashboard">
-            <Button>Back to Dashboard</Button>
-          </Link>
           <Button variant="primary" onClick={handleShow}>
             Add Guest
           </Button>
@@ -55,7 +46,7 @@ const GuestListMainPage = () => {
         <Table>
           <thead>
             <tr>
-              <th>#</th>
+              <th>Group</th>
               <th>Name</th>
               <th>Email</th>
               <th>RSVP Status</th>

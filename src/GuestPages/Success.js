@@ -6,7 +6,11 @@ const Success = () => (
   <Alert
     variant="success"
     className="d-flex justify-content-center"
-    style={{ fontFamily: 'Faustina seirf', fontStyle: 'italic' }}
+    style={{
+      fontFamily: 'Faustina seirf',
+      fontStyle: 'italic',
+      fontSize: '18px',
+    }}
   >
     Thank you for your response! You may adjust your response before the
     deadline.

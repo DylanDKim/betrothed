@@ -1,75 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
+import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
+import { BFaustinaH2 } from '../Common/styled/textstyles/FaustinaH2';
+import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
-const InfoRsvp = ({ onSameLine }) => (
+const InfoRsvp = ({ onSameLine, showDeadline }) => (
   <>
     {onSameLine ? (
-      <TempHeader
-        className="d-flex justify-content-center mt-5"
-        style={{
-          fontSize: '36px',
-        }}
-      >
+      <BAlexBrushH1 className="d-flex justify-content-center mt-5">
         Hanna Rosales & Ali Levy
-      </TempHeader>
+      </BAlexBrushH1>
     ) : (
       <>
-        <TempHeader
-          className="d-flex justify-content-center mt-3"
-          style={{
-            fontSize: '36px',
-          }}
-        >
+        <BAlexBrushH1 className="d-flex justify-content-center mt-3">
           Hanna Rosales
-        </TempHeader>
-        <TempHeader
-          className="d-flex justify-content-center mt-3"
-          style={{
-            fontSize: '36px',
-          }}
-        >
+        </BAlexBrushH1>
+        <BAlexBrushH1 className="d-flex justify-content-center mt-1">
           &
-        </TempHeader>
-        <TempHeader
-          className="d-flex justify-content-center mt-3"
-          style={{
-            fontSize: '36px',
-          }}
-        >
+        </BAlexBrushH1>
+        <BAlexBrushH1 className="d-flex justify-content-center mt-1">
           Ali Levy
-        </TempHeader>
+        </BAlexBrushH1>
       </>
     )}
-    <TempHeader
+    <BFaustinaH2
       className="d-flex justify-content-center"
       style={{
-        fontSize: '28px',
+        fontStyle: 'italic',
       }}
     >
       invite you to celebrate their wedding
-    </TempHeader>
-    <TempSubheader className="d-flex justify-content-center mt-3">
+    </BFaustinaH2>
+    <StyledHeader className="d-flex justify-content-center mt-5">
       Saturday, January 8th, 2022
-    </TempSubheader>
-    <TempSubheader className="d-flex justify-content-center">
+    </StyledHeader>
+    <StyledHeader className="d-flex justify-content-center">
       4:30 PM
-    </TempSubheader>
-    <TempSubheader className="d-flex justify-content-center mt-3">
+    </StyledHeader>
+    <StyledHeader className="d-flex justify-content-center mt-5">
       Beaulieu Garden
-    </TempSubheader>
-    <TempSubheader className="d-flex justify-content-center">
+    </StyledHeader>
+    <StyledHeader className="d-flex justify-content-center">
       3142 Azalea Lane
-    </TempSubheader>
-    <TempSubheader className="d-flex justify-content-center">
+    </StyledHeader>
+    <StyledHeader className="d-flex justify-content-center">
       Lane Rutherford, CA, 92314
-    </TempSubheader>
-    <TempSubheader
-      className="d-flex justify-content-center mt-3"
-      style={{ color: 'red' }}
-    >
-      Deadline to RSVP: 12/14/2021
-    </TempSubheader>
+    </StyledHeader>
+    {showDeadline && (
+      <StyledHeader
+        className="d-flex justify-content-center mt-3"
+        style={{ color: 'red' }}
+      >
+        Deadline to RSVP: 12/14/2021
+      </StyledHeader>
+    )}
   </>
 );
 
@@ -78,8 +64,8 @@ const TempHeader = styled.div`
   font-style: italic;
 `;
 
-const TempSubheader = styled(TempHeader)`
-  font-size: 18px;
+const StyledHeader = styled(BFaustinaH3)`
+  font-style: italic;
 `;
 
 export default InfoRsvp;
