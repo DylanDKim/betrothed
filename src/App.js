@@ -5,6 +5,7 @@ import RSVP from './Invitation/RSVP';
 import Registry from './registry/registry';
 import RegistryStart from './registry/registrystart';
 import RegistryAdd from './registry/registryadd';
+import GuestRegistry from './registry/guestRegistry';
 import Invite from './GuestPages/Invite';
 import RsvpForm from './GuestPages/RSVP';
 import Onboarding1 from './Onboarding/Onboarding1';
@@ -29,6 +30,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
+<<<<<<< HEAD
         <Route exact path="/onboarding-1" element={<Onboarding1 />} />
         <Route exact path="/onboarding-2" element={<Onboarding2 />} />
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
@@ -49,6 +51,26 @@ export default function App() {
           <Route path="/rsvp-preview" element={<RSVP />} />
           <Route path="/guestlist" element={<GuestListMainPage />} />
         </Route>
+=======
+        <Route
+          path="/"
+          element={
+            <Onboarding1 />
+            // <h2>Just localhost</h2>
+          }
+        />
+        <Route path="/registry" element={<Registry />} />
+        <Route path="/registrystart" element={<RegistryStart />} />
+        <Route path="/registryadd" element={<RegistryAdd />} />
+        <Route path="/guestregistry" element={<GuestRegistry />} />
+        <Route path="/guest-invite" element={<Invite />} />
+        <Route path="/rsvp-form" element={<RsvpForm />} />
+        <Route path="/browse-theme" element={<BrowseTheme />} />
+        <Route path="/choose-content" element={<ChooseContent />} />
+        <Route path="/invitation-form" element={<InvitationForm />} />
+        <Route path="/rsvp-preview" element={<RSVP />} />
+        <Route path="/guestlist" element={<GuestListMainPage />} />
+>>>>>>> ba367db (Skeleton code for registry add on guest side)
       </Routes>
     </Router>
   );
