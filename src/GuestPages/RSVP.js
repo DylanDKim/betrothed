@@ -23,7 +23,7 @@ const RsvpForm = () => {
             overflow: 'auto',
           }}
         >
-          <InfoRsvp onSameLine />
+          <InfoRsvp onSameLine showDeadline />
           {currentStep === 'status' && (
             <Status updateStep={updateStep} updateData={updateData} />
           )}
