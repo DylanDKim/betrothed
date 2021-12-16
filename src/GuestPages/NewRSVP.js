@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Button, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Success from './Success';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
 const NewRsvp = ({ updateStep }) => {
   const [isAttending, updateAttendance] = useState(null);
@@ -23,10 +25,7 @@ const NewRsvp = ({ updateStep }) => {
   };
 
   return responseConfirmed ? (
-    <h2>
-      Thank you for your response! You may adjust your response before the
-      deadline.
-    </h2>
+    <Success />
   ) : (
     <Container className="w-100" style={{ fontFamily: 'Merriweather' }}>
       <Alert className="d-flex justify-content-center" variant="danger">
@@ -52,12 +51,14 @@ const NewRsvp = ({ updateStep }) => {
           />
         </Form.Group>
       </Form>
-      <Button
-        className="d-flex justify-content-center text-center w-25"
-        onClick={submitRSVP}
-      >
-        RSVP
-      </Button>
+      <div className="d-flex justify-content-center mt-3">
+        <PlumFilledButton
+          className="d-flex justify-content-center text-center w-25"
+          onClick={submitRSVP}
+        >
+          RSVP
+        </PlumFilledButton>
+      </div>
     </Container>
   );
 };

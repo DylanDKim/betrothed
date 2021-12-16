@@ -2,16 +2,45 @@ import React from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const InfoRsvp = () => (
+const InfoRsvp = ({ onSameLine }) => (
   <>
-    <TempHeader
-      className="d-flex justify-content-center mt-3"
-      style={{
-        fontSize: '36px',
-      }}
-    >
-      Hanna Rosales & Ali Levy
-    </TempHeader>
+    {onSameLine ? (
+      <TempHeader
+        className="d-flex justify-content-center mt-5"
+        style={{
+          fontSize: '36px',
+        }}
+      >
+        Hanna Rosales & Ali Levy
+      </TempHeader>
+    ) : (
+      <>
+        <TempHeader
+          className="d-flex justify-content-center mt-3"
+          style={{
+            fontSize: '36px',
+          }}
+        >
+          Hanna Rosales
+        </TempHeader>
+        <TempHeader
+          className="d-flex justify-content-center mt-3"
+          style={{
+            fontSize: '36px',
+          }}
+        >
+          &
+        </TempHeader>
+        <TempHeader
+          className="d-flex justify-content-center mt-3"
+          style={{
+            fontSize: '36px',
+          }}
+        >
+          Ali Levy
+        </TempHeader>
+      </>
+    )}
     <TempHeader
       className="d-flex justify-content-center"
       style={{

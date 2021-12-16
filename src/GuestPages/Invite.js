@@ -2,23 +2,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import InfoRsvp from './InfoRSVP';
 
 const Invite = () => (
   <>
-    <Container>Invite Page!</Container>
-    <Container>Main Image</Container>
-    <Container>Couple1 Name</Container>
-    <Container>&</Container>
-    <Container>Couple2 Name</Container>
-    <Container>Date</Container>
-    <Container>Time</Container>
-    <Container>Location</Container>
-    <Link to="/rsvp-form">
-      <Button>RSVP</Button>
-    </Link>
-    <Container>Message</Container>
-    <Container>Registry</Container>
-    <Container>Gallery</Container>
+    <img
+      src="https://iso.500px.com/wp-content/uploads/2016/06/stock-photo-133803155.jpg"
+      alt="main wedding spalsh"
+      style={{
+        width: '100vw',
+        height: '65vh',
+        overflow: 'hidden',
+        objectFit: 'cover',
+        margin: 0,
+      }}
+    />
+    <Container fluid>
+      <InfoRsvp onSameLine={false} />
+
+      <Link to="/rsvp-form" className="d-flex justify-content-center">
+        <Button>RSVP</Button>
+      </Link>
+      <h2 className="d-flex justify-content-center">Message</h2>
+      <h2 className="d-flex justify-content-center">Registry</h2>
+      <h2 className="d-flex justify-content-center">Gallery</h2>
+    </Container>
   </>
 );
 
