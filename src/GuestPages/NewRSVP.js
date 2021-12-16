@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Button, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 import Success from './Success';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
-const NewRsvp = ({ updateStep }) => {
+const { URL } = require('../../config/private.config');
+
+const NewRsvp = ({ updateStep, rsvpData }) => {
   const [isAttending, updateAttendance] = useState(null);
   const [message, updateMessage] = useState('');
   const [responseConfirmed, updateResponse] = useState(false);
@@ -18,10 +21,28 @@ const NewRsvp = ({ updateStep }) => {
   };
 
   const submitRSVP = () => {
-    console.log(isAttending);
-    console.log(message);
-    console.log('submitting!');
-    updateResponse(true);
+    if (isAttending === null) {
+      alert('Please select one of the options for attending');
+    } else {
+      const data = {
+        rsvpStatus: isAttending,
+        rsvpNote: message,
+      };
+
+      axios({
+        method: 'put',
+        url: `${URL}/events/61b79b9e0ac02dbe3e12fd1b/guests/${rsvpData._id}`,
+        data,
+      })
+        .then((results) => {
+          console.log(results);
+          updateResponse(true);
+        })
+        .catch((err) => {
+          console.log(err);
+          console.log(rsvpData);
+        });
+    }
   };
 
   return responseConfirmed ? (

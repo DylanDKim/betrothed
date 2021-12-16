@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Container, Form, Alert, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 import Success from './Success';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 
-const EditRsvp = ({ updateStep, rsvpData }) => {
-  const previouseResponse = {
-    status: 'attending',
-    rsvpNote: 'Looking forward to your special day!!!!',
-  };
+const { URL } = require('../../config/private.config');
 
+const EditRsvp = ({ updateStep, rsvpData }) => {
   const [isEditing, enableEdits] = useState(false);
   const [isAttending, updateAttendance] = useState(rsvpData.rsvpStatus);
   const [message, updateMessage] = useState(rsvpData.rsvpNote);
@@ -26,10 +24,26 @@ const EditRsvp = ({ updateStep, rsvpData }) => {
   };
 
   const submitEdits = () => {
-    console.log(isAttending);
-    console.log(message);
-    console.log('submitting!');
-    updateResponse(true);
+    if (isAttending === null) {
+      alert('Please select one of the options for attending');
+    } else {
+      const data = {
+        rsvpStatus: isAttending,
+        rsvpNote: message,
+      };
+
+      axios({
+        method: 'put',
+        url: `${URL}/events/61b79b9e0ac02dbe3e12fd1b/guests/${rsvpData._id}`,
+        data,
+      })
+        .then(() => {
+          updateResponse(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const editRSVP = () => {
