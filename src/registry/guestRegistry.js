@@ -32,7 +32,6 @@ export default function GuestRegistry() {
                   className="float-right"
                   onClick={(e) => {
                     e.preventDefault();
-                    console.log(e.target.name);
                     setAllValues({
                       ...allValues,
                       [e.target.name]: false,
