@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Button, Form, Alert } from 'react-bootstrap';
+import { Container, Row, Button, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const NewRsvp = () => {
+const NewRsvp = ({ updateStep }) => {
   const [isAttending, updateAttendance] = useState(null);
   const [message, updateMessage] = useState('');
+  const [responseConfirmed, updateResponse] = useState(false);
 
   const checkReply = (e) => {
     if (e.target.value === 'yes') {
@@ -18,14 +19,22 @@ const NewRsvp = () => {
     console.log(isAttending);
     console.log(message);
     console.log('submitting!');
+    updateResponse(true);
   };
 
-  return (
-    <Container fluid>
-      <Alert variant="danger">You have not RSVPd yet</Alert>
-      <Form>
-        <Form.Group>
-          <Form.Label className="text-muted">Attending</Form.Label>
+  return responseConfirmed ? (
+    <h2>
+      Thank you for your response! You may adjust your response before the
+      deadline.
+    </h2>
+  ) : (
+    <Container className="w-100" style={{ fontFamily: 'Merriweather' }}>
+      <Alert className="d-flex justify-content-center" variant="danger">
+        You have not RSVPd yet
+      </Alert>
+      <Form className="d-flex justify-content-center align-items-end">
+        <Form.Group className="w-50">
+          <Form.Label className="text-muted mb-0">Attending</Form.Label>
           <Form.Select onChange={checkReply}>
             <option selected disabled>
               select from options
@@ -33,7 +42,7 @@ const NewRsvp = () => {
             <option value="yes">Yes!</option>
             <option value="no">No</option>
           </Form.Select>
-          <Form.Label className="text-muted">
+          <Form.Label className="text-muted mb-0 mt-4">
             Message to the couple (optional)
           </Form.Label>
           <Form.Control
@@ -43,7 +52,12 @@ const NewRsvp = () => {
           />
         </Form.Group>
       </Form>
-      <Button onClick={submitRSVP}>RSVP</Button>
+      <Button
+        className="d-flex justify-content-center text-center w-25"
+        onClick={submitRSVP}
+      >
+        RSVP
+      </Button>
     </Container>
   );
 };
