@@ -41,7 +41,7 @@ export default function ResgistryAdd() {
   };
 
   return (
-    <Container>
+    <Container style={{ height: '66.5vh', boxsizing: ' border-box' }}>
       <Row className="mt-5">
         <Col md={6}>
           <h1 style={{ fontSize: '64px', fontFamily: 'Alex Brush' }}>
@@ -91,7 +91,14 @@ export default function ResgistryAdd() {
           <h3>You have no gifts in your registry! Try adding some.</h3>
         ) : (
           registry.map((item) => (
-            <Card style={{ border: '1px solid black' }}>
+            <Card
+              style={{
+                width: '18rem',
+                border: '5px solid #8b5b6e',
+                marginBottom: '2%',
+                marginRight: '2%',
+              }}
+            >
               <Card.Body>
                 <Card.Title>{item.category}</Card.Title>
                 <Card.Text>{item.title}</Card.Text>
