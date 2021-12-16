@@ -17,29 +17,48 @@ export default function Dashboard(props) {
 
   return (
     <Container fluid>
-      <Row>
+      <Row
+        className="d-flex justify-content-between"
+        style={{ marginTop: '1em' }}
+      >
         <Col>
           <BAlexBrushH1>
             {firstName} and {partnerFirstName}
           </BAlexBrushH1>
         </Col>
-        <Col className="align-items-right">
-          <h2>{daysLeft} days left!</h2>
+        <Col>
+          <BFaustinaH3>{daysLeft} days left!</BFaustinaH3>
         </Col>
       </Row>
       <div style={{ height: '16em', backgroundColor: 'grey' }}>
-        <img alt="dashboard cover" />
-        <div>Choose a photo</div>
+        <img
+          style={{
+            objectFit: 'cover',
+            width: '100%',
+            height: '100%',
+            objectPosition: '0 70%',
+            maxWidth: '100%',
+            maxHeight: '100%',
+          }}
+          src="https://images.unsplash.com/photo-1566838318109-a8bffb91d082?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+          alt="dashboard cover"
+        />
         <i className="BsCameraFill " />
       </div>
 
       <ProgressBar style={{ marginTop: '1em' }} now={0} />
       <h3>Planning tools</h3>
-      <CardFormat>
-        <GuestListCard />
-        <InvitationCard />
-        <RegistryCard />
-      </CardFormat>
+      <Row className="d-flex justify-content-around">
+        <Col>
+          <GuestListCard />
+        </Col>
+        <Col>
+          <InvitationCard />
+        </Col>
+        <Col>
+          <RegistryCard />
+        </Col>
+      </Row>
     </Container>
   );
 }

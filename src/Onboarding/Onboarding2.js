@@ -9,7 +9,7 @@ import BlueInput from '../Common/styled/inputstyles/inputstyle';
 import { OnboardingImageFit } from '../Common/styled/imagestyles/imagestyle';
 import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
 
-export default function Onboarding2(props) {
+export default function Onboarding2() {
   const [weddingDate, setWeddingDate] = useState('');
 
   return (
@@ -26,17 +26,16 @@ export default function Onboarding2(props) {
               When is the big day?
             </BFaustinaH3>
             <BlueInput
-              style={{ marginTop: '3em', width: '7em' }}
-              type="text"
+              style={{ marginTop: '7em', width: '7em' }}
+              type="date"
               required
               value={weddingDate}
               onChange={(e) => setWeddingDate(e.target.value)}
-              placeholder="Wedding Date"
             />
             <div style={{ marginTop: '2em' }} />
             <div style={{ marginTop: '3em' }}>
               <Link to="/onboarding-3">
-                <BlueButton style={{ marginTop: '8em', marginLeft: '20em' }}>
+                <BlueButton style={{ marginTop: '2em', marginLeft: '20em' }}>
                   Next
                 </BlueButton>
               </Link>
