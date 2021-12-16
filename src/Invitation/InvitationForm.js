@@ -77,9 +77,10 @@ export default function InvitationForm({
     <Container
       style={{
         width: '65%',
-        backgroundImage: `url(${chosedTheme})`,
+        background: `url(${chosedTheme}) no-repeat center center fixed`,
+        backgroundSize: 'cover',
         // backgroundColor: '#EED5DE',
-        backgroundRepeat: 'no-repeat',
+        // backgroundRepeat: 'no-repeat',
       }}
     >
       <BAlexBrushH1>Your Wedding Website</BAlexBrushH1>

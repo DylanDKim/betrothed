@@ -14,27 +14,31 @@ export default function ChooseContent({ setChosedTheme }) {
   ];
 
   const handleClick = (e, urlSource) => {
-    console.log(urlSource);
+    console.log('handleClick', urlSource);
     setChosedTheme(urlSource);
   };
   return (
     <Container className="mt-5" style={{ width: '65%' }}>
       <ProgressBar now={100} />
       <BFaustinaH3>Choose Your Design</BFaustinaH3>
-      <Row xs={6} md={3}>
-        {(invitationTheme || []).map((url) => (
-          <Col>
-            <ThemeImg className="w-100 h-100 p-1" src={url} />
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                type="checkbox"
-                label=""
-                onClick={(e) => handleClick(e, url)}
-              />
-            </Form.Group>
-          </Col>
-        ))}
-      </Row>
+      <div>
+        <Row xs={6} md={3}>
+          {(invitationTheme || []).map((url) => (
+            <Col>
+              <ThemeImg className="w-100 h-100 p-1" src={url} />
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <div className="d-flex justify-content-center">
+                  <Form.Check
+                    type="checkbox"
+                    label=""
+                    onClick={(e) => handleClick(e, url)}
+                  />
+                </div>
+              </Form.Group>
+            </Col>
+          ))}
+        </Row>
+      </div>
       <Link to="/invitation-form">
         <BlueButton className="mt-5">Content</BlueButton>
       </Link>
