@@ -32,6 +32,7 @@ const dummyData = {
 
 const Status = ({ updateStep, updateData }) => {
   const [email, updateEmail] = useState('');
+  const [errorShown, isError] = useState(false);
 
   const checkNextStep = () => {
     // axios({
@@ -47,7 +48,7 @@ const Status = ({ updateStep, updateData }) => {
     //     console.log(err);
     //   });
     if (dummyData[email] === undefined) {
-      console.log('email not foun in list');
+      isError(true);
     } else if (dummyData[email].rsvpStatus === 'pending') {
       updateData(dummyData[email]);
       updateStep('new');
@@ -71,6 +72,11 @@ const Status = ({ updateStep, updateData }) => {
             onChange={(e) => updateEmail(e.target.value)}
           />
         </InputGroup>
+        {errorShown && (
+          <div className="text-muted">
+            that email is not registered on the guest list
+          </div>
+        )}
       </Row>
     </Container>
   );

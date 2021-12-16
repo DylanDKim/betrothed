@@ -15,7 +15,14 @@ const RsvpForm = () => {
   return (
     <Container fluid>
       <Row style={{ height: '100vh' }}>
-        <Col md={7} sm={12}>
+        <Col
+          md={7}
+          sm={12}
+          style={{
+            height: '100vh',
+            overflow: 'auto',
+          }}
+        >
           <InfoRsvp onSameLine />
           {currentStep === 'status' && (
             <Status updateStep={updateStep} updateData={updateData} />
