@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InfoRsvp from './InfoRSVP';
+import GuestRegistry from '../registry/guestRegistry';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
+import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
+import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
+import { BMerr18 } from '../Common/styled/textstyles/Merr18';
 
 const Invite = () => (
   <>
@@ -21,12 +25,39 @@ const Invite = () => (
     <Container fluid>
       <InfoRsvp onSameLine={false} />
 
-      <Link to="/rsvp-form" className="d-flex justify-content-center m-5">
+      <Link
+        to="/rsvp-form"
+        className="d-flex justify-content-center m-5 text-decoration-none"
+      >
         <PlumFilledButton>RSVP</PlumFilledButton>
       </Link>
-      <h2 className="d-flex justify-content-center">Message</h2>
-      <h2 className="d-flex justify-content-center">Registry</h2>
-      <h2 className="d-flex justify-content-center">Gallery</h2>
+
+      <div className="d-flex justify-content-center">
+        <hr className="w-50" />
+      </div>
+      <BAlexBrush36 className="d-flex justify-content-center">
+        Message From the Couple
+      </BAlexBrush36>
+      <div className="d-flex justify-content-center">
+        <div className="w-50">
+          Text block about some message the couple wants to send out the the
+          guests. Is is this optional or required. Should there also be a limit
+          or maybe not since it would not make much of a difference in the end.
+        </div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <hr className="w-50" />
+      </div>
+      <BAlexBrush36 className="d-flex justify-content-center">
+        Registry
+      </BAlexBrush36>
+      <GuestRegistry />
+      <div className="d-flex justify-content-center">
+        <hr className="w-50" />
+      </div>
+      <BAlexBrush36 className="d-flex justify-content-center">
+        Gallery
+      </BAlexBrush36>
     </Container>
   </>
 );

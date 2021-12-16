@@ -23,7 +23,7 @@ const InfoRsvp = ({ onSameLine }) => (
         <BAlexBrushH1 className="d-flex justify-content-center mt-1">
           &
         </BAlexBrushH1>
-        <BAlexBrushH1 className="d-flex justify-content-center mt-3">
+        <BAlexBrushH1 className="d-flex justify-content-center mt-1">
           Ali Levy
         </BAlexBrushH1>
       </>
