@@ -4,10 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 
 export default function GuestRegistry() {
-  // const [laptop, setLaptop] = useState(false);
-  // const [blender, setBlender] = useState(false);
-  // const [drip, setDrip] = useState(false);
-
   const [allValues, setAllValues] = useState({
     laptop: true,
     blender: true,
