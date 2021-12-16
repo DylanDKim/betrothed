@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { ProgressBar, Container, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
 
@@ -14,7 +14,7 @@ export default function Registry() {
           md={8}
         >
           <Row>
-            <h1 style={{ fontSize: '12px' }}>Progress bar holder</h1>
+            <ProgressBar now={50} />
             <h1 style={{ fontSize: '64px', fontFamily: 'Alex Brush' }}>
               Registry
             </h1>

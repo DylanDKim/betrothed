@@ -1,25 +1,76 @@
-import React from 'react';
-import { Form, Button, Dropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
-const AddForm = () => (
-  <Form>
-    <Form.Group>
-      <Form.Control type="text" placeholder="First Name" required />
-      <Form.Control type="text" placeholder="Last Name" required />
-      <Form.Control type="email" placeholder="Email" required />
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Choose a group
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Group 1</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Group 2</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Group 3</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      <Form.Control type="text" placeholder="Group" />
-    </Form.Group>
-  </Form>
-);
+const AddForm = () => {
+  const [firstNameValue, setFirstNameValue] = useState('');
+  const [lastNameValue, setLastNameValue] = useState('');
+  const [emailValue, setEmailValue] = useState('');
+
+  // Input Field handler
+  const handleFNInput = (e) => {
+    setFirstNameValue(e.target.value);
+  };
+  const handleLNInput = (e) => {
+    setLastNameValue(e.target.value);
+  };
+  const handleEMInput = (e) => {
+    setEmailValue(e.target.value);
+  };
+
+  // Reset Input Field handler
+  const resetInputField = () => {
+    setFirstNameValue('');
+    setLastNameValue('');
+    setEmailValue('');
+  };
+
+  return (
+    <Form>
+      <Form.Group>
+        <Form.Control
+          type="text"
+          value={firstNameValue}
+          onChange={handleFNInput}
+          placeholder="First Name"
+          required
+        />
+        <br />
+        <Form.Control
+          type="text"
+          value={lastNameValue}
+          onChange={handleLNInput}
+          placeholder="Last Name"
+          required
+        />
+        <br />
+        <Form.Control
+          type="email"
+          value={emailValue}
+          onChange={handleEMInput}
+          placeholder="Email"
+          required
+        />
+        <br />
+        <Form.Select aria-label="Default select example">
+          <option>Choose A Group</option>
+          <option value="1">Group One</option>
+          <option value="2">Group Two</option>
+          <option value="3">Group Three</option>
+        </Form.Select>
+        or
+        <Form.Control type="text" placeholder="Create A Group" />
+      </Form.Group>
+      <br />
+      <PlumFilledButton
+        variant="primary"
+        type="submit"
+        onClick={resetInputField}
+      >
+        Save & Add Another Guest
+      </PlumFilledButton>
+    </Form>
+  );
+};
 
 export default AddForm;

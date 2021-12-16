@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Container, Col, Row, ProgressBar, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
+import BlueInput from '../Common/styled/inputstyles/inputstyle';
+import {
+  OnboardingImage,
+  OnboardingImageFit,
+} from '../Common/styled/imagestyles/imagestyle';
+import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
 
 export default function Onboarding1(props) {
   const [firstName, setFirstName] = useState('');
@@ -15,56 +21,72 @@ export default function Onboarding1(props) {
 
   return (
     <Container fluid>
-      <Row style={{ height: '100vh', marginLeft: '15%' }}>
+      <Row>
         <Col
-          style={{ marginBottom: '20%' }}
-          className="d-flex align-items-center justify-content-center"
-          sm={8}
-          md={8}
+          className="d-flex align-items-left justify-content-center"
+          sm={{ span: 4, offset: 1 }}
+          md={{ span: 6, offset: 1.5 }}
         >
-          <div>
-            <BAlexBrushH1>Congratulations</BAlexBrushH1>
+          <OnboardingTopSpacer>
+            <ProgressBar now={0} />
+            <BAlexBrushH1 style={{ marginTop: '0.5em' }}>
+              Congratulations
+            </BAlexBrushH1>
             <BFaustinaH3>
-              Tell us about yourself so we can
-              {'\n'}customize your planning experience.
+              Tell us about yourself so we can <br />
+              customize your planning experience.
             </BFaustinaH3>
-            <BFaustinaH3>My name is</BFaustinaH3>
-            <input
-              type="text"
-              required
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              required
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Last Name"
-            />
+            <div style={{ marginTop: '2em', display: 'flex' }}>
+              <span>
+                <BFaustinaH3>My name is</BFaustinaH3>
+              </span>
+              <div style={{ transform: 'translateY(-6px)' }}>
+                <BlueInput
+                  type="text"
+                  required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="first name"
+                />
+                <BlueInput
+                  type="text"
+                  required
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="last name"
+                />
+              </div>
+            </div>
             <BFaustinaH3>And my partner&apos;s name is</BFaustinaH3>
-            <input
+            <BlueInput
               type="text"
               required
               value={partnerFirstName}
               onChange={(e) => setPartnerFirstName(e.target.value)}
-              placeholder="First Name"
+              placeholder="first name"
             />
-            <input
+            <BlueInput
               type="text"
               required
               value={partnerLastName}
               onChange={(e) => setPartnerLastName(e.target.value)}
-              placeholder="Last Name"
+              placeholder="last name"
             />
-            <Link to="/onboarding-2">
-              <BlueButton>Next</BlueButton>
-            </Link>
-          </div>
+            <div style={{ marginTop: '3em' }}>
+              <Link to="/onboarding-2">
+                <BlueButton style={{ marginLeft: '20em' }}>Next</BlueButton>
+              </Link>
+            </div>
+          </OnboardingTopSpacer>
         </Col>
-        <Col>
-          <div>Right side image placeholder</div>
+        <Col sm={5} md={5}>
+          <OnboardingImageFit>
+            <Image
+              fluid
+              src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+              alt="wedding splash1"
+            />
+          </OnboardingImageFit>
         </Col>
       </Row>
     </Container>
