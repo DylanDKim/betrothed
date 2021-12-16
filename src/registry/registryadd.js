@@ -59,7 +59,7 @@ export default function ResgistryAdd() {
               {registry.length} {registry.length === 1 ? 'Gift' : 'Gifts'}{' '}
               Requested
             </h2>
-            {claimed.length} Purchased
+            {claimed.length} Claimed
           </div>
         </Col>
         <Col md={3} className="ml-1">
@@ -101,7 +101,15 @@ export default function ResgistryAdd() {
             >
               <Card.Body>
                 <Card.Title>{item.category}</Card.Title>
-                <Card.Text style={{ height: '8rem' }}>{item.title}</Card.Text>
+                <Card.Text
+                  style={{
+                    height: '8rem',
+                    fontSize: '18px',
+                    fontFamily: 'Merriwether, serif',
+                  }}
+                >
+                  {item.title}
+                </Card.Text>
 
                 <PlumButton
                   name={item.title}
