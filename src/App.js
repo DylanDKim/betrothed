@@ -42,14 +42,14 @@ export default function App() {
           <Route path="/registry" element={<Registry />} />
           <Route path="/registrystart" element={<RegistryStart />} />
           <Route path="/registryadd" element={<RegistryAdd />} />
-          <Route path="/guest-invite" element={<Invite />} />
-          <Route path="/rsvp-form" element={<RsvpForm />} />
           <Route path="/browse-theme" element={<BrowseTheme />} />
           <Route path="/choose-content" element={<ChooseContent />} />
           <Route path="/invitation-form" element={<InvitationForm />} />
           <Route path="/rsvp-preview" element={<RSVP />} />
           <Route path="/guestlist" element={<GuestListMainPage />} />
         </Route>
+        <Route path="/guest-invite" element={<Invite />} />
+        <Route path="/rsvp-form" element={<RsvpForm />} />
       </Routes>
     </Router>
   );
