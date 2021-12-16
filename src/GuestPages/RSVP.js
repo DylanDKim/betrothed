@@ -33,6 +33,8 @@ const RsvpForm = () => {
           {currentStep === 'edit' && (
             <EditRsvp updateStep={updateStep} rsvpData={rsvpData} />
           )}
+          <br />
+          <br />
           <footer>
             <h2
               className="d-flex justify-content-center"

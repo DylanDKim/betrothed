@@ -6,7 +6,7 @@ const InfoRsvp = ({ onSameLine }) => (
   <>
     {onSameLine ? (
       <TempHeader
-        className="d-flex justify-content-center mt-3"
+        className="d-flex justify-content-center mt-5"
         style={{
           fontSize: '36px',
         }}
