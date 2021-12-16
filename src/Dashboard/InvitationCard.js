@@ -12,7 +12,7 @@ import {
 } from '../Common/styled/textstyles/FaustinaDash';
 
 export default function Dashboard(props) {
-  const [invitationMade, setInvitationMade] = useState(false);
+  const [invitationMade, setInvitationMade] = useState(true);
   return (
     <div>
       <Link to="/browse-theme" class="text-decoration-none">
