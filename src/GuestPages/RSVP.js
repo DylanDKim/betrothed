@@ -16,7 +16,7 @@ const RsvpForm = () => {
     <Container fluid>
       <Row style={{ height: '100vh' }}>
         <Col md={7} sm={12}>
-          <InfoRsvp />
+          <InfoRsvp onSameLine />
           {currentStep === 'status' && (
             <Status updateStep={updateStep} updateData={updateData} />
           )}
