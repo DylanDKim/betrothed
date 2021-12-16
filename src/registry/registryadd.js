@@ -88,10 +88,10 @@ export default function ResgistryAdd() {
           Your Top Gifts
         </h2>
         {registry.length === 0 ? (
-          <h3>You have NOOOO gifts in your registry! Try adding some.</h3>
+          <h3>You have no gifts in your registry! Try adding some.</h3>
         ) : (
           registry.map((item) => (
-            <Card>
+            <Card style={{ border: '1px solid black' }}>
               <Card.Body>
                 <Card.Title>{item.category}</Card.Title>
                 <Card.Text>{item.title}</Card.Text>
@@ -102,7 +102,7 @@ export default function ResgistryAdd() {
                   style={{ float: 'right' }}
                   variant="primary"
                 >
-                  Claim
+                  View
                 </PlumButton>
               </Card.Body>
             </Card>
@@ -187,7 +187,7 @@ export default function ResgistryAdd() {
                   variant="primary"
                   onClick={handleClose}
                 >
-                  Save Changes
+                  Submit
                 </PlumFilledButton>
               </Col>
             </Row>
