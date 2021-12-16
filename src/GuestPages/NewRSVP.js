@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Success from './Success';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
+import updateRSVP from './utils/updateRSVP';
 
 const { URL } = require('../../config/private.config');
 
@@ -24,24 +25,7 @@ const NewRsvp = ({ updateStep, rsvpData }) => {
     if (isAttending === null) {
       alert('Please select one of the options for attending');
     } else {
-      const data = {
-        rsvpStatus: isAttending,
-        rsvpNote: message,
-      };
-
-      axios({
-        method: 'put',
-        url: `${URL}/events/61b79b9e0ac02dbe3e12fd1b/guests/${rsvpData._id}`,
-        data,
-      })
-        .then((results) => {
-          console.log(results);
-          updateResponse(true);
-        })
-        .catch((err) => {
-          console.log(err);
-          console.log(rsvpData);
-        });
+      updateRSVP(isAttending, message, rsvpData._id, updateResponse);
     }
   };
 
