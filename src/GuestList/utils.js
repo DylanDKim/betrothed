@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import mockData from './mockData';
+import { BMerr18 } from '../Common/styled/textstyles/Merr18';
+import { BMerr24 } from '../Common/styled/textstyles/Merr24';
 
 export const editGuestInfo = (e) => {
   const guestInfo = e.currentTarget.nextSibling;
@@ -25,31 +27,48 @@ export const createListOfGuests = () => {
     const guests = mockData.guests[entry].map((guest) => (
       <>
         <tr onClick={editGuestInfo}>
-          <td>{guest.group !== 'Individual' ? guest.group : ''}</td>
-          <td>{guest.firstName + guest.lastName}</td>
-          <td>{guest.email}</td>
-          <td>{guest.rsvpStatus}</td>
+          <td>
+            <BMerr18>{guest.group !== 'Individual' ? guest.group : ''}</BMerr18>
+          </td>
+          <td>
+            <BMerr18>{guest.firstName + guest.lastName}</BMerr18>
+          </td>
+          <td>
+            <BMerr18>{guest.email}</BMerr18>
+          </td>
+          <td>
+            <BMerr18>{guest.rsvpStatus}</BMerr18>
+          </td>
           {guest.rsvpNote ? (
             <td>
-              <Button onClick={readNoteFromGuest}>Note</Button>
+              {/* <Button onClick={readNoteFromGuest}>Note</Button> */}
+              Note
             </td>
           ) : (
             <td />
           )}
         </tr>
         <tr className="collapse">
-          <td>Group</td>
-          <td>Edit Name</td>
-          <td>Edit Email</td>
+          <td>
+            <BMerr18>Group</BMerr18>
+          </td>
+          <td>
+            <BMerr18>Edit Name</BMerr18>
+          </td>
+          <td>
+            <BMerr18>Edit Email</BMerr18>
+          </td>
           <td colSpan="2">
             <Button>Delete Guest</Button>
           </td>
         </tr>
-        {guest.rsvpNote ? (
-          <tr className="collapse show-message">
-            <td colSpan="5">{guest.rsvpNote}</td>
-          </tr>
-        ) : null}
+        <BMerr18>
+          {guest.rsvpNote ? (
+            <tr className="collapse show-message">
+              <td colSpan="5">{guest.rsvpNote}</td>
+            </tr>
+          ) : null}
+        </BMerr18>
       </>
     ));
     return guests;
@@ -90,18 +109,34 @@ export const renderRsvpStats = () => {
   return (
     <Container>
       <Row>
-        <Col>Invited</Col>
-        <Col>Attending</Col>
-        <Col>Pending</Col>
-        <Col>Declined</Col>
+        <Col>
+          <BMerr24>Invited</BMerr24>
+        </Col>
+        <Col>
+          <BMerr24>Attending</BMerr24>
+        </Col>
+        <Col>
+          <BMerr24>Pending</BMerr24>
+        </Col>
+        <Col>
+          <BMerr24>Declined</BMerr24>
+        </Col>
       </Row>
       <Row>
         <Col>
-          {attendance.attending + attendance.pending + attendance.declined}
+          <BMerr24>
+            {attendance.attending + attendance.pending + attendance.declined}
+          </BMerr24>
         </Col>
-        <Col>{attendance.attending}</Col>
-        <Col>{attendance.pending}</Col>
-        <Col>{attendance.declined}</Col>
+        <Col>
+          <BMerr24>{attendance.attending}</BMerr24>
+        </Col>
+        <Col>
+          <BMerr24>{attendance.pending}</BMerr24>
+        </Col>
+        <Col>
+          <BMerr24>{attendance.declined}</BMerr24>
+        </Col>
       </Row>
     </Container>
   );

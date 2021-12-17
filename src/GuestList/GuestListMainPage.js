@@ -4,7 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { renderRsvpStats, createListOfGuests } from './utils';
 import AddForm from './AddForm';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
+import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
+import { BMerr18 } from '../Common/styled/textstyles/Merr18';
+import { BMerr24 } from '../Common/styled/textstyles/Merr24';
 
 const GuestListMainPage = () => {
   const [show, setShow] = useState(false);
@@ -15,11 +18,11 @@ const GuestListMainPage = () => {
   return (
     <>
       <Container fluid="md" className="header">
-        <h1>Guest List</h1>
+        <BAlexBrush36>Guest List</BAlexBrush36>
         <Container>
-          <Button variant="primary" onClick={handleShow}>
+          <PlumFilledButton variant="primary" onClick={handleShow}>
             Add Guest
-          </Button>
+          </PlumFilledButton>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <BAlexBrush36 style={{ fontSize: '15px' }}>
@@ -46,11 +49,21 @@ const GuestListMainPage = () => {
         <Table>
           <thead>
             <tr>
-              <th>Group</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>RSVP Status</th>
-              <th>Message</th>
+              <th>
+                <BMerr18>Group</BMerr18>
+              </th>
+              <th>
+                <BMerr18>Name</BMerr18>
+              </th>
+              <th>
+                <BMerr18>Email</BMerr18>
+              </th>
+              <th>
+                <BMerr18>RSVP Status</BMerr18>
+              </th>
+              <th>
+                <BMerr18>Message</BMerr18>
+              </th>
             </tr>
           </thead>
           <tbody>{createListOfGuests()}</tbody>
