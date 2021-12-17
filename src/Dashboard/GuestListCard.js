@@ -11,7 +11,8 @@ import {
   Faustina20,
 } from '../Common/styled/textstyles/FaustinaDash';
 
-export default function GuestListCard(props) {
+export default function Dashboard(props) {
+  // const [numGuests, setNumGuests] = useState(0);
   const { event_id: eventId } = useParams();
   const link = `/event/${eventId}/guestlist`;
 

@@ -8,7 +8,7 @@ export default function BetrothedNavbar() {
   const { event_id: eventId } = useParams();
   const dashboardLink = `dashboard`;
   const guestlistLink = `guestlist`;
-  const inviteLink = `invite`;
+  const inviteLink = `browse-theme`;
   const registryAddLink = `registryadd`;
 
   return (

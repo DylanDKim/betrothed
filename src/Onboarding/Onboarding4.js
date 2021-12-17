@@ -22,7 +22,7 @@ export default function Onboarding4(props) {
           md={{ span: 6, offset: 1.5 }}
         >
           <OnboardingTopSpacer>
-            <ProgressBar now={60} />
+            <ProgressBar now={80} />
             <BFaustinaH3 style={{ marginTop: '2em' }}>
               Sounds fun! While we&apos;re talking about guests, <br />a wedding
               website is the best way <br />
