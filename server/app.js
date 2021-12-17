@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const { parser } = require('html-metadata-parser');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 
@@ -10,6 +11,17 @@ app.use(express.static('dist'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+app.get('/guestlist', (req, res) => {
+  axios
+    .get(
+      'https://betrothed-server.herokuapp.com/api/events/61b79b9e0ac02dbe3e12fd1b'
+    )
+    .then((response) => {
+      res.status(200).send(response.data);
+    })
+    .catch((error) => error);
+});
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
