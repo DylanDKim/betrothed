@@ -13,4 +13,11 @@ const GuestBMerr24 = styled.div`
   text-align: center;
 `;
 
-export { GuestBMerr18, GuestBMerr24 };
+const GuestTableBMerr22 = styled.div`
+  font-family: 'Faustina';
+  font-size: 22px;
+  margin: 0px;
+  font-weight: normal;
+`;
+
+export { GuestBMerr18, GuestBMerr24, GuestTableBMerr22 };

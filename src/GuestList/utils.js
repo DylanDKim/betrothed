@@ -2,8 +2,11 @@ import React from 'react';
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import Mail from './mail.svg';
 import { BMerr18 } from '../Common/styled/textstyles/Merr18';
-import { BMerr24 } from '../Common/styled/textstyles/Merr24';
-import { GuestBMerr18, GuestBMerr24 } from './GuestListMainPage.styles';
+import {
+  GuestBMerr18,
+  GuestBMerr24,
+  GuestTableBMerr22,
+} from './GuestListMainPage.styles';
 
 export const editGuestInfo = (e) => {
   const guestInfo = e.currentTarget.nextSibling;
@@ -167,19 +170,19 @@ export const renderGuestTable = (data) => (
         <thead>
           <tr>
             <th>
-              <BMerr18>Group</BMerr18>
+              <GuestTableBMerr22>Group</GuestTableBMerr22>
             </th>
             <th>
-              <BMerr18>Name</BMerr18>
+              <GuestTableBMerr22>Name</GuestTableBMerr22>
             </th>
             <th>
-              <BMerr18>Email</BMerr18>
+              <GuestTableBMerr22>Email</GuestTableBMerr22>
             </th>
             <th>
-              <BMerr18>RSVP Status</BMerr18>
+              <GuestTableBMerr22>RSVP Status</GuestTableBMerr22>
             </th>
             <th>
-              <BMerr18>Message</BMerr18>
+              <GuestTableBMerr22>Message</GuestTableBMerr22>
             </th>
           </tr>
         </thead>
