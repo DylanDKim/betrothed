@@ -49,11 +49,6 @@ export default function App() {
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9c54626c9fbb50387cb9cbec5b99afabb36a7a67
         <Route exact path="/guest-invite" element={<Invite />} />
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/event/:event_id" element={<Frame />}>
@@ -62,7 +57,6 @@ export default function App() {
           <Route path="registrystart" element={<RegistryStart />} />
           <Route path="registryadd" element={<RegistryAdd />} />
           <Route path="browse-theme" element={<BrowseTheme />} />
-<<<<<<< HEAD
           <Route
             path="choose-content"
             element={<ChooseContent setChosedTheme={setChosedTheme} />}
@@ -86,36 +80,6 @@ export default function App() {
             element={<RSVP galleryURL={galleryURL} mainPhoto={mainPhoto} />}
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
-=======
-=======
->>>>>>> 0a1387f (App resaved)
-=======
-          <Route path="choose-content" element={<ChooseContent />} />
-          <Route path="invitation-form" element={<InvitationForm />} />
-          <Route path="guestregistry" element={<GuestRegistry />} />
-          <Route path="guestlist" element={<GuestListMainPage />} />
-=======
->>>>>>> 9c54626c9fbb50387cb9cbec5b99afabb36a7a67
-        <Route path="/" element={<Frame />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/rsvp-preview" element={<RSVP />} />
-          <Route path="/invite" element={<InvitationForm />} />
-          <Route path="/registry" element={<Registry />} />
-          <Route path="/registrystart" element={<RegistryStart />} />
-          <Route path="/registryadd" element={<RegistryAdd />} />
-          <Route path="/browse-theme" element={<BrowseTheme />} />
-          <Route path="/choose-content" element={<ChooseContent />} />
-          <Route path="/invitation-form" element={<InvitationForm />} />
-          <Route path="/guestRegistry" element={<GuestRegistry />} />
-          <Route path="/guestlist" element={<GuestListMainPage />} />
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 2d2524f (Normalized height for demo add to registry cards)
-=======
->>>>>>> 0a1387f (App resaved)
-=======
->>>>>>> 9ccb2f6684d86a2bc19a9d2714c7b52635ba7981
->>>>>>> 9c54626c9fbb50387cb9cbec5b99afabb36a7a67
         </Route>
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
