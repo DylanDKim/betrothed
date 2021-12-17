@@ -38,10 +38,10 @@ export default function RSVP({ galleryURL }) {
           direction="horizontal"
           gap={3}
         >
-          <Link to="/invitation-form">
+          <Link to="/event/1/invitation-form">
             <PlumFilledButton>More Edits</PlumFilledButton>
           </Link>
-          <Link to="/">
+          <Link to="/event/1">
             <WhiteFilledButton>Save Changes</WhiteFilledButton>
           </Link>
         </Stack>

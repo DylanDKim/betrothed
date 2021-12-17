@@ -39,7 +39,7 @@ export default function ChooseContent({ setChosedTheme }) {
           ))}
         </Row>
       </div>
-      <Link to="/invitation-form">
+      <Link to="/event/1/invitation-form">
         <BlueButton className="mt-5">Content</BlueButton>
       </Link>
     </Container>

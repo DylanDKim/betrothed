@@ -86,7 +86,7 @@ export default function InvitationForm({
       <BAlexBrushH1>Your Wedding Website</BAlexBrushH1>
       <Stack className="mb-5" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
-        <Link to="/rsvp-preview">
+        <Link to="/event/1/rsvp-preview">
           <PlumFilledButton>Preview Site</PlumFilledButton>
         </Link>
       </Stack>
@@ -134,7 +134,7 @@ export default function InvitationForm({
           </div>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          <Link to="/rsvp-preview">
+          <Link to="/event/1/rsvp-preview">
             <PlumFilledButton type="submit">Save Changes</PlumFilledButton>
           </Link>
         </div>

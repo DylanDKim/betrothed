@@ -29,7 +29,7 @@ export default function BrowseTheme() {
               Write a personal message for your guests
             </h5>
           </div>
-          <Link to="/choose-content">
+          <Link to="/event/1/choose-content">
             <BlueButton className="my-5">browse themes</BlueButton>
           </Link>
         </Col>

@@ -59,11 +59,11 @@ export default function App() {
           <Route path="registryadd" element={<RegistryAdd />} />
           <Route path="browse-theme" element={<BrowseTheme />} />
           <Route
-            path="/choose-content"
+            path="choose-content"
             element={<ChooseContent setChosedTheme={setChosedTheme} />}
           />
           <Route
-            path="/invitation-form"
+            path="invitation-form"
             element={
               <InvitationForm
                 chosedTheme={chosedTheme}
@@ -77,7 +77,7 @@ export default function App() {
             }
           />
           <Route
-            path="/rsvp-preview"
+            path="rsvp-preview"
             element={<RSVP galleryURL={galleryURL} mainPhoto={mainPhoto} />}
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
