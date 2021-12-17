@@ -23,7 +23,7 @@ export default function Onboarding3(props) {
           md={{ span: 6, offset: 1.5 }}
         >
           <OnboardingTopSpacer>
-            <ProgressBar now={40} />
+            <ProgressBar now={60} />
             <BFaustinaH3 style={{ marginTop: '2em' }}>
               What is your estimated guest count?
             </BFaustinaH3>
@@ -36,8 +36,8 @@ export default function Onboarding3(props) {
                 style={{ transform: 'translateY(-6px)', width: '3em' }}
                 type="number"
                 required
-                value={guestCount}
-                onChange={(e) => setGuestCount(e.target.value)}
+                value={props.guestLimit}
+                onChange={(e) => props.setGuestLimit(e.target.value)}
                 placeholder="0"
               />
               <BFaustinaH3>guests</BFaustinaH3>

@@ -14,6 +14,7 @@ import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
 
 export default function Onboarding4(props) {
   const [rsvpBy, setRsvpBy] = useState('');
+  const link = `/event/${props.id}/dashboard`;
 
   return (
     <Container fluid>
@@ -24,7 +25,7 @@ export default function Onboarding4(props) {
           md={{ span: 6, offset: 1.5 }}
         >
           <OnboardingTopSpacer>
-            <ProgressBar now={80} />
+            <ProgressBar now={100} />
             <BFaustinaH3 style={{ marginTop: '2em' }}>
               Lastly, when should guests RSVP by?
             </BFaustinaH3>
@@ -34,18 +35,21 @@ export default function Onboarding4(props) {
                 Finalize guest list by
               </BFaustinaH3>
               <BlueInput
-                style={{ width: '7em' }}
-                type="date"
+                style={{ width: '12em' }}
+                type="datetime-local"
                 required
-                value={rsvpBy}
-                onChange={(e) => setRsvpBy(e.target.value)}
+                value={props.rsvpDeadline}
+                onChange={(e) => props.setRSVPDeadline(e.target.value)}
               />
             </div>
-            <Link to="/dashboard">
-              <BlueButton style={{ marginTop: '11em', marginLeft: '20em' }}>
-                See your dashboard
-              </BlueButton>
-            </Link>
+            {/* <Link to={link}> */}
+            <BlueButton
+              onClick={props.createEvent}
+              style={{ marginTop: '11em', marginLeft: '20em' }}
+            >
+              See your dashboard
+            </BlueButton>
+            {/* </Link> */}
           </OnboardingTopSpacer>
         </Col>
         <Col sm={5} md={5}>

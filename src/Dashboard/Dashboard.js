@@ -14,7 +14,6 @@ export default function Dashboard(props) {
   const [firstName, setFirstName] = useState('John');
   const [partnerFirstName, setPartnerFirstName] = useState('Jane');
   const [daysLeft, setDaysLeft] = useState('2');
-  const [progress, setProgress] = useState(0);
 
   const [numGuests, setNumGuests] = useState(0);
   const [numGifts, setNumGifts] = useState('');
@@ -46,7 +45,10 @@ export default function Dashboard(props) {
           setNumGuests(attendance);
         }
 
-        setInvitationMade(eventData.inviteMessage === '');
+        setInvitationMade(
+          eventData.inviteMessage ===
+            `Welcome to ${eventData.coupleName1} and ${eventData.coupleName2}'s Wedding Celebration!`
+        );
       })
       .catch((err) => console.log(err));
 
@@ -71,20 +73,6 @@ export default function Dashboard(props) {
 
   return (
     <Container fluid>
-      <h1>event_id is: {eventId}</h1>
-      {/* <Row
-        className="d-flex justify-content-between"
-        style={{ marginTop: '3em' }}
-      >
-        <Col md={{ offset: 1 }}>
-          <BAlexBrushH1>
-            {firstName} and {partnerFirstName}
-          </BAlexBrushH1>
-        </Col>
-        <Col className="d-flex justify-content-end">
-          <BFaustinaH3>{daysLeft} days left!</BFaustinaH3>
-        </Col>
-      </Row> */}
       <div
         style={{
           height: '26em',
@@ -118,7 +106,14 @@ export default function Dashboard(props) {
         <i className="BsCameraFill " />
       </div>
 
-      <ProgressBar style={{ marginTop: '1em' }} now={progress} />
+      <ProgressBar
+        style={{ marginTop: '1em' }}
+        now={
+          (invitationMade ? 33 : 0) +
+          (numGuests > 0 ? 33 : 0) +
+          (numGifts > 0 ? 33 : 0)
+        }
+      />
       <Row style={{ marginTop: '3em' }}>
         <Col md={{ offset: 1 }}>
           <BFaustinaH2 style={{ marginBottom: '1em' }}>

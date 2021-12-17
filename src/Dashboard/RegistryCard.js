@@ -69,14 +69,12 @@ export default function RegistryCard(props) {
             <Card.Body>
               <Row>
                 <Col>
-                  <Faustina28 style={{ marginTop: '1em' }}>
-                    Guest List
-                  </Faustina28>
+                  <Faustina28 style={{ marginTop: '1em' }}>Registry</Faustina28>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Faustina28 style={{ marginTop: '1.5em', fontSize: '42px' }}>
+                  <Faustina28 style={{ marginTop: '2.5em', fontSize: '42px' }}>
                     {props.numGifts}
                   </Faustina28>
                   <Faustina20>
@@ -89,7 +87,7 @@ export default function RegistryCard(props) {
                 <Col>
                   <Faustina20
                     style={{
-                      marginTop: '5em',
+                      marginTop: '5.5em',
                       textDecoration: 'underline',
                       color: '#5f7483',
                     }}

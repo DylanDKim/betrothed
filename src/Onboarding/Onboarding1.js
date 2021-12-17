@@ -44,15 +44,15 @@ export default function Onboarding1(props) {
                 <BlueInput
                   type="text"
                   required
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  value={props.firstName}
+                  onChange={(e) => props.setFirstName(e.target.value)}
                   placeholder="first name"
                 />
                 <BlueInput
                   type="text"
                   required
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  value={props.lastName}
+                  onChange={(e) => props.setLastName(e.target.value)}
                   placeholder="last name"
                 />
               </div>
@@ -61,15 +61,15 @@ export default function Onboarding1(props) {
             <BlueInput
               type="text"
               required
-              value={partnerFirstName}
-              onChange={(e) => setPartnerFirstName(e.target.value)}
+              value={props.partnerFirstName}
+              onChange={(e) => props.setPartnerFirstName(e.target.value)}
               placeholder="first name"
             />
             <BlueInput
               type="text"
               required
-              value={partnerLastName}
-              onChange={(e) => setPartnerLastName(e.target.value)}
+              value={props.partnerLastName}
+              onChange={(e) => props.setPartnerLastName(e.target.value)}
               placeholder="last name"
             />
             <div style={{ marginTop: '3em' }}>

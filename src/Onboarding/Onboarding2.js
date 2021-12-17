@@ -10,8 +10,8 @@ import { OnboardingImageFit } from '../Common/styled/imagestyles/imagestyle';
 import OnboardingTopSpacer from '../Common/styled/spacers/onboardingspacer';
 import Progress from '../Common/styled/Progress';
 
-export default function Onboarding2() {
-  const [weddingDate, setWeddingDate] = useState('');
+export default function Onboarding2(props) {
+  // const [weddingDate, setWeddingDate] = useState('');
 
   return (
     <Container fluid>
@@ -27,15 +27,15 @@ export default function Onboarding2() {
               When is the big day?
             </BFaustinaH3>
             <BlueInput
-              style={{ marginTop: '7em', width: '8em' }}
-              type="date"
+              style={{ marginTop: '7em', width: '12em' }}
+              type="datetime-local"
               required
-              value={weddingDate}
-              onChange={(e) => setWeddingDate(e.target.value)}
+              value={props.weddingDate}
+              onChange={(e) => props.setWeddingDate(e.target.value)}
             />
             <div style={{ marginTop: '2em' }} />
             <div style={{ marginTop: '3em' }}>
-              <Link to="/onboarding-3">
+              <Link to="/onboarding-2.5">
                 <BlueButton style={{ marginTop: '2em', marginLeft: '20em' }}>
                   Next
                 </BlueButton>
