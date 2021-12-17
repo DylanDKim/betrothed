@@ -11,9 +11,9 @@ export default function BrowseTheme() {
   return (
     <Container className="mt-5">
       <Row>
-        <Col xs lg="9">
-          <div className="d-flex justify-content-center mb-2">
-            <ProgressBar now={50} style={{ width: '50%', color: 'yellow' }} />
+        <Col xs lg="9" style={{ marginBottom: '15%' }}>
+          <div className="d-flex justify-content-center mt-5">
+            <ProgressBar now={50} style={{ width: '50%' }} variant="success" />
           </div>
           <div style={{ marginLeft: '25%' }}>
             <BAlexBrushH1 className="mt-3">Wedding Website</BAlexBrushH1>
@@ -43,6 +43,7 @@ export default function BrowseTheme() {
           <Image
             src="https://images.unsplash.com/photo-1602705399214-d2fed251f3b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             fluid
+            style={{ backgroundSize: 'cover' }}
           />
         </Col>
       </Row>

@@ -38,6 +38,7 @@ export default function App() {
   const [mainPhoto, setMainPhoto] = useState(
     'https://images.unsplash.com/photo-1592218946197-f6c4816c5b03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
   );
+  const [isPreview, setIsPreview] = useState(false);
   return (
     <Router>
       <Routes>
@@ -49,7 +50,11 @@ export default function App() {
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
-        <Route exact path="/guest-invite" element={<Invite />} />
+        <Route
+          exact
+          path="/guest-invite"
+          element={<Invite isPreview={isPreview} />}
+        />
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/event/:event_id" element={<Frame />}>
           <Route path="dashboard" element={<Dashboard />} />
@@ -72,12 +77,20 @@ export default function App() {
                 setMainPhoto={setMainPhoto}
                 inviteMessage={inviteMessage}
                 setInviteMessage={setInviteMessage}
+                setIsPreview={setIsPreview}
+                isPreview={isPreview}
               />
             }
           />
           <Route
             path="rsvp-preview"
-            element={<RSVP galleryURL={galleryURL} mainPhoto={mainPhoto} />}
+            element={
+              <RSVP
+                galleryURL={galleryURL}
+                mainPhoto={mainPhoto}
+                isPreview={isPreview}
+              />
+            }
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
         </Route>

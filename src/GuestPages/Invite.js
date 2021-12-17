@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Stack } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InfoRsvp from './InfoRSVP';
 import GuestRegistry from '../registry/guestRegistry';
@@ -8,8 +8,10 @@ import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
 import { BMerr18 } from '../Common/styled/textstyles/Merr18';
+import WhiteFilledButton from '../Common/styled/buttonstyles/WhiteFilledButton';
+import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
-const Invite = () => (
+const Invite = ({ isPreview }) => (
   <>
     <img
       src="https://iso.500px.com/wp-content/uploads/2016/06/stock-photo-133803155.jpg"
@@ -24,7 +26,27 @@ const Invite = () => (
     />
     <Container fluid>
       <InfoRsvp onSameLine={false} showDeadline={false} />
-
+      {isPreview === true && (
+        <div style={{ backgroundColor: '#8B5B6E' }}>
+          <div className="d-flex justify-content-center">
+            <BFaustinaH3>Your Invitation Preview</BFaustinaH3>
+          </div>
+          <Stack
+            className="mb-5 d-flex justify-content-center"
+            direction="horizontal"
+            gap={3}
+          >
+            <Link to="/event/1/invitation-form">
+              <PlumFilledButton style={{ border: '1px white solid' }}>
+                More Edits
+              </PlumFilledButton>
+            </Link>
+            <Link to="/event/1">
+              <WhiteFilledButton>Save Changes</WhiteFilledButton>
+            </Link>
+          </Stack>
+        </div>
+      )}
       <Link
         to="/rsvp-form"
         className="d-flex justify-content-center m-5 text-decoration-none"

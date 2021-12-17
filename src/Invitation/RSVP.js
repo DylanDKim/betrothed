@@ -8,7 +8,7 @@ import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import WhiteFilledButton from '../Common/styled/buttonstyles/WhiteFilledButton';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
-export default function RSVP({ galleryURL }) {
+export default function RSVP({ isPreview, galleryURL }) {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -26,25 +26,30 @@ export default function RSVP({ galleryURL }) {
       slidesToSlide: 1,
     },
   };
-
   return (
     <div>
       <Container>
-        <div className="d-flex justify-content-center">
-          <BFaustinaH3>Your Invitation Preview</BFaustinaH3>
-        </div>
-        <Stack
-          className="mb-5 d-flex justify-content-center"
-          direction="horizontal"
-          gap={3}
-        >
-          <Link to="/event/1/invitation-form">
-            <PlumFilledButton>More Edits</PlumFilledButton>
-          </Link>
-          <Link to="/event/1">
-            <WhiteFilledButton>Save Changes</WhiteFilledButton>
-          </Link>
-        </Stack>
+        {isPreview === true && (
+          <div style={{ backgroundColor: '#8B5B6E' }}>
+            <div className="d-flex justify-content-center">
+              <BFaustinaH3>Your Invitation Preview</BFaustinaH3>
+            </div>
+            <Stack
+              className="mb-5 d-flex justify-content-center"
+              direction="horizontal"
+              gap={3}
+            >
+              <Link to="/event/1/invitation-form">
+                <PlumFilledButton style={{ border: '1px white solid' }}>
+                  More Edits
+                </PlumFilledButton>
+              </Link>
+              <Link to="/event/1">
+                <WhiteFilledButton>Save Changes</WhiteFilledButton>
+              </Link>
+            </Stack>
+          </div>
+        )}
       </Container>
       <div className="d-block h-75 w-75" style={{ marginLeft: '12.5%' }}>
         <Carousel
@@ -65,7 +70,12 @@ export default function RSVP({ galleryURL }) {
           itemClass="carousel-item-padding-40-px"
         >
           {(galleryURL || []).map((url) => (
-            <img className="d-block h-100 w-100 pe-2" src={url} alt="gallery" />
+            <img
+              className="d-block h-100 w-100 pe-2"
+              src={url}
+              alt="gallery"
+              key={Math.random()}
+            />
           ))}
         </Carousel>
       </div>

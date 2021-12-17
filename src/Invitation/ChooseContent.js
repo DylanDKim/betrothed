@@ -18,15 +18,15 @@ export default function ChooseContent({ setChosedTheme }) {
     setChosedTheme(urlSource);
   };
   return (
-    <Container className="mt-5" style={{ width: '65%' }}>
-      <ProgressBar now={100} />
-      <BFaustinaH3>Choose Your Design</BFaustinaH3>
+    <Container className="mt-5" style={{ width: '60%' }}>
+      <ProgressBar now={100} variant="success" className="mb-3" />
+      <BFaustinaH3 className="mt-3 mb-5">Choose Your Design</BFaustinaH3>
       <div>
         <Row xs={6} md={3}>
           {(invitationTheme || []).map((url) => (
             <Col>
               <ThemeImg className="w-100 h-100 p-1" src={url} />
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Group className="mb-5" controlId="formBasicCheckbox">
                 <div className="d-flex justify-content-center">
                   <Form.Check
                     type="checkbox"
@@ -40,7 +40,7 @@ export default function ChooseContent({ setChosedTheme }) {
         </Row>
       </div>
       <Link to="/event/1/invitation-form">
-        <BlueButton className="mt-5">Content</BlueButton>
+        <BlueButton className="my-5">Content</BlueButton>
       </Link>
     </Container>
   );
