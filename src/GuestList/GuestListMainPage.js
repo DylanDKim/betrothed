@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Container, Table, Modal } from 'react-bootstrap';
+import { Container, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { renderGuestTable, renderRsvpStats, createListOfGuests } from './utils';
+import { renderGuestTable } from './utils';
 import AddForm from './AddForm';
-
-import { getGuestData, checkingData } from '../API/Utils';
-
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
@@ -18,11 +16,13 @@ const GuestListMainPage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const { event_id: eventId } = useParams();
+
   useEffect(() => {
     axios({
       url: 'http://localhost:3000/guestlist/',
       params: {
-        eventId: '61b79b9e0ac02dbe3e12fd1b',
+        eventId,
       },
     })
       .then((response) => setGuestData(response.data))
