@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Container, Form, Alert, Button } from 'react-bootstrap';
+import { Container, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Success from './Success';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
+import updateRSVP from './utils/updateRSVP';
 
-const EditRsvp = ({ updateStep, rsvpData }) => {
-  const previouseResponse = {
-    status: 'attending',
-    rsvpNote: 'Looking forward to your special day!!!!',
-  };
-
+const EditRsvp = ({ rsvpData }) => {
   const [isEditing, enableEdits] = useState(false);
   const [isAttending, updateAttendance] = useState(rsvpData.rsvpStatus);
   const [message, updateMessage] = useState(rsvpData.rsvpNote);
@@ -26,10 +21,11 @@ const EditRsvp = ({ updateStep, rsvpData }) => {
   };
 
   const submitEdits = () => {
-    console.log(isAttending);
-    console.log(message);
-    console.log('submitting!');
-    updateResponse(true);
+    if (isAttending === null) {
+      alert('Please select one of the options for attending');
+    } else {
+      updateRSVP(isAttending, message, rsvpData._id, updateResponse);
+    }
   };
 
   const editRSVP = () => {

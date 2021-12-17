@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Row, Button, Form, Alert } from 'react-bootstrap';
+import { Container, Form, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Success from './Success';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
+import updateRSVP from './utils/updateRSVP';
 
-const NewRsvp = ({ updateStep }) => {
+const NewRsvp = ({ rsvpData }) => {
   const [isAttending, updateAttendance] = useState(null);
   const [message, updateMessage] = useState('');
   const [responseConfirmed, updateResponse] = useState(false);
@@ -18,10 +19,11 @@ const NewRsvp = ({ updateStep }) => {
   };
 
   const submitRSVP = () => {
-    console.log(isAttending);
-    console.log(message);
-    console.log('submitting!');
-    updateResponse(true);
+    if (isAttending === null) {
+      alert('Please select one of the options for attending');
+    } else {
+      updateRSVP(isAttending, message, rsvpData._id, updateResponse);
+    }
   };
 
   return responseConfirmed ? (
