@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
-import mockData from './mockData';
+import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import { BMerr18 } from '../Common/styled/textstyles/Merr18';
 import { BMerr24 } from '../Common/styled/textstyles/Merr24';
 
@@ -21,10 +20,10 @@ export const readNoteFromGuest = (e) => {
     : noteFromGuest.classList.add('show-message');
 };
 
-export const createListOfGuests = () => {
-  const guestData = Object.keys(mockData.guests);
+export const createListOfGuests = (data) => {
+  const guestData = Object.keys(data.guests);
   const guestList = guestData.map((entry) => {
-    const guests = mockData.guests[entry].map((guest) => (
+    const guests = data.guests[entry].map((guest) => (
       <>
         <tr onClick={editGuestInfo}>
           <td>
@@ -76,35 +75,35 @@ export const createListOfGuests = () => {
   return guestList;
 };
 
-export const createRsvpStats = () => {
-  const guestData = Object.keys(mockData.guests);
+export const createRsvpStats = (data) => {
+  const guestData = Object.keys(data.guests);
   const attendance = {
     attending: 0,
-    declined: 0,
+    notAttending: 0,
     pending: 0,
   };
 
   guestData.forEach((entry) => {
-    attendance.attending += mockData.guests[entry].filter(
+    attendance.attending += data.guests[entry].filter(
       (guest) => guest.rsvpStatus === 'attending'
     ).length;
   });
   guestData.forEach((entry) => {
-    attendance.pending += mockData.guests[entry].filter(
+    attendance.pending += data.guests[entry].filter(
       (guest) => guest.rsvpStatus === 'pending'
     ).length;
   });
   guestData.forEach((entry) => {
-    attendance.declined += mockData.guests[entry].filter(
-      (guest) => guest.rsvpStatus === 'declined'
+    attendance.notAttending += data.guests[entry].filter(
+      (guest) => guest.rsvpStatus === 'not attending'
     ).length;
   });
 
   return attendance;
 };
 
-export const renderRsvpStats = () => {
-  const attendance = createRsvpStats();
+export const renderRsvpStats = (data) => {
+  const attendance = createRsvpStats(data);
 
   return (
     <Container>
@@ -125,7 +124,9 @@ export const renderRsvpStats = () => {
       <Row>
         <Col>
           <BMerr24>
-            {attendance.attending + attendance.pending + attendance.declined}
+            {attendance.attending +
+              attendance.pending +
+              attendance.notAttending}
           </BMerr24>
         </Col>
         <Col>
@@ -135,9 +136,41 @@ export const renderRsvpStats = () => {
           <BMerr24>{attendance.pending}</BMerr24>
         </Col>
         <Col>
-          <BMerr24>{attendance.declined}</BMerr24>
+          <BMerr24>{attendance.notAttending}</BMerr24>
         </Col>
       </Row>
     </Container>
   );
 };
+
+export const renderGuestTable = (data) => (
+  <>
+    <Container fluid="md" className="high-level-rsvp-data">
+      {renderRsvpStats(data)}
+    </Container>
+    <Container fluid="md" className="guest-list-table">
+      <Table>
+        <thead>
+          <tr>
+            <th>
+              <BMerr18>Group</BMerr18>
+            </th>
+            <th>
+              <BMerr18>Name</BMerr18>
+            </th>
+            <th>
+              <BMerr18>Email</BMerr18>
+            </th>
+            <th>
+              <BMerr18>RSVP Status</BMerr18>
+            </th>
+            <th>
+              <BMerr18>Message</BMerr18>
+            </th>
+          </tr>
+        </thead>
+        <tbody>{createListOfGuests(data)}</tbody>
+      </Table>
+    </Container>
+  </>
+);
