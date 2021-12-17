@@ -13,7 +13,7 @@ export default function BrowseTheme() {
   return (
     <Container className="mt-5">
       <Row>
-        <Col xs lg="9" style={{ marginBottom: '15%' }}>
+        <Col xs lg="9" style={{ marginBottom: '5%' }}>
           <div className="d-flex justify-content-center mt-5">
             <ProgressBar now={50} style={{ width: '50%' }} variant="success" />
           </div>
@@ -37,7 +37,12 @@ export default function BrowseTheme() {
               </BMerr18>
             </div>
             <Link to={themeLink}>
-              <BlueButton className="my-5">browse themes</BlueButton>
+              <BlueButton
+                // className="my-5"
+                style={{ marginTop: '20%', marginBottom: '15%' }}
+              >
+                browse themes
+              </BlueButton>
             </Link>
           </div>
         </Col>
@@ -45,7 +50,7 @@ export default function BrowseTheme() {
           <Image
             src="https://images.unsplash.com/photo-1602705399214-d2fed251f3b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             fluid
-            style={{ backgroundSize: 'cover' }}
+            style={{ backgroundSize: 'cover', height: '95%' }}
           />
         </Col>
       </Row>

@@ -32,11 +32,11 @@ const Invite = ({ isPreview }) => {
         <InfoRsvp onSameLine={false} showDeadline={false} />
         {isPreview === true && (
           <div style={{ backgroundColor: '#8B5B6E' }}>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center py-3">
               <BFaustinaH3>Your Invitation Preview</BFaustinaH3>
             </div>
             <Stack
-              className="mb-5 d-flex justify-content-center"
+              className="mb-5 d-flex justify-content-center pt-2 pb-3"
               direction="horizontal"
               gap={3}
             >
