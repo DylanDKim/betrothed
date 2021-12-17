@@ -4,7 +4,8 @@ Betrothed is a multipage wedding registry site where couples can plan their spec
 ## :computer: Technology Used
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Node](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) 
 
-## :camera: Screenshots Coming Soon
+## :camera: Screenshots 
+![Screenshot](http://i.imgur.com/KgzNZzIh.gif)
 
 ## :heavy_check_mark: Features
 
