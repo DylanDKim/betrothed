@@ -5,7 +5,6 @@ import RSVP from './Invitation/RSVP';
 import Registry from './registry/registry';
 import RegistryStart from './registry/registrystart';
 import RegistryAdd from './registry/registryadd';
-import GuestRegistry from './registry/guestRegistry';
 import Invite from './GuestPages/Invite';
 import RsvpForm from './GuestPages/RSVP';
 import Onboarding1 from './Onboarding/Onboarding1';
@@ -50,7 +49,6 @@ export default function App() {
         <Route exact path="/onboarding-3" element={<Onboarding3 />} />
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
-<<<<<<< HEAD
         <Route exact path="/guest-invite" element={<Invite />} />
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/event/:event_id" element={<Frame />}>
@@ -82,20 +80,6 @@ export default function App() {
             element={<RSVP galleryURL={galleryURL} mainPhoto={mainPhoto} />}
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
-=======
-        <Route path="/" element={<Frame />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/rsvp-preview" element={<RSVP />} />
-          <Route path="/invite" element={<InvitationForm />} />
-          <Route path="/registry" element={<Registry />} />
-          <Route path="/registrystart" element={<RegistryStart />} />
-          <Route path="/registryadd" element={<RegistryAdd />} />
-          <Route path="/browse-theme" element={<BrowseTheme />} />
-          <Route path="/choose-content" element={<ChooseContent />} />
-          <Route path="/invitation-form" element={<InvitationForm />} />
-          <Route path="/guestRegistry" element={<GuestRegistry />} />
-          <Route path="/guestlist" element={<GuestListMainPage />} />
->>>>>>> 2d2524f (Normalized height for demo add to registry cards)
         </Route>
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
