@@ -50,6 +50,7 @@ export default function App() {
         <Route exact path="/onboarding-4" element={<Onboarding4 />} />
         <Route exact path="/onboarding-5" element={<Onboarding5 />} />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Route exact path="/guest-invite" element={<Invite />} />
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
         <Route path="/event/:event_id" element={<Frame />}>
@@ -82,6 +83,8 @@ export default function App() {
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
 =======
+=======
+>>>>>>> 0a1387f (App resaved)
         <Route path="/" element={<Frame />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/rsvp-preview" element={<RSVP />} />
@@ -94,7 +97,10 @@ export default function App() {
           <Route path="/invitation-form" element={<InvitationForm />} />
           <Route path="/guestRegistry" element={<GuestRegistry />} />
           <Route path="/guestlist" element={<GuestListMainPage />} />
+<<<<<<< HEAD
 >>>>>>> 2d2524f (Normalized height for demo add to registry cards)
+=======
+>>>>>>> 0a1387f (App resaved)
         </Route>
         <Route path="/guest-invite" element={<Invite />} />
         <Route path="/rsvp-form" element={<RsvpForm />} />
