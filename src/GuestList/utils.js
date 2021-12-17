@@ -5,7 +5,6 @@ import { BMerr24 } from '../Common/styled/textstyles/Merr24';
 
 export const editGuestInfo = (e) => {
   const guestInfo = e.currentTarget.nextSibling;
-
   return guestInfo.className.indexOf('collapse show') > -1
     ? guestInfo.classList.remove('show')
     : guestInfo.classList.add('show');
@@ -14,7 +13,6 @@ export const editGuestInfo = (e) => {
 export const readNoteFromGuest = (e) => {
   const currentRow = e.currentTarget.closest('tr');
   const noteFromGuest = currentRow.nextSibling.nextSibling;
-
   return noteFromGuest.className.indexOf('collapse show-message') > -1
     ? noteFromGuest.classList.remove('show-message')
     : noteFromGuest.classList.add('show-message');
@@ -104,7 +102,6 @@ export const createRsvpStats = (data) => {
 
 export const renderRsvpStats = (data) => {
   const attendance = createRsvpStats(data);
-
   return (
     <Container>
       <Row>

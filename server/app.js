@@ -13,10 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/guestlist', (req, res) => {
+  const { eventId } = req.query;
   axios
-    .get(
-      'https://betrothed-server.herokuapp.com/api/events/61b79b9e0ac02dbe3e12fd1b'
-    )
+    .get(`https://betrothed-server.herokuapp.com/api/events/${eventId}`)
     .then((response) => {
       res.status(200).send(response.data);
     })
