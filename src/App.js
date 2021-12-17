@@ -61,10 +61,9 @@ export default function App() {
   const [zip, setZip] = useState('');
   const [guestLimit, setGuestLimit] = useState(0);
   const [rsvpDeadline, setRSVPDeadline] = useState('');
-  const [inviteMessage, setInviteMessage] = useState('');
   const [dashboardPhotoUrl, setDashboardPhotoUrl] = useState('');
   const [bannerPhotoUrl, setBannerPhotoUrl] = useState('');
-  const [id, setId] = useState(0);
+  const [id, setId] = useState('');
 
   const createEvent = () => {
     axios
@@ -84,7 +83,9 @@ export default function App() {
         inviteMessage: `Welcome to ${firstName} and ${partnerFirstName}'s Wedding Celebration!`,
       })
       .then(({ data }) => {
-        console.log(data);
+        setId(data.createdEvent._id);
+        console.log(data.createdEvent._id);
+        console.log(id);
         window.location.href = `/event/${data.createdEvent._id}/dashboard`;
         // const navigate = useNavigate();
         // navigate(`/event/${data.data._id}/dashboard`);
@@ -97,7 +98,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Onboarding />}>
           <Route
-            path="/landing"
+            path="landing"
             element={<Landing vEmail={email} cEmail={setEmail} />}
           />
           <Route
@@ -170,15 +171,10 @@ export default function App() {
             }
           />
         </Route>
-        <Route exact path="/onboarding-1/" element={<Onboarding1 />} />
-        <Route exact path="/onboarding-2" element={<Onboarding2 />} />
-        <Route exact path="/onboarding-3" element={<Onboarding3 />} />
-        <Route exact path="/onboarding-4" element={<Onboarding4 />} />
-        <Route exact path="/onboarding-5" element={<Onboarding5 />} />
         <Route
           exact
           path="/guest-invite"
-          element={<Invite isPreview={isPreview} />}
+          element={<Invite isPreview={isPreview} id={id} />}
         />
         {/* <Route exact path="/guest-invite" element={<Invite />} /> */}
         <Route exact path="/rsvp-form" element={<RsvpForm />} />
@@ -220,8 +216,8 @@ export default function App() {
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
         </Route>
-        <Route path="/guest-invite" element={<Invite />} />
-        <Route path="/rsvp-form" element={<RsvpForm />} />
+        {/* <Route path="/guest-invite" element={<Invite />} />
+        <Route path="/rsvp-form" element={<RsvpForm />} /> */}
       </Routes>
     </Router>
   );

@@ -22,33 +22,6 @@ export default function OnboardingBase(props) {
   const [dashboardPhotoUrl, setDashboardPhotoUrl] = useState('');
   const [bannerPhotoUrl, setBannerPhotoUrl] = useState('');
 
-  // console.log(email);
-
-  // const body = {
-  //   coupleName1: firstName + ' ' + lastName,
-  //   coupleName2: partnerFirstName + ' ' + partnerLastName,
-  //   email: email,
-  //   date: date,
-  //   venue: venue,
-  //   addressLine1: 'addressLine1',
-  //   addressLine2: 'addressLine2',
-  //   city: 'city',
-  //   state: 'state',
-  //   zip: 'zip',
-  //   guestLimit: guestLimit,
-  //   rsvpDeadline: rsvpDeadline,
-  //   inviteMessage: '',
-  //   dashboardPhotoUrl: '',
-  //   bannerPhotoUrl: '',
-  // };
-
-  // useEffect(() => {
-  //   axios
-  //     .post(`https://betrothed-server.herokuapp.com/api/events/`, body)
-  //     .then((data) => console.log(data))
-  //     .catch((err) => console.log(err));
-  // });
-
   return (
     <>
       <Outlet />

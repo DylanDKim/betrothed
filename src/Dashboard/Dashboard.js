@@ -26,7 +26,6 @@ export default function Dashboard(props) {
       .get(`https://betrothed-server.herokuapp.com/api/events/${eventId}`)
       .then((data) => data.data)
       .then((eventData) => {
-        console.log(eventData);
         setFirstName(eventData.coupleName1);
         setPartnerFirstName(eventData.coupleName2);
         setDaysLeft(2);
@@ -57,15 +56,11 @@ export default function Dashboard(props) {
       .then((data) => data.data)
       .then((giftArr) => {
         let claimed = 0;
-        console.log(giftArr.gifts);
         for (var n of giftArr.gifts) {
-          console.log(n);
-          console.log(n.claimed);
           if (n.claimed) {
             claimed++;
           }
         }
-        console.log(claimed);
         setNumGifts(claimed);
       })
       .catch((err) => console.log(err));
@@ -96,11 +91,8 @@ export default function Dashboard(props) {
         <BAlexBrushH1 style={{ position: 'absolute', top: '1em', left: '3em' }}>
           {firstName} and {partnerFirstName}
         </BAlexBrushH1>
-        <BFaustinaH3 style={{ position: 'absolute', top: '1em', right: '1em' }}>
-          Add a photo
-        </BFaustinaH3>
         <BFaustinaH3 style={{ position: 'absolute', top: '3em', right: '1em' }}>
-          {daysLeft} days left!
+          13 days left!
         </BFaustinaH3>
 
         <i className="BsCameraFill " />

@@ -11,10 +11,11 @@ import { BMerr18 } from '../Common/styled/textstyles/Merr18';
 import WhiteFilledButton from '../Common/styled/buttonstyles/WhiteFilledButton';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
-const Invite = ({ isPreview }) => {
-  const { event_id: eventId } = useParams();
-  const backToInviteLink = `/event/${eventId}/invitation-form`;
-  const backtoHomeLink = `/event/${eventId}/`;
+const Invite = ({ isPreview, id }) => {
+  // const { event_id: eventId } = useParams();
+  const backToInviteLink = `/event/${id}/invitation-form`;
+  const backtoHomeLink = `/event/${id}/dashboard`;
+  console.log(id);
   return (
     <>
       <img
