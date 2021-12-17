@@ -23,16 +23,20 @@ export default function GuestRegistry() {
                   Laptop
                 </Card.Title>
                 <Card.Text
-                  style={{ fontSize: '18px', fontFamily: 'Merriwether, serif' }}
+                  style={{
+                    height: '8rem',
+                    fontSize: '18px',
+                    fontFamily: 'Merriwether, serif',
+                  }}
                 >
-                  Lenovo Ideapad 3 15.6&quot; Touch Screen Laptop
+                  Lenovo Ideapad 3 15.6&quot; Touch Screen Laptop Intel Core i3
+                  8GB Memory 256GB SSD Almond 81X800ECUS - Best Buy
                 </Card.Text>
                 <PlumButton
                   name="laptop"
                   className="float-right"
                   onClick={(e) => {
                     e.preventDefault();
-                    console.log(e.target.name);
                     setAllValues({
                       ...allValues,
                       [e.target.name]: false,
@@ -62,9 +66,14 @@ export default function GuestRegistry() {
                   Blender
                 </Card.Title>
                 <Card.Text
-                  style={{ fontSize: '18px', fontFamily: 'Merriwether, serif' }}
+                  style={{
+                    height: '8rem',
+                    fontSize: '18px',
+                    fontFamily: 'Merriwether, serif',
+                  }}
                 >
-                  Ninja - Professional Plus Kitchen System with Auto-iQ
+                  Ninja Professional Plus Kitchen System with Auto-iQ
+                  Black/Stainless Steel BN801 - Best Buy
                 </Card.Text>
                 <PlumButton
                   name="blender"
@@ -99,9 +108,13 @@ export default function GuestRegistry() {
                   Drip
                 </Card.Title>
                 <Card.Text
-                  style={{ fontSize: '18px', fontFamily: 'Merriwether, serif' }}
+                  style={{
+                    height: '8rem',
+                    fontSize: '18px',
+                    fontFamily: 'Merriwether, serif',
+                  }}
                 >
-                  コラボウェディングドレスが完成いたしました。
+                  美少女戦士セーラームーン｜ウエディングドレス『マリアローザ（MARIAROSA）』
                 </Card.Text>
                 <PlumButton
                   name="drip"

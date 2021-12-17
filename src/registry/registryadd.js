@@ -9,7 +9,6 @@ export default function ResgistryAdd() {
   const [registry, setRegistry] = useState([]);
   const [registryItem, setRegistryItem] = useState({});
   const [modalOn, setModalOn] = useState(false);
-  const [claimed, setClaimed] = useState([]);
 
   const handleClose = () => setModalOn(false);
   // const handleShow = () => setModalOn(true);
@@ -41,7 +40,7 @@ export default function ResgistryAdd() {
   };
 
   return (
-    <Container>
+    <Container style={{ height: '66.5vh', boxsizing: ' border-box' }}>
       <Row className="mt-5">
         <Col md={6}>
           <h1 style={{ fontSize: '64px', fontFamily: 'Alex Brush' }}>
@@ -59,7 +58,7 @@ export default function ResgistryAdd() {
               {registry.length} {registry.length === 1 ? 'Gift' : 'Gifts'}{' '}
               Requested
             </h2>
-            {claimed.length} Purchased
+            0 Claimed
           </div>
         </Col>
         <Col md={3} className="ml-1">
@@ -88,21 +87,39 @@ export default function ResgistryAdd() {
           Your Top Gifts
         </h2>
         {registry.length === 0 ? (
-          <h3>You have NOOOO gifts in your registry! Try adding some.</h3>
+          <h3>You have no gifts in your registry! Try adding some.</h3>
         ) : (
           registry.map((item) => (
-            <Card>
+            <Card
+              style={{
+                width: '18rem',
+                border: '5px solid #8b5b6e',
+                marginBottom: '2%',
+                marginRight: '2%',
+              }}
+            >
               <Card.Body>
                 <Card.Title>{item.category}</Card.Title>
-                <Card.Text>{item.title}</Card.Text>
+                <Card.Text
+                  style={{
+                    height: '8rem',
+                    fontSize: '18px',
+                    fontFamily: 'Merriwether, serif',
+                  }}
+                >
+                  {item.title}
+                </Card.Text>
+
                 <PlumButton
                   name={item.title}
                   onClick={() => handleClick(item.url)}
                   className="float-right"
-                  style={{ float: 'right' }}
+                  style={{
+                    float: 'right',
+                  }}
                   variant="primary"
                 >
-                  Claim
+                  View
                 </PlumButton>
               </Card.Body>
             </Card>
@@ -187,7 +204,7 @@ export default function ResgistryAdd() {
                   variant="primary"
                   onClick={handleClose}
                 >
-                  Save Changes
+                  Submit
                 </PlumFilledButton>
               </Col>
             </Row>
