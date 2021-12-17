@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import Mail from './mail.svg';
 import { BMerr18 } from '../Common/styled/textstyles/Merr18';
 import { BMerr24 } from '../Common/styled/textstyles/Merr24';
+import { GuestBMerr18, GuestBMerr24 } from './GuestListMainPage.styles';
 
 export const editGuestInfo = (e) => {
   const guestInfo = e.currentTarget.nextSibling;
@@ -23,23 +25,31 @@ export const createListOfGuests = (data) => {
   const guestList = guestData.map((entry) => {
     const guests = data.guests[entry].map((guest) => (
       <>
-        <tr onClick={editGuestInfo}>
+        <tr
+          onClick={editGuestInfo}
+          style={{
+            lineHeight: '2rem',
+            verticalAlign: 'middle',
+          }}
+        >
           <td>
-            <BMerr18>{guest.group !== 'Individual' ? guest.group : ''}</BMerr18>
+            <GuestBMerr18>
+              {guest.group !== 'Individual' ? guest.group : ''}
+            </GuestBMerr18>
           </td>
           <td>
-            <BMerr18>{guest.firstName + guest.lastName}</BMerr18>
+            <GuestBMerr18>{guest.firstName + guest.lastName}</GuestBMerr18>
           </td>
           <td>
-            <BMerr18>{guest.email}</BMerr18>
+            <GuestBMerr18>{guest.email}</GuestBMerr18>
           </td>
           <td>
-            <BMerr18>{guest.rsvpStatus}</BMerr18>
+            <GuestBMerr18>{guest.rsvpStatus}</GuestBMerr18>
           </td>
           {guest.rsvpNote ? (
             <td>
               {/* <Button onClick={readNoteFromGuest}>Note</Button> */}
-              Note
+              <Mail />
             </td>
           ) : (
             <td />
@@ -103,37 +113,44 @@ export const createRsvpStats = (data) => {
 export const renderRsvpStats = (data) => {
   const attendance = createRsvpStats(data);
   return (
-    <Container>
+    <Container
+      style={{
+        border: 'solid 1px #90B0C5',
+        marginTop: '2rem',
+        marginBottom: '2rem',
+        padding: '1rem',
+      }}
+    >
       <Row>
         <Col>
-          <BMerr24>Invited</BMerr24>
+          <GuestBMerr24>Invited</GuestBMerr24>
         </Col>
         <Col>
-          <BMerr24>Attending</BMerr24>
+          <GuestBMerr24>Attending</GuestBMerr24>
         </Col>
         <Col>
-          <BMerr24>Pending</BMerr24>
+          <GuestBMerr24>Pending</GuestBMerr24>
         </Col>
         <Col>
-          <BMerr24>Declined</BMerr24>
+          <GuestBMerr24>Declined</GuestBMerr24>
         </Col>
       </Row>
       <Row>
         <Col>
-          <BMerr24>
+          <GuestBMerr24>
             {attendance.attending +
               attendance.pending +
               attendance.notAttending}
-          </BMerr24>
+          </GuestBMerr24>
         </Col>
         <Col>
-          <BMerr24>{attendance.attending}</BMerr24>
+          <GuestBMerr24>{attendance.attending}</GuestBMerr24>
         </Col>
         <Col>
-          <BMerr24>{attendance.pending}</BMerr24>
+          <GuestBMerr24>{attendance.pending}</GuestBMerr24>
         </Col>
         <Col>
-          <BMerr24>{attendance.notAttending}</BMerr24>
+          <GuestBMerr24>{attendance.notAttending}</GuestBMerr24>
         </Col>
       </Row>
     </Container>
