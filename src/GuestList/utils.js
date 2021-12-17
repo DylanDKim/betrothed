@@ -63,6 +63,7 @@ export const createListOfGuests = (data) => {
           style={{
             lineHeight: '2rem',
             verticalAlign: 'middle',
+            backgroundColor: '#F8F9FA',
           }}
         >
           <td>
