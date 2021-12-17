@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import Mail from './mail.svg';
-import { BMerr18 } from '../Common/styled/textstyles/Merr18';
 import {
   GuestBMerr18,
   GuestBMerr24,
   GuestTableBMerr22,
+  PlumFilledDeleteButton,
 } from './GuestListMainPage.styles';
 
 export const editGuestInfo = (e) => {
@@ -16,11 +16,12 @@ export const editGuestInfo = (e) => {
 };
 
 export const readNoteFromGuest = (e) => {
+  e.stopPropagation();
   const currentRow = e.currentTarget.closest('tr');
   const noteFromGuest = currentRow.nextSibling.nextSibling;
-  return noteFromGuest.className.indexOf('collapse show-message') > -1
-    ? noteFromGuest.classList.remove('show-message')
-    : noteFromGuest.classList.add('show-message');
+  return noteFromGuest.className.indexOf('collapse show') > -1
+    ? noteFromGuest.classList.remove('show')
+    : noteFromGuest.classList.add('show');
 };
 
 export const createListOfGuests = (data) => {
@@ -51,34 +52,47 @@ export const createListOfGuests = (data) => {
           </td>
           {guest.rsvpNote ? (
             <td>
-              {/* <Button onClick={readNoteFromGuest}>Note</Button> */}
-              <Mail />
+              <Mail onClick={readNoteFromGuest} />
             </td>
           ) : (
             <td />
           )}
         </tr>
-        <tr className="collapse">
+        <tr
+          className="collapse"
+          style={{
+            lineHeight: '2rem',
+            verticalAlign: 'middle',
+          }}
+        >
           <td>
-            <BMerr18>Group</BMerr18>
+            <GuestBMerr18>
+              {guest.group !== 'Individual' ? guest.group : ''}
+            </GuestBMerr18>
           </td>
           <td>
-            <BMerr18>Edit Name</BMerr18>
+            <GuestBMerr18>{guest.firstName + guest.lastName}</GuestBMerr18>
           </td>
           <td>
-            <BMerr18>Edit Email</BMerr18>
+            <GuestBMerr18>{guest.email}</GuestBMerr18>
           </td>
           <td colSpan="2">
-            <Button>Delete Guest</Button>
+            <PlumFilledDeleteButton>Delete Guest</PlumFilledDeleteButton>
           </td>
         </tr>
-        <BMerr18>
-          {guest.rsvpNote ? (
-            <tr className="collapse show-message">
-              <td colSpan="5">{guest.rsvpNote}</td>
-            </tr>
-          ) : null}
-        </BMerr18>
+        {guest.rsvpNote ? (
+          <GuestBMerr18
+            className="collapse"
+            style={{
+              color: 'white',
+              lineHeight: '2rem',
+              verticalAlign: 'middle',
+              backgroundColor: '#8b5b6e',
+            }}
+          >
+            <td colSpan="5">{guest.rsvpNote}</td>
+          </GuestBMerr18>
+        ) : null}
       </>
     ));
     return guests;
