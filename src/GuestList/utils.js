@@ -42,7 +42,7 @@ export const createListOfGuests = (data) => {
             </GuestBMerr18>
           </td>
           <td>
-            <GuestBMerr18>{guest.firstName + guest.lastName}</GuestBMerr18>
+            <GuestBMerr18>{`${guest.firstName} ${guest.lastName}`}</GuestBMerr18>
           </td>
           <td>
             <GuestBMerr18>{guest.email}</GuestBMerr18>

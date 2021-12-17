@@ -30,7 +30,11 @@ const GuestListMainPage = () => {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        height: '100%',
+      }}
+    >
       <Container
         fluid="md"
         className="header"
@@ -84,7 +88,7 @@ const GuestListMainPage = () => {
       </Container>
 
       {guestData ? renderGuestTable(guestData) : null}
-    </>
+    </div>
   );
 };
 
