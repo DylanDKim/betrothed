@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { Container, Col, Modal } from 'react-bootstrap';
-import AddForm from './AddForm';
-import { renderGuestTable } from './utils';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
+import AddForm from './AddForm';
+import { renderGuestTable } from './utils';
 
 const GuestListMainPage = () => {
   const [show, setShow] = useState(false);
@@ -36,8 +36,7 @@ const GuestListMainPage = () => {
         className="header"
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
-          marginTop: '1rem',
+          marginTop: '2.5rem',
         }}
       >
         <Col>
@@ -52,6 +51,7 @@ const GuestListMainPage = () => {
         <Col
           style={{
             display: 'flex',
+            justifyContent: 'right',
           }}
         >
           <PlumFilledButton
