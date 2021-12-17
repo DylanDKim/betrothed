@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
-import { Button, Container, Table, Modal } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Container, Table, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { renderRsvpStats, createListOfGuests } from './utils';
+import { renderGuestTable, renderRsvpStats, createListOfGuests } from './utils';
 import AddForm from './AddForm';
+
+import { getGuestData, checkingData } from '../API/Utils';
+
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 import { BAlexBrush36 } from '../Common/styled/textstyles/AlexBrush36';
-import { BMerr18 } from '../Common/styled/textstyles/Merr18';
-import { BMerr24 } from '../Common/styled/textstyles/Merr24';
 
 const GuestListMainPage = () => {
   const [show, setShow] = useState(false);
+  const [guestData, setGuestData] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    axios({
+      url: 'http://localhost:3000/guestlist/',
+      params: {
+        eventId: '61b79b9e0ac02dbe3e12fd1b',
+      },
+    })
+      .then((response) => setGuestData(response.data))
+      .catch((error) => console.log('error', error));
+  }, []);
 
   return (
     <>
@@ -40,35 +54,7 @@ const GuestListMainPage = () => {
           </Modal>
         </Container>
       </Container>
-
-      <Container fluid="md" className="high-level-rsvp-data">
-        {renderRsvpStats()}
-      </Container>
-
-      <Container fluid="md" className="guest-list-table">
-        <Table>
-          <thead>
-            <tr>
-              <th>
-                <BMerr18>Group</BMerr18>
-              </th>
-              <th>
-                <BMerr18>Name</BMerr18>
-              </th>
-              <th>
-                <BMerr18>Email</BMerr18>
-              </th>
-              <th>
-                <BMerr18>RSVP Status</BMerr18>
-              </th>
-              <th>
-                <BMerr18>Message</BMerr18>
-              </th>
-            </tr>
-          </thead>
-          <tbody>{createListOfGuests()}</tbody>
-        </Table>
-      </Container>
+      {guestData ? renderGuestTable(guestData) : null}
     </>
   );
 };
