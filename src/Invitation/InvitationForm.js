@@ -1,16 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Container,
-  Card,
-  CardGroup,
-  Form,
-  Stack,
-  Carousel,
-  Row,
-  Col,
-  Image,
-} from 'react-bootstrap';
+import { Container, Form, Stack, Row, Col, Image } from 'react-bootstrap';
 import { FittedImg } from './invitation.styled';
 import PlumButton from '../Common/styled/buttonstyles/PlumButton';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
@@ -69,14 +59,11 @@ export default function InvitationForm({
         width: '65%',
         background: `url(${chosedTheme}) no-repeat center center fixed`,
         backgroundSize: 'cover',
-        // backgroundColor: '#EED5DE',
-        // backgroundRepeat: 'no-repeat', -------------To be revised
       }}
     >
       <BAlexBrushH1>Your Wedding Website</BAlexBrushH1>
-      <Stack className="mb-5" direction="horizontal" gap={3}>
+      <Stack className="mb-3" direction="horizontal" gap={3}>
         <PlumButton className="ms-auto">Share your website</PlumButton>
-        {/* <Link to="/event/1/rsvp-preview"> */}
         <Link to="/guest-invite">
           <PlumFilledButton onClick={() => setIsPreview(true)}>
             Preview Site
@@ -107,7 +94,7 @@ export default function InvitationForm({
         <Form.Group className="mb-3" controlId="formMessage">
           <BFaustinaH3>Gallery</BFaustinaH3>
           <Row xs={6} md={3}>
-            {(galleryURL || []).map((url, index) => (
+            {(galleryURL || []).map((url) => (
               <Col className="pe-1 pt-2">
                 <Image
                   className="w-100 h-100"
@@ -132,10 +119,9 @@ export default function InvitationForm({
           </div>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          {/* <Link to="/event/1/rsvp-preview"> */}
           <Link to="/guest-invite">
             <PlumFilledButton
-              className="my-5"
+              className="mb-5"
               type="submit"
               onClick={() => setIsPreview(true)}
             >

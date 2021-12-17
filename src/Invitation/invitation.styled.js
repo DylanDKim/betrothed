@@ -5,6 +5,7 @@ export const FittedImg = styled.img`
   width: 100%;
   aspect-ratio: 10 / 3;
   round;
+  overflow: hidden;
 `;
 
 export const ThemeImg = styled.img`

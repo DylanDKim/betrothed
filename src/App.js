@@ -21,13 +21,6 @@ import Landing from './Onboarding/Landing';
 import Onboarding from './Onboarding/Onboarding';
 
 export default function App() {
-  console.log('Pls do not use /testing as the path name for your route');
-  /**
-   * 1. npm run server:dev
-   * 2. npm run dev:w (if npm run dev is not working)
-   * 3. Add the route path after localhost:3000
-   *
-   */
   const [inviteMessage, setInviteMessage] = useState('');
   const [chosedTheme, setChosedTheme] = useState('');
   const [galleryURL, setGalleryURL] = useState([

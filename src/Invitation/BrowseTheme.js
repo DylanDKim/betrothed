@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ProgressBar, Container, Row, Col, Image } from 'react-bootstrap';
 import BlueButton from '../Common/styled/buttonstyles/BlueButton';
 import { BAlexBrushH1 } from '../Common/styled/textstyles/AlexBrushH1';
@@ -8,6 +8,8 @@ import { BMerr18 } from '../Common/styled/textstyles/Merr18';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function BrowseTheme() {
+  const { event_id: eventId } = useParams();
+  const themeLink = `/event/${eventId}/choose-content`;
   return (
     <Container className="mt-5">
       <Row>
@@ -34,7 +36,7 @@ export default function BrowseTheme() {
                 Write a personal message for your guests
               </BMerr18>
             </div>
-            <Link to="/event/1/choose-content">
+            <Link to={themeLink}>
               <BlueButton className="my-5">browse themes</BlueButton>
             </Link>
           </div>
