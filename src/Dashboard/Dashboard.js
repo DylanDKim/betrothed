@@ -101,9 +101,9 @@ export default function Dashboard(props) {
       <ProgressBar
         style={{ marginTop: '1em' }}
         now={
-          (invitationMade ? 33 : 0) +
-          (numGuests > 0 ? 33 : 0) +
-          (numGifts > 0 ? 33 : 0)
+          (invitationMade ? 50 : 0) +
+          (numGuests > 0 ? 50 : 0) +
+          (numGifts > 0 ? 50 : 0)
         }
       />
       <Row style={{ marginTop: '3em' }}>
