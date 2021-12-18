@@ -48,10 +48,11 @@ npm install
 - Rename private.config.example.js to private.config.js
 - Replace URL with Server URL
 
-Run
+In two terminals run
 
 ```
-npm run build
+npm run build in first
+npm run server:dev in second
 ```
 
 open
@@ -75,6 +76,6 @@ Team 4Billy is
 <br>
 [Kyle Sablan](https://github.com/kyle-sablan) - Co-Project Manager/Software Engineer
 <br>
-[Adam Klingbaum](https://github.com/adamklingbaum) - Co Architect/Software Engineer
+[Adam Klingbaum](https://github.com/adamklingbaum) - Backend Specialist/Software Engineer
 <br>
 [Yachao Fan](https://github.com/ycfan23) - Co-UI Designer/Software Engineer
