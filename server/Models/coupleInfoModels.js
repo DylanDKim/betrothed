@@ -17,7 +17,7 @@ module.exports = {
           zip,
           rsvpDeadline,
           inviteMessage,
-          bannerPhotoUrl,
+          bannerPhotoURL,
           galleryPhotos,
           colors,
         } = result.data;
@@ -34,7 +34,7 @@ module.exports = {
           zip,
           rsvpDeadline,
           inviteMessage,
-          bannerPhotoUrl,
+          bannerPhotoURL,
           galleryPhotos,
           colors,
         };
