@@ -14,10 +14,10 @@ import WhiteFilledButton from '../Common/styled/buttonstyles/WhiteFilledButton';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
 const Invite = ({ isPreview, id }) => {
-  // const { event_id: eventId } = useParams();
+  const { eventID } = useParams();
   const backToInviteLink = `/event/${id}/invitation-form`;
   const backtoHomeLink = `/event/${id}/dashboard`;
-  console.log(id);
+  console.log(eventID);
 
   // hardcoded gallery urls
   const galleryURL = [
