@@ -1,5 +1,34 @@
 const axios = require('axios');
 
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+const days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+];
+
+const ordianls = ['st', 'nd', 'rd', 'th'];
+
+const makeDate = () => {};
+
 module.exports = {
   readCoupleData: function (eventID, success, error) {
     axios
