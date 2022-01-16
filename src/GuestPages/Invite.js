@@ -15,9 +15,9 @@ import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
 const Invite = ({ isPreview, id }) => {
   const { eventID } = useParams();
-  const backToInviteLink = `/event/${id}/invitation-form`;
-  const backtoHomeLink = `/event/${id}/dashboard`;
-  console.log(eventID);
+  const backToInviteLink = `/event/${eventID}/invitation-form`;
+  const backtoHomeLink = `/event/${eventID}/dashboard`;
+  const rsvpLink = `/event/${eventID}/rsvp-form`;
 
   // hardcoded gallery urls
   const galleryURL = [
@@ -82,7 +82,7 @@ const Invite = ({ isPreview, id }) => {
           </div>
         )}
         <Link
-          to="/rsvp-form"
+          to={rsvpLink}
           className="d-flex justify-content-center m-5 text-decoration-none"
         >
           <PlumFilledButton style={{ width: '12.5%' }}>RSVP</PlumFilledButton>

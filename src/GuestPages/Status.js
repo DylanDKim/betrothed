@@ -12,7 +12,7 @@ const Status = ({ updateStep, updateData }) => {
   const checkNextStep = () => {
     axios({
       method: 'get',
-      url: `${URL}/events/61b79b9e0ac02dbe3e12fd1b/guests`,
+      url: `${URL}/events/${eventID}/guests`,
       params: { email },
     })
       .then((results) => {

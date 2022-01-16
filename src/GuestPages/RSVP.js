@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,6 +9,7 @@ import NewRsvp from './NewRSVP';
 import EditRsvp from './EditRSVP';
 
 const RsvpForm = () => {
+  const { eventID } = useParams();
   const [currentStep, updateStep] = useState('status');
   const [rsvpData, updateData] = useState(null);
 
@@ -25,13 +26,25 @@ const RsvpForm = () => {
         >
           <InfoRsvp onSameLine showDeadline />
           {currentStep === 'status' && (
-            <Status updateStep={updateStep} updateData={updateData} />
+            <Status
+              updateStep={updateStep}
+              updateData={updateData}
+              eventID={eventID}
+            />
           )}
           {currentStep === 'new' && (
-            <NewRsvp updateStep={updateStep} rsvpData={rsvpData} />
+            <NewRsvp
+              updateStep={updateStep}
+              rsvpData={rsvpData}
+              eventID={eventID}
+            />
           )}
           {currentStep === 'edit' && (
-            <EditRsvp updateStep={updateStep} rsvpData={rsvpData} />
+            <EditRsvp
+              updateStep={updateStep}
+              rsvpData={rsvpData}
+              eventID={eventID}
+            />
           )}
           <br />
           <br />
