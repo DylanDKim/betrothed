@@ -5,7 +5,40 @@ module.exports = {
     axios
       .get(`https://betrothed-server.herokuapp.com/api/events/${eventID}`)
       .then((result) => {
-        success(result.data);
+        const {
+          coupleName1,
+          coupleName2,
+          date,
+          venue,
+          addressLine1,
+          addressLine2,
+          city,
+          state,
+          zip,
+          rsvpDeadline,
+          inviteMessage,
+          bannerPhotoUrl,
+          galleryPhotos,
+          colors,
+        } = result.data;
+
+        const transformedData = {
+          coupleName1,
+          coupleName2,
+          date,
+          venue,
+          addressLine1,
+          addressLine2,
+          city,
+          state,
+          zip,
+          rsvpDeadline,
+          inviteMessage,
+          bannerPhotoUrl,
+          galleryPhotos,
+          colors,
+        };
+        success(transformedData);
       })
       .catch((err) => {
         error(err);
