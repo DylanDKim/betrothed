@@ -3,6 +3,7 @@ const express = require('express');
 const { parser } = require('html-metadata-parser');
 const cors = require('cors');
 const axios = require('axios');
+const coupleInfoController = require('./Controllers/coupleInfoController');
 
 const app = express();
 
@@ -42,17 +43,7 @@ app.post('/guestlist', (req, res) => {
     .catch((error) => console.log(error));
 });
 
-app.get('/coupleInfo/:eventID', (req, res) => {
-  const { eventID } = req.params;
-  axios
-    .get(`https://betrothed-server.herokuapp.com/api/events/${eventID}`)
-    .then((result) => {
-      res.status(200).json(result.data);
-    })
-    .catch((err) => {
-      res.status(404).send('oops, something went wrong');
-    });
-});
+app.get('/coupleInfo/:eventID', coupleInfoController.get);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
