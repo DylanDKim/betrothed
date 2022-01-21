@@ -25,7 +25,7 @@ const days = [
   'Saturday',
 ];
 
-const ordianls = ['st', 'nd', 'rd', 'th'];
+const ordinals = ['st', 'nd', 'rd', 'th'];
 
 const makeDate = () => {};
 
@@ -51,10 +51,15 @@ module.exports = {
           colors,
         } = result.data;
 
+        // create time string pieces for clean representation
+        const eventTime = new Date(date);
+        const rsvpTime = new Date(rsvpDeadline);
+        const eventTimeParts = eventTime.toLocaleTimeString().split(':00 ');
+
         const transformedData = {
           coupleName1,
           coupleName2,
-          date,
+          date: `${eventTimeParts[0]} ${eventTimeParts[1]}`,
           venue,
           addressLine1,
           addressLine2,
