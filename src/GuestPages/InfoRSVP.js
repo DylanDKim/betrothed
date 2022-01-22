@@ -8,7 +8,7 @@ import { BFaustinaH2 } from '../Common/styled/textstyles/FaustinaH2';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
 const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
-  const { coupleName1, coupleName2, date, rsvpDeadline } = coupleInfo;
+  const { coupleName1, coupleName2, date, time } = coupleInfo;
   return (
     <>
       {onSameLine ? (
@@ -37,10 +37,10 @@ const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
         invite you to celebrate their wedding
       </BFaustinaH2>
       <StyledHeader className="d-flex justify-content-center mt-5">
-        Saturday, January 8th, 2022
+        {date}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center">
-        {date}
+        {time}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center mt-5">
         Beaulieu Garden

@@ -1,31 +1,35 @@
 const axios = require('axios');
 
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
+const months = {
+  0: 'January',
+  1: 'February',
+  2: 'March',
+  3: 'April',
+  4: 'May',
+  5: 'June',
+  6: 'July',
+  7: 'August',
+  8: 'September',
+  9: 'October',
+  10: 'November',
+  11: 'December',
+};
 
-const days = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-];
+const days = {
+  0: 'Sunday',
+  1: 'Monday',
+  2: 'Tuesday',
+  3: 'Wednesday',
+  4: 'Thursday',
+  5: 'Friday',
+  6: 'Saturday',
+};
 
-const ordinals = ['st', 'nd', 'rd', 'th'];
+const ordinals = {
+  1: 'st',
+  2: 'nd',
+  3: 'rd',
+};
 
 const makeDate = () => {};
 
@@ -52,14 +56,23 @@ module.exports = {
         } = result.data;
 
         // create time string pieces for clean representation
-        const eventTime = new Date(date);
-        const rsvpTime = new Date(rsvpDeadline);
-        const eventTimeParts = eventTime.toLocaleTimeString().split(':00 ');
+        const eventDate = new Date(date);
+        const dayOfMonth = eventDate.getDate();
+        const ordinal = ordinals[dayOfMonth] || 'th';
+        const dateOfEvent = `
+          ${days[eventDate.getDay()]},
+          ${months[eventDate.getMonth()]}
+           ${dayOfMonth}${ordinal}, ${eventDate.getFullYear()}
+        `;
+        // const rsvpDate = new Date(rsvpDeadline);
+        // const rsvp = '';
+        const eventTime = eventDate.toLocaleTimeString().split(':00 ');
 
         const transformedData = {
           coupleName1,
           coupleName2,
-          date: `${eventTimeParts[0]} ${eventTimeParts[1]}`,
+          date: dateOfEvent,
+          time: `${eventTime[0]} ${eventTime[1]}`,
           venue,
           addressLine1,
           addressLine2,
