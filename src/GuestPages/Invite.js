@@ -103,6 +103,7 @@ const Invite = ({ isPreview, id }) => {
             )}
             <Link
               to={rsvpLink}
+              state={{ coupleInfo }}
               className="d-flex justify-content-center m-5 text-decoration-none"
             >
               <PlumFilledButton style={{ width: '12.5%' }}>
