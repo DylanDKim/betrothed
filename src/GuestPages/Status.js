@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const { URL } = require('../../config/private.config');
 
-const Status = ({ updateStep, updateData }) => {
+const Status = ({ updateStep, updateData, eventID }) => {
   const [email, updateEmail] = useState('');
   const [errorShown, isError] = useState(false);
 

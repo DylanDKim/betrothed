@@ -8,7 +8,7 @@ import { BFaustinaH2 } from '../Common/styled/textstyles/FaustinaH2';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
 const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
-  const { coupleName1, coupleName2, date, time } = coupleInfo;
+  const { coupleName1, coupleName2, date, time, rsvpDeadline } = coupleInfo;
   return (
     <>
       {onSameLine ? (
@@ -56,7 +56,7 @@ const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
           className="d-flex justify-content-center mt-3"
           style={{ color: 'red' }}
         >
-          Deadline to RSVP: 12/14/2021
+          Deadline to RSVP: {rsvpDeadline}
         </StyledHeader>
       )}
     </>

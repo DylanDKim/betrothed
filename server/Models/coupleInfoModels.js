@@ -64,8 +64,12 @@ module.exports = {
           ${months[eventDate.getMonth()]}
            ${dayOfMonth}${ordinal}, ${eventDate.getFullYear()}
         `;
-        // const rsvpDate = new Date(rsvpDeadline);
-        // const rsvp = '';
+        const rsvpDate = new Date(rsvpDeadline);
+        const rsvp = `
+        ${days[rsvpDate.getDay()]},
+        ${months[rsvpDate.getMonth()]}
+         ${dayOfMonth}${ordinal}, ${rsvpDate.getFullYear()}
+        `;
         const eventTime = eventDate.toLocaleTimeString().split(':00 ');
 
         const transformedData = {
@@ -79,7 +83,7 @@ module.exports = {
           city,
           state,
           zip,
-          rsvpDeadline,
+          rsvpDeadline: rsvp,
           inviteMessage,
           bannerPhotoURL,
           galleryPhotos,
