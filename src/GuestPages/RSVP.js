@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,6 +10,8 @@ import EditRsvp from './EditRSVP';
 
 const RsvpForm = () => {
   const { eventID } = useParams();
+  const location = useLocation();
+  const { coupleInfo } = location.state;
   const [currentStep, updateStep] = useState('status');
   const [rsvpData, updateData] = useState(null);
 
@@ -24,7 +26,7 @@ const RsvpForm = () => {
             overflow: 'auto',
           }}
         >
-          <InfoRsvp onSameLine showDeadline />
+          <InfoRsvp onSameLine showDeadline coupleInfo={coupleInfo} />
           {currentStep === 'status' && (
             <Status
               updateStep={updateStep}

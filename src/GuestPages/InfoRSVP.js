@@ -8,7 +8,16 @@ import { BFaustinaH2 } from '../Common/styled/textstyles/FaustinaH2';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
 const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
-  const { coupleName1, coupleName2 } = coupleInfo;
+  const {
+    coupleName1,
+    coupleName2,
+    date,
+    time,
+    rsvpDeadline,
+    venue,
+    address,
+    location,
+  } = coupleInfo;
   return (
     <>
       {onSameLine ? (
@@ -37,26 +46,26 @@ const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
         invite you to celebrate their wedding
       </BFaustinaH2>
       <StyledHeader className="d-flex justify-content-center mt-5">
-        Saturday, January 8th, 2022
+        {date}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center">
-        4:30 PM
+        {time}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center mt-5">
-        Beaulieu Garden
+        {venue}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center">
-        3142 Azalea Lane
+        {address}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center">
-        Lane Rutherford, CA, 92314
+        {location}
       </StyledHeader>
       {showDeadline && (
         <StyledHeader
           className="d-flex justify-content-center mt-3"
           style={{ color: 'red' }}
         >
-          Deadline to RSVP: 12/14/2021
+          Deadline to RSVP: {rsvpDeadline}
         </StyledHeader>
       )}
     </>
