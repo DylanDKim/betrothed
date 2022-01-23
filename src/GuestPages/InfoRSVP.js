@@ -8,7 +8,16 @@ import { BFaustinaH2 } from '../Common/styled/textstyles/FaustinaH2';
 import { BFaustinaH3 } from '../Common/styled/textstyles/FaustinaH3';
 
 const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
-  const { coupleName1, coupleName2, date, time, rsvpDeadline } = coupleInfo;
+  const {
+    coupleName1,
+    coupleName2,
+    date,
+    time,
+    rsvpDeadline,
+    venue,
+    address,
+    location,
+  } = coupleInfo;
   return (
     <>
       {onSameLine ? (
@@ -43,13 +52,13 @@ const InfoRsvp = ({ onSameLine, showDeadline, coupleInfo }) => {
         {time}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center mt-5">
-        Beaulieu Garden
+        {venue}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center">
-        3142 Azalea Lane
+        {address}
       </StyledHeader>
       <StyledHeader className="d-flex justify-content-center">
-        Lane Rutherford, CA, 92314
+        {location}
       </StyledHeader>
       {showDeadline && (
         <StyledHeader

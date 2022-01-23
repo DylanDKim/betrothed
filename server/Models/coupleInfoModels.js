@@ -55,7 +55,7 @@ module.exports = {
           colors,
         } = result.data;
 
-        // create time string pieces for clean representation
+        // create time strings for clean representation
         const eventDate = new Date(date);
         const dayOfMonth = eventDate.getDate();
         const ordinal = ordinals[dayOfMonth] || 'th';
@@ -78,11 +78,8 @@ module.exports = {
           date: dateOfEvent,
           time: `${eventTime[0]} ${eventTime[1]}`,
           venue,
-          addressLine1,
-          addressLine2,
-          city,
-          state,
-          zip,
+          address: `${addressLine1}, ${addressLine2}`,
+          location: `${city}, ${state}, ${zip}`,
           rsvpDeadline: rsvp,
           inviteMessage,
           bannerPhotoURL,
