@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Form } from 'react-bootstrap';
 import PlumFilledButton from '../Common/styled/buttonstyles/PlumFilledButton';
 
-const AddForm = () => {
+const AddForm = (props) => {
   const [firstNameValue, setFirstNameValue] = useState('');
   const [lastNameValue, setLastNameValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
+  const [groupValue, setGroupValue] = useState('');
 
   // Input Field handler
   const handleFNInput = (e) => {
@@ -17,12 +19,29 @@ const AddForm = () => {
   const handleEMInput = (e) => {
     setEmailValue(e.target.value);
   };
+  const hangleGVInput = (e) => {
+    setGroupValue(e.target.value);
+  };
 
   // Reset Input Field handler
   const resetInputField = () => {
     setFirstNameValue('');
     setLastNameValue('');
     setEmailValue('');
+  };
+
+  const handlePostGuest = () => {
+    axios
+      .post('/addGuestlist', {
+        eventId: props.eventId,
+        firstName: firstNameValue,
+        lastName: lastNameValue,
+        email: emailValue,
+        groupValue: 'groupValue',
+      })
+      .then((data) => console.log(data.data))
+      .then(resetInputField)
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -59,13 +78,18 @@ const AddForm = () => {
           <option value="3">Group Three</option>
         </Form.Select>
         or
-        <Form.Control type="text" placeholder="Create A Group" />
+        <Form.Control
+          type="text"
+          value={groupValue}
+          onChange={setGroupValue}
+          placeholder="Create A Group"
+        />
       </Form.Group>
       <br />
       <PlumFilledButton
         variant="primary"
         type="submit"
-        onClick={resetInputField}
+        onClick={handlePostGuest}
       >
         Save & Add Another Guest
       </PlumFilledButton>

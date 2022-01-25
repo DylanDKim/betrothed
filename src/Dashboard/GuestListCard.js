@@ -19,7 +19,8 @@ export default function Dashboard(props) {
   return (
     <div>
       <Link to={link} class="text-decoration-none">
-        {props.numGuests === 0 ? (
+        {console.log(props.guestsInvited)}
+        {!props.guestsInvited ? (
           <BlueOpenCard
             className="text-center"
             md="justify-content-center"

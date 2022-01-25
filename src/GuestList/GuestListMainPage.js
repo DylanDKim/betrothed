@@ -77,7 +77,7 @@ const GuestListMainPage = () => {
             </BAlexBrush36>
           </Modal.Header>
           <Modal.Body>
-            <AddForm />
+            <AddForm eventId={eventId} />
           </Modal.Body>
           <Modal.Footer>
             <PlumButton variant="secondary" onClick={handleClose}>
@@ -86,7 +86,6 @@ const GuestListMainPage = () => {
           </Modal.Footer>
         </Modal>
       </Container>
-
       {guestData ? renderGuestTable(guestData) : null}
     </div>
   );

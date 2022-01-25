@@ -12,6 +12,59 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+app.post('/event', (req, res) => {
+  console.log('now using server route for posting event');
+
+  const {
+    firstName,
+    partnerFirstName,
+    email,
+    weddingDate,
+    venue,
+    addressLine1,
+    addressLine2,
+    city,
+    state,
+    zip,
+    guestLimit,
+    rsvpDeadline,
+    inviteMessage,
+  } = req.body;
+
+  axios
+    .post(`https://betrothed-server.herokuapp.com/api/events`, {
+      coupleName1: firstName,
+      coupleName2: partnerFirstName,
+      email: email,
+      date: weddingDate,
+      venue: venue,
+      addressLine1: addressLine1,
+      addressLine2: addressLine2,
+      city: city,
+      state: state,
+      zip: zip,
+      guestLimit: guestLimit,
+      rsvpDeadline: new Date(rsvpDeadline).toISOString(),
+      inviteMessage: inviteMessage,
+    })
+    .then(({ data }) => {
+      res.status(200).send(data.data);
+      // const navigate = useNavigate();
+      // navigate(`/event/${data.data._id}/dashboard`);
+    })
+    .catch((err) => console.log(err));
+});
+
+app.get('/eventData', (req, res) => {
+  console.log('now using server route for Event Data');
+  axios
+    .get(`https://betrothed-server.herokuapp.com/api/events/${eventId}`)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => console.log(err));
+});
+
 app.get('/guestlist', (req, res) => {
   const { eventId } = req.query;
   axios
@@ -22,13 +75,17 @@ app.get('/guestlist', (req, res) => {
     .catch((error) => error);
 });
 
-app.post('/guestlist', (req, res) => {
-  const { eventId } = req.query;
-  const { firstName, lastName, email, group = 'Individual' } = req.body;
-
+app.post('/addGuestlist', (req, res) => {
+  const {
+    eventId,
+    firstName,
+    lastName,
+    email,
+    group = 'Individual',
+  } = req.body;
   axios
     .post(
-      `https://betrothed-server.herokuapp.com/api/events/61b79b9e0ac02dbe3e12fd1b/guests`,
+      `https://betrothed-server.herokuapp.com/api/events/${eventId}/guests`,
       {
         firstName,
         lastName,

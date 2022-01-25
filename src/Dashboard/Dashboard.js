@@ -15,9 +15,10 @@ export default function Dashboard(props) {
   const [partnerFirstName, setPartnerFirstName] = useState('Jane');
   const [daysLeft, setDaysLeft] = useState('2');
 
-  const [numGuests, setNumGuests] = useState(0);
-  const [numGifts, setNumGifts] = useState('');
-  const [invitationMade, setInvitationMade] = useState('');
+  const [numGuests, setNumGuests] = useState('0');
+  const [numGifts, setNumGifts] = useState(0);
+  const [invitationMade, setInvitationMade] = useState(false);
+  const [guestsInvited, setGuestsInvited] = useState(false);
 
   const { event_id: eventId } = useParams();
 
@@ -29,10 +30,9 @@ export default function Dashboard(props) {
         setFirstName(eventData.coupleName1);
         setPartnerFirstName(eventData.coupleName2);
         setDaysLeft(2);
-        setNumGifts();
-        setInvitationMade();
 
-        if (!(eventData.guests === null)) {
+        if (Object.keys(eventData.guests).length > 0) {
+          setGuestsInvited(true);
           let attendance = 0;
           for (var n in eventData.guests) {
             for (var guest of eventData.guests[n]) {
@@ -41,12 +41,14 @@ export default function Dashboard(props) {
               }
             }
           }
-          setNumGuests(attendance);
+          if (attendance > 0) {
+            setNumGuests(attendance);
+          }
         }
 
         setInvitationMade(
-          eventData.inviteMessage ===
-            `Welcome to ${eventData.coupleName1} and ${eventData.coupleName2}'s Wedding Celebration!`
+          eventData.inviteMessage !==
+            `Please join us in celebrating our new life together`
         );
       })
       .catch((err) => console.log(err));
@@ -101,9 +103,9 @@ export default function Dashboard(props) {
       <ProgressBar
         style={{ marginTop: '1em' }}
         now={
-          (invitationMade ? 50 : 0) +
-          (numGuests > 0 ? 50 : 0) +
-          (numGifts > 0 ? 50 : 0)
+          (!invitationMade ? 33 : 0) +
+          (guestsInvited ? 33 : 0) +
+          (numGifts > 0 ? 33 : 0)
         }
       />
       <Row style={{ marginTop: '3em' }}>
@@ -115,7 +117,7 @@ export default function Dashboard(props) {
       </Row>
       <Row style={{ margin: '.5em 4em 6em 4em' }}>
         <Col className="d-flex justify-content-around">
-          <GuestListCard numGuests={numGuests} />
+          <GuestListCard guestsInvited={guestsInvited} numGuests={numGuests} />
         </Col>
         <Col className="d-flex justify-content-around">
           <InvitationCard invitationMade={invitationMade} />

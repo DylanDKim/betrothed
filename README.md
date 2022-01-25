@@ -58,7 +58,7 @@ npm run server:dev in second
 open
 
 ```
-http://localhost:3000/:eventid
+http://localhost:3000/landing
 
 ```
 
