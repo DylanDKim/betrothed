@@ -216,8 +216,8 @@ export default function App() {
           />
           <Route path="guestlist" element={<GuestListMainPage />} />
         </Route>
-        {/* <Route path="/guest-invite" element={<Invite />} />
-        <Route path="/rsvp-form" element={<RsvpForm />} /> */}
+        <Route path="/event/:eventID/guest-invite" element={<Invite />} />
+        <Route path="/event/:eventID/rsvp-form" element={<RsvpForm />} />
       </Routes>
     </Router>
   );

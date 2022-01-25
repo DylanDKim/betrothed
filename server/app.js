@@ -3,6 +3,7 @@ const express = require('express');
 const { parser } = require('html-metadata-parser');
 const cors = require('cors');
 const axios = require('axios');
+const coupleInfoController = require('./Controllers/coupleInfoController');
 
 const app = express();
 
@@ -98,6 +99,8 @@ app.post('/addGuestlist', (req, res) => {
     })
     .catch((error) => console.log(error));
 });
+
+app.get('/coupleInfo/:eventID', coupleInfoController.get);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {

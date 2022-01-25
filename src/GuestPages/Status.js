@@ -5,14 +5,14 @@ import axios from 'axios';
 
 const { URL } = require('../../config/private.config');
 
-const Status = ({ updateStep, updateData }) => {
+const Status = ({ updateStep, updateData, eventID }) => {
   const [email, updateEmail] = useState('');
   const [errorShown, isError] = useState(false);
 
   const checkNextStep = () => {
     axios({
       method: 'get',
-      url: `${URL}/events/61b79b9e0ac02dbe3e12fd1b/guests`,
+      url: `${URL}/events/${eventID}/guests`,
       params: { email },
     })
       .then((results) => {
